@@ -19,11 +19,13 @@
 @dynamic name;
 
 + (NSString *)getMeasurementName:(NSNumber *) measurement{
+    NSLog(@"Integer value:");
+    NSLog([NSString stringWithFormat:@"%i",[measurement integerValue]]);
     switch([measurement integerValue]){
-        case 1: return @"pcs.";
-        case 2: return @"lbs";
-        case 3: return @"oz";
-        default: return @"pcs.";
+        case 0: return @"pcs.";
+        case 1: return @"lbs";
+        case 2: return @"oz";
+        default: return @"IDK";
     }
 }
 

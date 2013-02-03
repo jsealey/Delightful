@@ -254,7 +254,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Amount" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Vly-7a-pZY">
-                                                <rect key="frame" x="20" y="15" width="84" height="24"/>
+                                                <rect key="frame" x="20" y="11" width="66" height="24"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
@@ -264,13 +264,13 @@
                                                 <color key="backgroundColor" red="0.0039215688589999999" green="0.1176470667" blue="0.99607849120000003" alpha="1" colorSpace="deviceRGB"/>
                                             </view>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="+" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ibY-Za-fHq">
-                                                <rect key="frame" x="104" y="15" width="10" height="21"/>
+                                                <rect key="frame" x="95" y="13" width="10" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="QgB-cV-kyw">
-                                                <rect key="frame" x="122" y="12" width="36" height="30"/>
+                                                <rect key="frame" x="106" y="10" width="36" height="30"/>
                                                 <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -279,13 +279,16 @@
                                                     <outlet property="delegate" destination="Csf-bg-2l6" id="ODj-w7-MK4"/>
                                                 </connections>
                                             </textField>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Selectable types here" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bfz-lc-ziM">
-                                                <rect key="frame" x="166" y="16" width="122" height="20"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="IDG-aO-hrf">
+                                                <rect key="frame" x="150" y="11" width="119" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <segments>
+                                                    <segment title="pcs."/>
+                                                    <segment title="lb"/>
+                                                    <segment title="oz."/>
+                                                </segments>
+                                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            </segmentedControl>
                                         </subviews>
                                         <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                         <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
@@ -320,6 +323,8 @@
                         <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                     </view>
                     <connections>
+                        <outlet property="dismissButton" destination="ZpF-Jt-XLs" id="2To-S0-O29"/>
+                        <outlet property="measurement" destination="IDG-aO-hrf" id="nLp-no-iPq"/>
                         <outlet property="nameField" destination="cNu-cx-9eF" id="Pff-go-UYt"/>
                         <outlet property="quantityField" destination="QgB-cV-kyw" id="mqA-oc-Uc1"/>
                     </connections>
@@ -341,6 +346,8 @@
                 <relationship kind="action" name="dismiss:"/>
                 <relationship kind="action" name="dismissKeyboard:"/>
                 <relationship kind="action" name="resign:"/>
+                <relationship kind="outlet" name="dismissButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="measurement" candidateClass="UISegmentedControl"/>
                 <relationship kind="outlet" name="nameField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="quantityField" candidateClass="UITextField"/>
             </relationships>

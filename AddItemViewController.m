@@ -51,7 +51,8 @@ UIAlertView *progressAlert;
     newManagedObject.timeStamp = [NSDate date];
     newManagedObject.name = _nameField.text;
     newManagedObject.category = @"Dairy";
-    newManagedObject.measurement = [[NSNumber alloc] initWithInt:1];
+    newManagedObject.measurement = [[NSNumber alloc] initWithInt:_measurement.selectedSegmentIndex];
+    NSLog([NSString stringWithFormat:@"Measurement: %i", _measurement.selectedSegmentIndex]);
     newManagedObject.quantity = [[NSNumber alloc] initWithInt:[_quantityField.text integerValue]];
     newManagedObject.checked = [[NSNumber alloc] initWithBool:NO];
     NSError *error = nil;
@@ -61,8 +62,7 @@ UIAlertView *progressAlert;
     
     myQueue = dispatch_queue_create("com.lynda.gcdtest", NULL);
     dispatch_async(myQueue, ^{[self timedPopup:_nameField.text withQuantity:[NSString stringWithFormat:@"%@ %@", _quantityField.text, [Item getMeasurementName:newManagedObject.measurement]]];});
-    [_nameField resignFirstResponder];
-    [_quantityField resignFirstResponder];
+    [self dismissKeyboard:nil];
     [_nameField setText:@""];
     [_quantityField setText:@""];
 }
@@ -77,14 +77,24 @@ UIAlertView *progressAlert;
                                         otherButtonTitles: nil];
         [progressAlert show];
     });
-    [NSThread sleepForTimeInterval:0.4];
+    [NSThread sleepForTimeInterval:0.8];
     dispatch_async(dispatch_get_main_queue(), ^{[progressAlert dismissWithClickedButtonIndex:0 animated:YES];});
 }
 
 - (IBAction)dismissKeyboard:(id)sender {
     [_nameField resignFirstResponder];
     [_quantityField resignFirstResponder];
+    [[_dismissButton superview] sendSubviewToBack:_dismissButton];
 }
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
+    [[_dismissButton superview] bringSubviewToFront:_dismissButton];
+    [[[_measurement superview] superview] bringSubviewToFront:_measurement];
+    [[[_nameField superview] superview] bringSubviewToFront:_nameField];
+    [[[_quantityField superview] superview] bringSubviewToFront:_quantityField];
+    return YES;
+}
+
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [self dismissKeyboard:nil];
