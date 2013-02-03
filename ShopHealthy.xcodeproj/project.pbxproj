@@ -25,6 +25,8 @@
 		7F1CB46816BCDA2800F77D92 /* cart.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F1CB46616BCDA2800F77D92 /* cart.png */; };
 		7F1CB46916BCDA2800F77D92 /* cart@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F1CB46716BCDA2800F77D92 /* cart@2x.png */; };
 		7F1CB47016BCDDE900F77D92 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F1CB46F16BCDDE900F77D92 /* Item.m */; };
+		7F84D02B16BEF72E006EA1E5 /* chef.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F84D02916BEF72E006EA1E5 /* chef.png */; };
+		7F84D02C16BEF72E006EA1E5 /* chef@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F84D02A16BEF72E006EA1E5 /* chef@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +55,8 @@
 		7F1CB46716BCDA2800F77D92 /* cart@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cart@2x.png"; sourceTree = "<group>"; };
 		7F1CB46E16BCDDE900F77D92 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
 		7F1CB46F16BCDDE900F77D92 /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
+		7F84D02916BEF72E006EA1E5 /* chef.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chef.png; sourceTree = "<group>"; };
+		7F84D02A16BEF72E006EA1E5 /* chef@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chef@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +141,8 @@
 				7F1CB46616BCDA2800F77D92 /* cart.png */,
 				7F1CB46716BCDA2800F77D92 /* cart@2x.png */,
 				7F1CB46316BCD8C600F77D92 /* list.png */,
+				7F84D02916BEF72E006EA1E5 /* chef.png */,
+				7F84D02A16BEF72E006EA1E5 /* chef@2x.png */,
 			);
 			name = assets;
 			sourceTree = "<group>";
@@ -200,6 +206,8 @@
 				7F1CB46416BCD8C600F77D92 /* list.png in Resources */,
 				7F1CB46816BCDA2800F77D92 /* cart.png in Resources */,
 				7F1CB46916BCDA2800F77D92 /* cart@2x.png in Resources */,
+				7F84D02B16BEF72E006EA1E5 /* chef.png in Resources */,
+				7F84D02C16BEF72E006EA1E5 /* chef@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,6 +346,7 @@
 				7F1CB45F16BCC8BA00F77D92 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

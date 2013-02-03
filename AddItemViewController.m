@@ -59,42 +59,28 @@ UIAlertView *progressAlert;
     if (![context save:&error]) {
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
     }
-    
-    myQueue = dispatch_queue_create("com.lynda.gcdtest", NULL);
-    dispatch_async(myQueue, ^{[self timedPopup:_nameField.text withQuantity:[NSString stringWithFormat:@"%@ %@", _quantityField.text, [Item getMeasurementName:newManagedObject.measurement]]];});
+      
+    progressAlert = [[UIAlertView alloc]
+                        initWithTitle:[NSString stringWithFormat:@"Added %@", _nameField.text]
+                              message:[NSString stringWithFormat:@"%@ %@", _quantityField.text, [Item getMeasurementName:newManagedObject.measurement]]
+                             delegate: self
+                    cancelButtonTitle: nil
+                    otherButtonTitles: nil];
+    [progressAlert show];
+    [self performSelector:@selector(dismissAlertView:) withObject:progressAlert afterDelay:1];
     [self dismissKeyboard:nil];
     [_nameField setText:@""];
     [_quantityField setText:@""];
 }
 
-- (void) timedPopup:(NSString *)name withQuantity:(NSString *)quantities
-{
-    dispatch_async(dispatch_get_main_queue(), ^{
-        progressAlert = [[UIAlertView alloc]initWithTitle:[NSString stringWithFormat:@"Added %@", name]
-                                                  message:quantities
-                                                 delegate: self
-                                        cancelButtonTitle: nil
-                                        otherButtonTitles: nil];
-        [progressAlert show];
-    });
-    [NSThread sleepForTimeInterval:0.8];
-    dispatch_async(dispatch_get_main_queue(), ^{[progressAlert dismissWithClickedButtonIndex:0 animated:YES];});
+-(void)dismissAlertView:(UIAlertView *)alertView{
+    [alertView dismissWithClickedButtonIndex:0 animated:YES];
 }
 
 - (IBAction)dismissKeyboard:(id)sender {
     [_nameField resignFirstResponder];
     [_quantityField resignFirstResponder];
-//    [[_dismissButton superview] sendSubviewToBack:_dismissButton];
 }
-
-//- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
-//    [[_dismissButton superview] bringSubviewToFront:_dismissButton];
-//    [[[_measurement superview] superview] bringSubviewToFront:_measurement];
-//    [[[_nameField superview] superview] bringSubviewToFront:_nameField];
-//    [[[_quantityField superview] superview] bringSubviewToFront:_quantityField];
-//    return YES;
-//}
-
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [self dismissKeyboard:nil];

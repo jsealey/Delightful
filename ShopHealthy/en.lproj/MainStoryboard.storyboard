@@ -53,7 +53,7 @@
                             <outlet property="delegate" destination="YQX-ic-I2n" id="3kx-6L-zNO"/>
                         </connections>
                     </collectionView>
-                    <tabBarItem key="tabBarItem" title="Recipes" id="8vO-ax-Pji"/>
+                    <tabBarItem key="tabBarItem" title="Recipes" image="chef.png" id="8vO-ax-Pji"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4oT-d8-9VS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -342,6 +342,7 @@
     </scenes>
     <resources>
         <image name="cart.png" width="57" height="57"/>
+        <image name="chef.png" width="30" height="30"/>
         <image name="list.png" width="48" height="48"/>
     </resources>
     <classes>
