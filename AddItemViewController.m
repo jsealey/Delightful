@@ -84,16 +84,16 @@ UIAlertView *progressAlert;
 - (IBAction)dismissKeyboard:(id)sender {
     [_nameField resignFirstResponder];
     [_quantityField resignFirstResponder];
-    [[_dismissButton superview] sendSubviewToBack:_dismissButton];
+//    [[_dismissButton superview] sendSubviewToBack:_dismissButton];
 }
 
-- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
-    [[_dismissButton superview] bringSubviewToFront:_dismissButton];
-    [[[_measurement superview] superview] bringSubviewToFront:_measurement];
-    [[[_nameField superview] superview] bringSubviewToFront:_nameField];
-    [[[_quantityField superview] superview] bringSubviewToFront:_quantityField];
-    return YES;
-}
+//- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
+//    [[_dismissButton superview] bringSubviewToFront:_dismissButton];
+//    [[[_measurement superview] superview] bringSubviewToFront:_measurement];
+//    [[[_nameField superview] superview] bringSubviewToFront:_nameField];
+//    [[[_quantityField superview] superview] bringSubviewToFront:_quantityField];
+//    return YES;
+//}
 
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
