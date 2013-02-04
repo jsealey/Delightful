@@ -82,6 +82,10 @@ UIAlertView *progressAlert;
     [_quantityField resignFirstResponder];
 }
 
+- (IBAction)incrementQuantity:(id)sender {
+    _quantityField.text = [NSString stringWithFormat:@"%i",_quantityField.text.integerValue + 1];
+}
+
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [self dismissKeyboard:nil];
     return YES;

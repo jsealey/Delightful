@@ -68,7 +68,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Store" image="cart.png" id="rZI-Mo-IVm"/>
+                    <tabBarItem key="tabBarItem" title="Store" image="cartTab.png" id="rZI-Mo-IVm"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7hb-Io-2zk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -78,7 +78,7 @@
         <scene sceneID="11">
             <objects>
                 <navigationController id="3" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Shopping List" image="list.png" id="osE-cj-2N9"/>
+                    <tabBarItem key="tabBarItem" title="Shopping List" image="check.png" id="osE-cj-2N9"/>
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" barStyle="blackOpaque" id="4">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -278,12 +278,6 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="280" height="7"/>
                                                 <color key="backgroundColor" red="0.0039215688589999999" green="0.1176470667" blue="0.99607849120000003" alpha="1" colorSpace="deviceRGB"/>
                                             </view>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="+" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ibY-Za-fHq">
-                                                <rect key="frame" x="95" y="13" width="10" height="21"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="kSL-lJ-CHq">
                                                 <rect key="frame" x="-6" y="0.0" width="286" height="44"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -319,6 +313,21 @@
                                                 </segments>
                                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             </segmentedControl>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Vtl-R2-rXg">
+                                                <rect key="frame" x="75" y="7" width="30" height="38"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                <state key="normal" title=" +">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <state key="highlighted">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="incrementQuantity:" destination="Csf-bg-2l6" eventType="touchUpInside" id="Fos-fa-H02"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                         <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
@@ -341,9 +350,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="cart.png" width="57" height="57"/>
+        <image name="cartTab.png" width="30" height="30"/>
+        <image name="check.png" width="30" height="30"/>
         <image name="chef.png" width="30" height="30"/>
-        <image name="list.png" width="48" height="48"/>
     </resources>
     <classes>
         <class className="AddItemViewController" superclassName="UIViewController">
@@ -352,6 +361,7 @@
                 <relationship kind="action" name="addItem:"/>
                 <relationship kind="action" name="dismiss:"/>
                 <relationship kind="action" name="dismissKeyboard:"/>
+                <relationship kind="action" name="incrementQuantity:"/>
                 <relationship kind="action" name="resign:"/>
                 <relationship kind="outlet" name="dismissButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="measurement" candidateClass="UISegmentedControl"/>
@@ -373,9 +383,6 @@
         </class>
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
-        </class>
-        <class className="UICollectionViewLayout" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
