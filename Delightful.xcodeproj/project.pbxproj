@@ -33,15 +33,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		7F1CB43216BCC8BA00F77D92 /* ShopHealthy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShopHealthy.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7F1CB43216BCC8BA00F77D92 /* Delightful.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Delightful.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F1CB43516BCC8BA00F77D92 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		7F1CB43716BCC8BA00F77D92 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7F1CB43916BCC8BA00F77D92 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		7F1CB43B16BCC8BA00F77D92 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		7F1CB43F16BCC8BA00F77D92 /* ShopHealthy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ShopHealthy-Info.plist"; sourceTree = "<group>"; };
+		7F1CB43F16BCC8BA00F77D92 /* Delightful-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Delightful-Info.plist"; sourceTree = "<group>"; };
 		7F1CB44116BCC8BA00F77D92 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7F1CB44316BCC8BA00F77D92 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		7F1CB44516BCC8BA00F77D92 /* ShopHealthy-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ShopHealthy-Prefix.pch"; sourceTree = "<group>"; };
+		7F1CB44516BCC8BA00F77D92 /* Delightful-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Delightful-Prefix.pch"; sourceTree = "<group>"; };
 		7F1CB44616BCC8BA00F77D92 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7F1CB44716BCC8BA00F77D92 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		7F1CB44916BCC8BA00F77D92 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
@@ -83,7 +83,7 @@
 		7F1CB42916BCC8B900F77D92 = {
 			isa = PBXGroup;
 			children = (
-				7F1CB43D16BCC8BA00F77D92 /* ShopHealthy */,
+				7F1CB43D16BCC8BA00F77D92 /* delightful */,
 				7F1CB43416BCC8BA00F77D92 /* Frameworks */,
 				7F1CB43316BCC8BA00F77D92 /* Products */,
 			);
@@ -92,7 +92,7 @@
 		7F1CB43316BCC8BA00F77D92 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7F1CB43216BCC8BA00F77D92 /* ShopHealthy.app */,
+				7F1CB43216BCC8BA00F77D92 /* Delightful.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -108,7 +108,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		7F1CB43D16BCC8BA00F77D92 /* ShopHealthy */ = {
+		7F1CB43D16BCC8BA00F77D92 /* delightful */ = {
 			isa = PBXGroup;
 			children = (
 				7F1CB44616BCC8BA00F77D92 /* AppDelegate.h */,
@@ -123,6 +123,7 @@
 				7F1CB46F16BCDDE900F77D92 /* Item.m */,
 				7F1CB43E16BCC8BA00F77D92 /* Supporting Files */,
 			);
+			name = delightful;
 			path = ShopHealthy;
 			sourceTree = "<group>";
 		};
@@ -130,10 +131,10 @@
 			isa = PBXGroup;
 			children = (
 				7F1CB46516BCD8CB00F77D92 /* assets */,
-				7F1CB43F16BCC8BA00F77D92 /* ShopHealthy-Info.plist */,
+				7F1CB43F16BCC8BA00F77D92 /* Delightful-Info.plist */,
 				7F1CB44016BCC8BA00F77D92 /* InfoPlist.strings */,
 				7F1CB44316BCC8BA00F77D92 /* main.m */,
-				7F1CB44516BCC8BA00F77D92 /* ShopHealthy-Prefix.pch */,
+				7F1CB44516BCC8BA00F77D92 /* Delightful-Prefix.pch */,
 				7F1CB44916BCC8BA00F77D92 /* Default.png */,
 				7F1CB44B16BCC8BA00F77D92 /* Default@2x.png */,
 				7F1CB44D16BCC8BA00F77D92 /* Default-568h@2x.png */,
@@ -159,9 +160,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		7F1CB43116BCC8BA00F77D92 /* ShopHealthy */ = {
+		7F1CB43116BCC8BA00F77D92 /* Delightful */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7F1CB45D16BCC8BA00F77D92 /* Build configuration list for PBXNativeTarget "ShopHealthy" */;
+			buildConfigurationList = 7F1CB45D16BCC8BA00F77D92 /* Build configuration list for PBXNativeTarget "Delightful" */;
 			buildPhases = (
 				7F1CB42E16BCC8BA00F77D92 /* Sources */,
 				7F1CB42F16BCC8BA00F77D92 /* Frameworks */,
@@ -171,9 +172,9 @@
 			);
 			dependencies = (
 			);
-			name = ShopHealthy;
+			name = Delightful;
 			productName = ShopHealthy;
-			productReference = 7F1CB43216BCC8BA00F77D92 /* ShopHealthy.app */;
+			productReference = 7F1CB43216BCC8BA00F77D92 /* Delightful.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -185,7 +186,7 @@
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = com.company;
 			};
-			buildConfigurationList = 7F1CB42D16BCC8B900F77D92 /* Build configuration list for PBXProject "ShopHealthy" */;
+			buildConfigurationList = 7F1CB42D16BCC8B900F77D92 /* Build configuration list for PBXProject "Delightful" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -197,7 +198,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				7F1CB43116BCC8BA00F77D92 /* ShopHealthy */,
+				7F1CB43116BCC8BA00F77D92 /* Delightful */,
 			);
 		};
 /* End PBXProject section */
@@ -321,9 +322,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ShopHealthy/ShopHealthy-Prefix.pch";
-				INFOPLIST_FILE = "ShopHealthy/ShopHealthy-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "ShopHealthy/Delightful-Prefix.pch";
+				INFOPLIST_FILE = "ShopHealthy/Delightful-Info.plist";
+				PRODUCT_NAME = Delightful;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -332,9 +333,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ShopHealthy/ShopHealthy-Prefix.pch";
-				INFOPLIST_FILE = "ShopHealthy/ShopHealthy-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "ShopHealthy/Delightful-Prefix.pch";
+				INFOPLIST_FILE = "ShopHealthy/Delightful-Info.plist";
+				PRODUCT_NAME = Delightful;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -342,7 +343,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		7F1CB42D16BCC8B900F77D92 /* Build configuration list for PBXProject "ShopHealthy" */ = {
+		7F1CB42D16BCC8B900F77D92 /* Build configuration list for PBXProject "Delightful" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7F1CB45B16BCC8BA00F77D92 /* Debug */,
@@ -351,7 +352,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7F1CB45D16BCC8BA00F77D92 /* Build configuration list for PBXNativeTarget "ShopHealthy" */ = {
+		7F1CB45D16BCC8BA00F77D92 /* Build configuration list for PBXNativeTarget "Delightful" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7F1CB45E16BCC8BA00F77D92 /* Debug */,
