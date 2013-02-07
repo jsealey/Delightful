@@ -1,4 +1,4 @@
 ShopHealthy
 =============
 
-iPhone app to help buy promote healthy shopping and organize meal plans.
+iPhone app to help promote healthy shopping and organize meal plans.
