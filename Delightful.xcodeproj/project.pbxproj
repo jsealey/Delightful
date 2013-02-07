@@ -44,25 +44,25 @@
 		7F1CB44516BCC8BA00F77D92 /* Delightful-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Delightful-Prefix.pch"; sourceTree = "<group>"; };
 		7F1CB44616BCC8BA00F77D92 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7F1CB44716BCC8BA00F77D92 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		7F1CB44916BCC8BA00F77D92 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		7F1CB44B16BCC8BA00F77D92 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		7F1CB44D16BCC8BA00F77D92 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		7F1CB44916BCC8BA00F77D92 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = assets/Default.png; sourceTree = "<group>"; };
+		7F1CB44B16BCC8BA00F77D92 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "assets/Default@2x.png"; sourceTree = "<group>"; };
+		7F1CB44D16BCC8BA00F77D92 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "assets/Default-568h@2x.png"; sourceTree = "<group>"; };
 		7F1CB45016BCC8BA00F77D92 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		7F1CB45316BCC8BA00F77D92 /* ShopHealthy.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ShopHealthy.xcdatamodel; sourceTree = "<group>"; };
 		7F1CB45516BCC8BA00F77D92 /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
 		7F1CB45616BCC8BA00F77D92 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
-		7F1CB46016BCD23400F77D92 /* AddItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddItemViewController.h; path = ../AddItemViewController.h; sourceTree = "<group>"; };
-		7F1CB46116BCD23400F77D92 /* AddItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddItemViewController.m; path = ../AddItemViewController.m; sourceTree = "<group>"; };
-		7F1CB46616BCDA2800F77D92 /* cart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cart.png; sourceTree = "<group>"; };
-		7F1CB46716BCDA2800F77D92 /* cart@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cart@2x.png"; sourceTree = "<group>"; };
+		7F1CB46016BCD23400F77D92 /* AddItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddItemViewController.h; sourceTree = "<group>"; };
+		7F1CB46116BCD23400F77D92 /* AddItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddItemViewController.m; sourceTree = "<group>"; };
+		7F1CB46616BCDA2800F77D92 /* cart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cart.png; path = assets/cart.png; sourceTree = "<group>"; };
+		7F1CB46716BCDA2800F77D92 /* cart@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "cart@2x.png"; path = "assets/cart@2x.png"; sourceTree = "<group>"; };
 		7F1CB46E16BCDDE900F77D92 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
 		7F1CB46F16BCDDE900F77D92 /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
-		7F84D02916BEF72E006EA1E5 /* chef.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chef.png; sourceTree = "<group>"; };
-		7F84D02A16BEF72E006EA1E5 /* chef@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chef@2x.png"; sourceTree = "<group>"; };
-		7FF65C4016BF41D800796B87 /* cartTab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cartTab.png; sourceTree = "<group>"; };
-		7FF65C4116BF41D800796B87 /* cartTab@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cartTab@2x.png"; sourceTree = "<group>"; };
-		7FF65C4416BF42FA00796B87 /* check@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "check@2x.png"; sourceTree = "<group>"; };
-		7FF65C4516BF42FA00796B87 /* check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check.png; sourceTree = "<group>"; };
+		7F84D02916BEF72E006EA1E5 /* chef.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = chef.png; path = assets/chef.png; sourceTree = "<group>"; };
+		7F84D02A16BEF72E006EA1E5 /* chef@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "chef@2x.png"; path = "assets/chef@2x.png"; sourceTree = "<group>"; };
+		7FF65C4016BF41D800796B87 /* cartTab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cartTab.png; path = assets/cartTab.png; sourceTree = "<group>"; };
+		7FF65C4116BF41D800796B87 /* cartTab@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "cartTab@2x.png"; path = "assets/cartTab@2x.png"; sourceTree = "<group>"; };
+		7FF65C4416BF42FA00796B87 /* check@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "check@2x.png"; path = "assets/check@2x.png"; sourceTree = "<group>"; };
+		7FF65C4516BF42FA00796B87 /* check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = check.png; path = assets/check.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +121,7 @@
 				7F1CB45216BCC8BA00F77D92 /* ShopHealthy.xcdatamodeld */,
 				7F1CB46E16BCDDE900F77D92 /* Item.h */,
 				7F1CB46F16BCDDE900F77D92 /* Item.m */,
+				7F1CB46516BCD8CB00F77D92 /* Assets */,
 				7F1CB43E16BCC8BA00F77D92 /* Supporting Files */,
 			);
 			name = delightful;
@@ -130,6 +131,7 @@
 		7F1CB43E16BCC8BA00F77D92 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD:Delightful.xcodeproj/project.pbxproj
 				7F1CB46516BCD8CB00F77D92 /* assets */,
 				7F1CB43F16BCC8BA00F77D92 /* Delightful-Info.plist */,
 				7F1CB44016BCC8BA00F77D92 /* InfoPlist.strings */,
@@ -142,7 +144,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		7F1CB46516BCD8CB00F77D92 /* assets */ = {
+		7F1CB46516BCD8CB00F77D92 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
 				7F1CB46616BCDA2800F77D92 /* cart.png */,
@@ -153,8 +155,11 @@
 				7FF65C4516BF42FA00796B87 /* check.png */,
 				7F84D02916BEF72E006EA1E5 /* chef.png */,
 				7F84D02A16BEF72E006EA1E5 /* chef@2x.png */,
+				7F1CB44916BCC8BA00F77D92 /* Default.png */,
+				7F1CB44B16BCC8BA00F77D92 /* Default@2x.png */,
+				7F1CB44D16BCC8BA00F77D92 /* Default-568h@2x.png */,
 			);
-			name = assets;
+			name = Assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
