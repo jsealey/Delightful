@@ -131,7 +131,6 @@
 		7F1CB43E16BCC8BA00F77D92 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD:Delightful.xcodeproj/project.pbxproj
 				7F1CB46516BCD8CB00F77D92 /* assets */,
 				7F1CB43F16BCC8BA00F77D92 /* Delightful-Info.plist */,
 				7F1CB44016BCC8BA00F77D92 /* InfoPlist.strings */,
