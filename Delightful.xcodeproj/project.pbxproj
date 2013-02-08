@@ -11,6 +11,7 @@
 		7F1CB43816BCC8BA00F77D92 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F1CB43716BCC8BA00F77D92 /* Foundation.framework */; };
 		7F1CB43A16BCC8BA00F77D92 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F1CB43916BCC8BA00F77D92 /* CoreGraphics.framework */; };
 		7F1CB43C16BCC8BA00F77D92 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F1CB43B16BCC8BA00F77D92 /* CoreData.framework */; };
+		7FC4F79F16C4918C005E904C /* Delightful.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7FC4F79E16C4918C005E904C /* Delightful.xcdatamodeld */; };
 		7FD4024F16C46ECD0042346C /* AddItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD4024A16C46ECD0042346C /* AddItemViewController.m */; };
 		7FD4025016C46ECD0042346C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD4024C16C46ECD0042346C /* AppDelegate.m */; };
 		7FD4025116C46ECD0042346C /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD4024E16C46ECD0042346C /* MasterViewController.m */; };
@@ -30,8 +31,6 @@
 		7FD4028816C46FA30042346C /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FD4027D16C46FA30042346C /* Default@2x.png */; };
 		7FD4028B16C472090042346C /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FD4028916C472090042346C /* MainStoryboard.storyboard */; };
 		7FD4028E16C472180042346C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7FD4028C16C472180042346C /* InfoPlist.strings */; };
-		7FD4029016C472350042346C /* ShopHealthy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7FD4028F16C472350042346C /* ShopHealthy.xcdatamodeld */; };
-		7FD4029316C474420042346C /* ShopHealthy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7FD4029116C474410042346C /* ShopHealthy.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +39,7 @@
 		7F1CB43716BCC8BA00F77D92 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7F1CB43916BCC8BA00F77D92 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		7F1CB43B16BCC8BA00F77D92 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		7FC4F79E16C4918C005E904C /* Delightful.xcdatamodeld */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodeld; path = Delightful.xcdatamodeld; sourceTree = "<group>"; };
 		7FD4024916C46ECD0042346C /* AddItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddItemViewController.h; path = Delightful/AddItemViewController.h; sourceTree = SOURCE_ROOT; };
 		7FD4024A16C46ECD0042346C /* AddItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddItemViewController.m; path = Delightful/AddItemViewController.m; sourceTree = SOURCE_ROOT; };
 		7FD4024B16C46ECD0042346C /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Delightful/AppDelegate.h; sourceTree = SOURCE_ROOT; };
@@ -64,7 +64,6 @@
 		7FD4027D16C46FA30042346C /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		7FD4028A16C472090042346C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = Delightful/en.lproj/MainStoryboard.storyboard; sourceTree = SOURCE_ROOT; };
 		7FD4028D16C472180042346C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Delightful/en.lproj/InfoPlist.strings; sourceTree = SOURCE_ROOT; };
-		7FD4029216C474410042346C /* ShopHealthy.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ShopHealthy.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,8 +84,7 @@
 		7F1CB42916BCC8B900F77D92 = {
 			isa = PBXGroup;
 			children = (
-				7FD4029116C474410042346C /* ShopHealthy.xcdatamodeld */,
-				7F1CB43D16BCC8BA00F77D92 /* delightful */,
+				7F1CB43D16BCC8BA00F77D92 /* Delightful */,
 				7F1CB43416BCC8BA00F77D92 /* Frameworks */,
 				7F1CB43316BCC8BA00F77D92 /* Products */,
 			);
@@ -111,7 +109,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		7F1CB43D16BCC8BA00F77D92 /* delightful */ = {
+		7F1CB43D16BCC8BA00F77D92 /* Delightful */ = {
 			isa = PBXGroup;
 			children = (
 				7FD4024916C46ECD0042346C /* AddItemViewController.h */,
@@ -120,12 +118,11 @@
 				7FD4024C16C46ECD0042346C /* AppDelegate.m */,
 				7FD4024D16C46ECD0042346C /* MasterViewController.h */,
 				7FD4024E16C46ECD0042346C /* MasterViewController.m */,
-				7FD4028F16C472350042346C /* ShopHealthy.xcdatamodeld */,
+				7FC4F79E16C4918C005E904C /* Delightful.xcdatamodeld */,
 				7FD4028916C472090042346C /* MainStoryboard.storyboard */,
 				7F1CB43E16BCC8BA00F77D92 /* Supporting Files */,
 			);
-			name = delightful;
-			path = ShopHealthy;
+			path = Delightful;
 			sourceTree = "<group>";
 		};
 		7F1CB43E16BCC8BA00F77D92 /* Supporting Files */ = {
@@ -177,7 +174,7 @@
 			dependencies = (
 			);
 			name = Delightful;
-			productName = ShopHealthy;
+			productName = Delightful;
 			productReference = 7F1CB43216BCC8BA00F77D92 /* Delightful.app */;
 			productType = "com.apple.product-type.application";
 		};
@@ -241,8 +238,7 @@
 				7FD4025116C46ECD0042346C /* MasterViewController.m in Sources */,
 				7FD4026F16C46F690042346C /* Item.m in Sources */,
 				7FD4027016C46F690042346C /* main.m in Sources */,
-				7FD4029016C472350042346C /* ShopHealthy.xcdatamodeld in Sources */,
-				7FD4029316C474420042346C /* ShopHealthy.xcdatamodeld in Sources */,
+				7FC4F79F16C4918C005E904C /* Delightful.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -368,29 +364,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		7FD4028F16C472350042346C /* ShopHealthy.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-			);
-			name = ShopHealthy.xcdatamodeld;
-			path = ../Delightful/ShopHealthy.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-		7FD4029116C474410042346C /* ShopHealthy.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				7FD4029216C474410042346C /* ShopHealthy.xcdatamodel */,
-			);
-			currentVersion = 7FD4029216C474410042346C /* ShopHealthy.xcdatamodel */;
-			name = ShopHealthy.xcdatamodeld;
-			path = Delightful/ShopHealthy.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 7F1CB42A16BCC8B900F77D92 /* Project object */;
 }
