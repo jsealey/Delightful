@@ -1,6 +1,6 @@
 //
 //  MasterViewController.h
-//  ShopHealthy
+//  Delightful
 //
 //  Created by Jared on 2/1/13.
 //  Copyright (c) 2013 com.company. All rights reserved.

@@ -11,25 +11,27 @@
 		7F1CB43816BCC8BA00F77D92 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F1CB43716BCC8BA00F77D92 /* Foundation.framework */; };
 		7F1CB43A16BCC8BA00F77D92 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F1CB43916BCC8BA00F77D92 /* CoreGraphics.framework */; };
 		7F1CB43C16BCC8BA00F77D92 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F1CB43B16BCC8BA00F77D92 /* CoreData.framework */; };
-		7F1CB44216BCC8BA00F77D92 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7F1CB44016BCC8BA00F77D92 /* InfoPlist.strings */; };
-		7F1CB44416BCC8BA00F77D92 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F1CB44316BCC8BA00F77D92 /* main.m */; };
-		7F1CB44816BCC8BA00F77D92 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F1CB44716BCC8BA00F77D92 /* AppDelegate.m */; };
-		7F1CB44A16BCC8BA00F77D92 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F1CB44916BCC8BA00F77D92 /* Default.png */; };
-		7F1CB44C16BCC8BA00F77D92 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F1CB44B16BCC8BA00F77D92 /* Default@2x.png */; };
-		7F1CB44E16BCC8BA00F77D92 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F1CB44D16BCC8BA00F77D92 /* Default-568h@2x.png */; };
-		7F1CB45116BCC8BA00F77D92 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F1CB44F16BCC8BA00F77D92 /* MainStoryboard.storyboard */; };
-		7F1CB45416BCC8BA00F77D92 /* ShopHealthy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7F1CB45216BCC8BA00F77D92 /* ShopHealthy.xcdatamodeld */; };
-		7F1CB45716BCC8BA00F77D92 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F1CB45616BCC8BA00F77D92 /* MasterViewController.m */; };
-		7F1CB46216BCD23400F77D92 /* AddItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F1CB46116BCD23400F77D92 /* AddItemViewController.m */; };
-		7F1CB46816BCDA2800F77D92 /* cart.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F1CB46616BCDA2800F77D92 /* cart.png */; };
-		7F1CB46916BCDA2800F77D92 /* cart@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F1CB46716BCDA2800F77D92 /* cart@2x.png */; };
-		7F1CB47016BCDDE900F77D92 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F1CB46F16BCDDE900F77D92 /* Item.m */; };
-		7F84D02B16BEF72E006EA1E5 /* chef.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F84D02916BEF72E006EA1E5 /* chef.png */; };
-		7F84D02C16BEF72E006EA1E5 /* chef@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F84D02A16BEF72E006EA1E5 /* chef@2x.png */; };
-		7FF65C4216BF41D800796B87 /* cartTab.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FF65C4016BF41D800796B87 /* cartTab.png */; };
-		7FF65C4316BF41D800796B87 /* cartTab@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FF65C4116BF41D800796B87 /* cartTab@2x.png */; };
-		7FF65C4616BF42FA00796B87 /* check@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FF65C4416BF42FA00796B87 /* check@2x.png */; };
-		7FF65C4716BF42FA00796B87 /* check.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FF65C4516BF42FA00796B87 /* check.png */; };
+		7FD4024F16C46ECD0042346C /* AddItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD4024A16C46ECD0042346C /* AddItemViewController.m */; };
+		7FD4025016C46ECD0042346C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD4024C16C46ECD0042346C /* AppDelegate.m */; };
+		7FD4025116C46ECD0042346C /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD4024E16C46ECD0042346C /* MasterViewController.m */; };
+		7FD4026E16C46F690042346C /* Delightful-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7FD4026816C46F690042346C /* Delightful-Info.plist */; };
+		7FD4026F16C46F690042346C /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD4026B16C46F690042346C /* Item.m */; };
+		7FD4027016C46F690042346C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD4026C16C46F690042346C /* main.m */; };
+		7FD4027E16C46FA30042346C /* cart.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FD4027316C46FA30042346C /* cart.png */; };
+		7FD4027F16C46FA30042346C /* cart@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FD4027416C46FA30042346C /* cart@2x.png */; };
+		7FD4028016C46FA30042346C /* cartTab.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FD4027516C46FA30042346C /* cartTab.png */; };
+		7FD4028116C46FA30042346C /* cartTab@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FD4027616C46FA30042346C /* cartTab@2x.png */; };
+		7FD4028216C46FA30042346C /* check.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FD4027716C46FA30042346C /* check.png */; };
+		7FD4028316C46FA30042346C /* check@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FD4027816C46FA30042346C /* check@2x.png */; };
+		7FD4028416C46FA30042346C /* chef.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FD4027916C46FA30042346C /* chef.png */; };
+		7FD4028516C46FA30042346C /* chef@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FD4027A16C46FA30042346C /* chef@2x.png */; };
+		7FD4028616C46FA30042346C /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FD4027B16C46FA30042346C /* Default-568h@2x.png */; };
+		7FD4028716C46FA30042346C /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FD4027C16C46FA30042346C /* Default.png */; };
+		7FD4028816C46FA30042346C /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FD4027D16C46FA30042346C /* Default@2x.png */; };
+		7FD4028B16C472090042346C /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FD4028916C472090042346C /* MainStoryboard.storyboard */; };
+		7FD4028E16C472180042346C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7FD4028C16C472180042346C /* InfoPlist.strings */; };
+		7FD4029016C472350042346C /* ShopHealthy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7FD4028F16C472350042346C /* ShopHealthy.xcdatamodeld */; };
+		7FD4029316C474420042346C /* ShopHealthy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7FD4029116C474410042346C /* ShopHealthy.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,31 +40,31 @@
 		7F1CB43716BCC8BA00F77D92 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7F1CB43916BCC8BA00F77D92 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		7F1CB43B16BCC8BA00F77D92 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		7F1CB43F16BCC8BA00F77D92 /* Delightful-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Delightful-Info.plist"; sourceTree = "<group>"; };
-		7F1CB44116BCC8BA00F77D92 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		7F1CB44316BCC8BA00F77D92 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		7F1CB44516BCC8BA00F77D92 /* Delightful-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Delightful-Prefix.pch"; sourceTree = "<group>"; };
-		7F1CB44616BCC8BA00F77D92 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		7F1CB44716BCC8BA00F77D92 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		7F1CB44916BCC8BA00F77D92 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = assets/Default.png; sourceTree = "<group>"; };
-		7F1CB44B16BCC8BA00F77D92 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "assets/Default@2x.png"; sourceTree = "<group>"; };
-		7F1CB44D16BCC8BA00F77D92 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "assets/Default-568h@2x.png"; sourceTree = "<group>"; };
-		7F1CB45016BCC8BA00F77D92 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		7F1CB45316BCC8BA00F77D92 /* ShopHealthy.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ShopHealthy.xcdatamodel; sourceTree = "<group>"; };
-		7F1CB45516BCC8BA00F77D92 /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
-		7F1CB45616BCC8BA00F77D92 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
-		7F1CB46016BCD23400F77D92 /* AddItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddItemViewController.h; sourceTree = "<group>"; };
-		7F1CB46116BCD23400F77D92 /* AddItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddItemViewController.m; sourceTree = "<group>"; };
-		7F1CB46616BCDA2800F77D92 /* cart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cart.png; path = assets/cart.png; sourceTree = "<group>"; };
-		7F1CB46716BCDA2800F77D92 /* cart@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "cart@2x.png"; path = "assets/cart@2x.png"; sourceTree = "<group>"; };
-		7F1CB46E16BCDDE900F77D92 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
-		7F1CB46F16BCDDE900F77D92 /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
-		7F84D02916BEF72E006EA1E5 /* chef.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = chef.png; path = assets/chef.png; sourceTree = "<group>"; };
-		7F84D02A16BEF72E006EA1E5 /* chef@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "chef@2x.png"; path = "assets/chef@2x.png"; sourceTree = "<group>"; };
-		7FF65C4016BF41D800796B87 /* cartTab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cartTab.png; path = assets/cartTab.png; sourceTree = "<group>"; };
-		7FF65C4116BF41D800796B87 /* cartTab@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "cartTab@2x.png"; path = "assets/cartTab@2x.png"; sourceTree = "<group>"; };
-		7FF65C4416BF42FA00796B87 /* check@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "check@2x.png"; path = "assets/check@2x.png"; sourceTree = "<group>"; };
-		7FF65C4516BF42FA00796B87 /* check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = check.png; path = assets/check.png; sourceTree = "<group>"; };
+		7FD4024916C46ECD0042346C /* AddItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddItemViewController.h; path = Delightful/AddItemViewController.h; sourceTree = SOURCE_ROOT; };
+		7FD4024A16C46ECD0042346C /* AddItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddItemViewController.m; path = Delightful/AddItemViewController.m; sourceTree = SOURCE_ROOT; };
+		7FD4024B16C46ECD0042346C /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Delightful/AppDelegate.h; sourceTree = SOURCE_ROOT; };
+		7FD4024C16C46ECD0042346C /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Delightful/AppDelegate.m; sourceTree = SOURCE_ROOT; };
+		7FD4024D16C46ECD0042346C /* MasterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MasterViewController.h; path = Delightful/MasterViewController.h; sourceTree = SOURCE_ROOT; };
+		7FD4024E16C46ECD0042346C /* MasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MasterViewController.m; path = Delightful/MasterViewController.m; sourceTree = SOURCE_ROOT; };
+		7FD4026816C46F690042346C /* Delightful-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Delightful-Info.plist"; path = "Delightful/Delightful-Info.plist"; sourceTree = SOURCE_ROOT; };
+		7FD4026916C46F690042346C /* Delightful-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Delightful-Prefix.pch"; path = "Delightful/Delightful-Prefix.pch"; sourceTree = SOURCE_ROOT; };
+		7FD4026A16C46F690042346C /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Item.h; path = Delightful/Item.h; sourceTree = SOURCE_ROOT; };
+		7FD4026B16C46F690042346C /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Item.m; path = Delightful/Item.m; sourceTree = SOURCE_ROOT; };
+		7FD4026C16C46F690042346C /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Delightful/main.m; sourceTree = SOURCE_ROOT; };
+		7FD4027316C46FA30042346C /* cart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cart.png; sourceTree = "<group>"; };
+		7FD4027416C46FA30042346C /* cart@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cart@2x.png"; sourceTree = "<group>"; };
+		7FD4027516C46FA30042346C /* cartTab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cartTab.png; sourceTree = "<group>"; };
+		7FD4027616C46FA30042346C /* cartTab@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cartTab@2x.png"; sourceTree = "<group>"; };
+		7FD4027716C46FA30042346C /* check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check.png; sourceTree = "<group>"; };
+		7FD4027816C46FA30042346C /* check@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "check@2x.png"; sourceTree = "<group>"; };
+		7FD4027916C46FA30042346C /* chef.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chef.png; sourceTree = "<group>"; };
+		7FD4027A16C46FA30042346C /* chef@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chef@2x.png"; sourceTree = "<group>"; };
+		7FD4027B16C46FA30042346C /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		7FD4027C16C46FA30042346C /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		7FD4027D16C46FA30042346C /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		7FD4028A16C472090042346C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = Delightful/en.lproj/MainStoryboard.storyboard; sourceTree = SOURCE_ROOT; };
+		7FD4028D16C472180042346C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Delightful/en.lproj/InfoPlist.strings; sourceTree = SOURCE_ROOT; };
+		7FD4029216C474410042346C /* ShopHealthy.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ShopHealthy.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 		7F1CB42916BCC8B900F77D92 = {
 			isa = PBXGroup;
 			children = (
+				7FD4029116C474410042346C /* ShopHealthy.xcdatamodeld */,
 				7F1CB43D16BCC8BA00F77D92 /* delightful */,
 				7F1CB43416BCC8BA00F77D92 /* Frameworks */,
 				7F1CB43316BCC8BA00F77D92 /* Products */,
@@ -111,17 +114,14 @@
 		7F1CB43D16BCC8BA00F77D92 /* delightful */ = {
 			isa = PBXGroup;
 			children = (
-				7F1CB44616BCC8BA00F77D92 /* AppDelegate.h */,
-				7F1CB44716BCC8BA00F77D92 /* AppDelegate.m */,
-				7F1CB44F16BCC8BA00F77D92 /* MainStoryboard.storyboard */,
-				7F1CB45516BCC8BA00F77D92 /* MasterViewController.h */,
-				7F1CB45616BCC8BA00F77D92 /* MasterViewController.m */,
-				7F1CB46016BCD23400F77D92 /* AddItemViewController.h */,
-				7F1CB46116BCD23400F77D92 /* AddItemViewController.m */,
-				7F1CB45216BCC8BA00F77D92 /* ShopHealthy.xcdatamodeld */,
-				7F1CB46E16BCDDE900F77D92 /* Item.h */,
-				7F1CB46F16BCDDE900F77D92 /* Item.m */,
-				7F1CB46516BCD8CB00F77D92 /* Assets */,
+				7FD4024916C46ECD0042346C /* AddItemViewController.h */,
+				7FD4024A16C46ECD0042346C /* AddItemViewController.m */,
+				7FD4024B16C46ECD0042346C /* AppDelegate.h */,
+				7FD4024C16C46ECD0042346C /* AppDelegate.m */,
+				7FD4024D16C46ECD0042346C /* MasterViewController.h */,
+				7FD4024E16C46ECD0042346C /* MasterViewController.m */,
+				7FD4028F16C472350042346C /* ShopHealthy.xcdatamodeld */,
+				7FD4028916C472090042346C /* MainStoryboard.storyboard */,
 				7F1CB43E16BCC8BA00F77D92 /* Supporting Files */,
 			);
 			name = delightful;
@@ -131,35 +131,35 @@
 		7F1CB43E16BCC8BA00F77D92 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				7F1CB46516BCD8CB00F77D92 /* assets */,
-				7F1CB43F16BCC8BA00F77D92 /* Delightful-Info.plist */,
-				7F1CB44016BCC8BA00F77D92 /* InfoPlist.strings */,
-				7F1CB44316BCC8BA00F77D92 /* main.m */,
-				7F1CB44516BCC8BA00F77D92 /* Delightful-Prefix.pch */,
-				7F1CB44916BCC8BA00F77D92 /* Default.png */,
-				7F1CB44B16BCC8BA00F77D92 /* Default@2x.png */,
-				7F1CB44D16BCC8BA00F77D92 /* Default-568h@2x.png */,
+				7FD4027216C46FA30042346C /* Assets */,
+				7FD4026A16C46F690042346C /* Item.h */,
+				7FD4026B16C46F690042346C /* Item.m */,
+				7FD4028C16C472180042346C /* InfoPlist.strings */,
+				7FD4026816C46F690042346C /* Delightful-Info.plist */,
+				7FD4026916C46F690042346C /* Delightful-Prefix.pch */,
+				7FD4026C16C46F690042346C /* main.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		7F1CB46516BCD8CB00F77D92 /* Assets */ = {
+		7FD4027216C46FA30042346C /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				7F1CB46616BCDA2800F77D92 /* cart.png */,
-				7F1CB46716BCDA2800F77D92 /* cart@2x.png */,
-				7FF65C4016BF41D800796B87 /* cartTab.png */,
-				7FF65C4116BF41D800796B87 /* cartTab@2x.png */,
-				7FF65C4416BF42FA00796B87 /* check@2x.png */,
-				7FF65C4516BF42FA00796B87 /* check.png */,
-				7F84D02916BEF72E006EA1E5 /* chef.png */,
-				7F84D02A16BEF72E006EA1E5 /* chef@2x.png */,
-				7F1CB44916BCC8BA00F77D92 /* Default.png */,
-				7F1CB44B16BCC8BA00F77D92 /* Default@2x.png */,
-				7F1CB44D16BCC8BA00F77D92 /* Default-568h@2x.png */,
+				7FD4027316C46FA30042346C /* cart.png */,
+				7FD4027416C46FA30042346C /* cart@2x.png */,
+				7FD4027516C46FA30042346C /* cartTab.png */,
+				7FD4027616C46FA30042346C /* cartTab@2x.png */,
+				7FD4027716C46FA30042346C /* check.png */,
+				7FD4027816C46FA30042346C /* check@2x.png */,
+				7FD4027916C46FA30042346C /* chef.png */,
+				7FD4027A16C46FA30042346C /* chef@2x.png */,
+				7FD4027B16C46FA30042346C /* Default-568h@2x.png */,
+				7FD4027C16C46FA30042346C /* Default.png */,
+				7FD4027D16C46FA30042346C /* Default@2x.png */,
 			);
 			name = Assets;
-			sourceTree = "<group>";
+			path = Delightful/assets;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -212,19 +212,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7F1CB44216BCC8BA00F77D92 /* InfoPlist.strings in Resources */,
-				7F1CB44A16BCC8BA00F77D92 /* Default.png in Resources */,
-				7F1CB44C16BCC8BA00F77D92 /* Default@2x.png in Resources */,
-				7F1CB44E16BCC8BA00F77D92 /* Default-568h@2x.png in Resources */,
-				7F1CB45116BCC8BA00F77D92 /* MainStoryboard.storyboard in Resources */,
-				7F1CB46816BCDA2800F77D92 /* cart.png in Resources */,
-				7F1CB46916BCDA2800F77D92 /* cart@2x.png in Resources */,
-				7F84D02B16BEF72E006EA1E5 /* chef.png in Resources */,
-				7F84D02C16BEF72E006EA1E5 /* chef@2x.png in Resources */,
-				7FF65C4216BF41D800796B87 /* cartTab.png in Resources */,
-				7FF65C4316BF41D800796B87 /* cartTab@2x.png in Resources */,
-				7FF65C4616BF42FA00796B87 /* check@2x.png in Resources */,
-				7FF65C4716BF42FA00796B87 /* check.png in Resources */,
+				7FD4026E16C46F690042346C /* Delightful-Info.plist in Resources */,
+				7FD4027E16C46FA30042346C /* cart.png in Resources */,
+				7FD4027F16C46FA30042346C /* cart@2x.png in Resources */,
+				7FD4028016C46FA30042346C /* cartTab.png in Resources */,
+				7FD4028116C46FA30042346C /* cartTab@2x.png in Resources */,
+				7FD4028216C46FA30042346C /* check.png in Resources */,
+				7FD4028316C46FA30042346C /* check@2x.png in Resources */,
+				7FD4028416C46FA30042346C /* chef.png in Resources */,
+				7FD4028516C46FA30042346C /* chef@2x.png in Resources */,
+				7FD4028616C46FA30042346C /* Default-568h@2x.png in Resources */,
+				7FD4028716C46FA30042346C /* Default.png in Resources */,
+				7FD4028816C46FA30042346C /* Default@2x.png in Resources */,
+				7FD4028B16C472090042346C /* MainStoryboard.storyboard in Resources */,
+				7FD4028E16C472180042346C /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,32 +236,33 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7F1CB44416BCC8BA00F77D92 /* main.m in Sources */,
-				7F1CB44816BCC8BA00F77D92 /* AppDelegate.m in Sources */,
-				7F1CB45416BCC8BA00F77D92 /* ShopHealthy.xcdatamodeld in Sources */,
-				7F1CB45716BCC8BA00F77D92 /* MasterViewController.m in Sources */,
-				7F1CB46216BCD23400F77D92 /* AddItemViewController.m in Sources */,
-				7F1CB47016BCDDE900F77D92 /* Item.m in Sources */,
+				7FD4024F16C46ECD0042346C /* AddItemViewController.m in Sources */,
+				7FD4025016C46ECD0042346C /* AppDelegate.m in Sources */,
+				7FD4025116C46ECD0042346C /* MasterViewController.m in Sources */,
+				7FD4026F16C46F690042346C /* Item.m in Sources */,
+				7FD4027016C46F690042346C /* main.m in Sources */,
+				7FD4029016C472350042346C /* ShopHealthy.xcdatamodeld in Sources */,
+				7FD4029316C474420042346C /* ShopHealthy.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		7F1CB44016BCC8BA00F77D92 /* InfoPlist.strings */ = {
+		7FD4028916C472090042346C /* MainStoryboard.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				7F1CB44116BCC8BA00F77D92 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		7F1CB44F16BCC8BA00F77D92 /* MainStoryboard.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7F1CB45016BCC8BA00F77D92 /* en */,
+				7FD4028A16C472090042346C /* en */,
 			);
 			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+		7FD4028C16C472180042346C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7FD4028D16C472180042346C /* en */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -326,8 +328,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ShopHealthy/Delightful-Prefix.pch";
-				INFOPLIST_FILE = "ShopHealthy/Delightful-Info.plist";
+				GCC_PREFIX_HEADER = "Delightful/Delightful-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/Delightful/Delightful-Info.plist";
 				PRODUCT_NAME = Delightful;
 				WRAPPER_EXTENSION = app;
 			};
@@ -337,8 +339,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ShopHealthy/Delightful-Prefix.pch";
-				INFOPLIST_FILE = "ShopHealthy/Delightful-Info.plist";
+				GCC_PREFIX_HEADER = "Delightful/Delightful-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/Delightful/Delightful-Info.plist";
 				PRODUCT_NAME = Delightful;
 				WRAPPER_EXTENSION = app;
 			};
@@ -368,13 +370,23 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		7F1CB45216BCC8BA00F77D92 /* ShopHealthy.xcdatamodeld */ = {
+		7FD4028F16C472350042346C /* ShopHealthy.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				7F1CB45316BCC8BA00F77D92 /* ShopHealthy.xcdatamodel */,
 			);
-			currentVersion = 7F1CB45316BCC8BA00F77D92 /* ShopHealthy.xcdatamodel */;
-			path = ShopHealthy.xcdatamodeld;
+			name = ShopHealthy.xcdatamodeld;
+			path = ../Delightful/ShopHealthy.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+		7FD4029116C474410042346C /* ShopHealthy.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				7FD4029216C474410042346C /* ShopHealthy.xcdatamodel */,
+			);
+			currentVersion = 7FD4029216C474410042346C /* ShopHealthy.xcdatamodel */;
+			name = ShopHealthy.xcdatamodeld;
+			path = Delightful/ShopHealthy.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
