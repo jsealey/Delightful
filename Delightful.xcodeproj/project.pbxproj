@@ -112,12 +112,12 @@
 		7F1CB43D16BCC8BA00F77D92 /* Delightful */ = {
 			isa = PBXGroup;
 			children = (
-				7FD4024916C46ECD0042346C /* AddItemViewController.h */,
-				7FD4024A16C46ECD0042346C /* AddItemViewController.m */,
 				7FD4024B16C46ECD0042346C /* AppDelegate.h */,
 				7FD4024C16C46ECD0042346C /* AppDelegate.m */,
 				7FD4024D16C46ECD0042346C /* MasterViewController.h */,
 				7FD4024E16C46ECD0042346C /* MasterViewController.m */,
+				7FD4024916C46ECD0042346C /* AddItemViewController.h */,
+				7FD4024A16C46ECD0042346C /* AddItemViewController.m */,
 				7FC4F79E16C4918C005E904C /* Delightful.xcdatamodel */,
 				7FD4028916C472090042346C /* MainStoryboard.storyboard */,
 				7F1CB43E16BCC8BA00F77D92 /* Supporting Files */,

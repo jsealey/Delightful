@@ -24,13 +24,20 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.navigationItem.leftBarButtonItem = self.editButtonItem;
+    [self showEditButtonIfNotEmpty];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     self.fetchedResultsController = nil;
+}
+
+- (void)showEditButtonIfNotEmpty {
+    if([[self.fetchedResultsController sections] count] > 0 && [[self.fetchedResultsController sections][0] numberOfObjects] > 0)
+        self.navigationItem.leftBarButtonItem = self.editButtonItem;
+    else
+        self.navigationItem.leftBarButtonItem = nil;
 }
 
 #pragma mark - Table View
@@ -152,6 +159,7 @@
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
 {
     [self.tableView endUpdates];
+    [self showEditButtonIfNotEmpty];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
