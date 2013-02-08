@@ -15,7 +15,6 @@
 		7FD4024F16C46ECD0042346C /* AddItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD4024A16C46ECD0042346C /* AddItemViewController.m */; };
 		7FD4025016C46ECD0042346C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD4024C16C46ECD0042346C /* AppDelegate.m */; };
 		7FD4025116C46ECD0042346C /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD4024E16C46ECD0042346C /* MasterViewController.m */; };
-		7FD4026E16C46F690042346C /* Delightful-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7FD4026816C46F690042346C /* Delightful-Info.plist */; };
 		7FD4026F16C46F690042346C /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD4026B16C46F690042346C /* Item.m */; };
 		7FD4027016C46F690042346C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD4026C16C46F690042346C /* main.m */; };
 		7FD4027E16C46FA30042346C /* cart.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FD4027316C46FA30042346C /* cart.png */; };
@@ -209,7 +208,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7FD4026E16C46F690042346C /* Delightful-Info.plist in Resources */,
 				7FD4027E16C46FA30042346C /* cart.png in Resources */,
 				7FD4027F16C46FA30042346C /* cart@2x.png in Resources */,
 				7FD4028016C46FA30042346C /* cartTab.png in Resources */,

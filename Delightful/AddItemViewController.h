@@ -18,8 +18,6 @@
 
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
-- (IBAction)resign:(id)sender;
 - (IBAction)dismissKeyboard:(id)sender;
 - (IBAction)incrementQuantity:(id)sender;
-- (void) timedPopup:(NSString *)name withQuantity:(NSString *)quantities;
 @end
