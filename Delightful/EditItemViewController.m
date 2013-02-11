@@ -84,7 +84,7 @@ UIAlertView *progressAlert;
     [UIView beginAnimations: @"anim" context: nil];
     [UIView setAnimationBeginsFromCurrentState: YES];
     [UIView setAnimationDuration: movementDuration];
-    self.view.frame = CGRectOffset(self.view.frame, 0, movement);
+    self.parentViewController.view.frame = CGRectOffset(self.parentViewController.view.frame, 0, movement);
     [UIView commitAnimations];
 }
 
