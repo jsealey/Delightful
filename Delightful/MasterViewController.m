@@ -135,17 +135,18 @@
 
 - (void)tableView:(UITableView *)tableView willBeginEditingRowAtIndexPath:(NSIndexPath *)indexPath {
     self.isEditing = YES;
-    [self reloadVisibleCells];
+    [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath, nil] withRowAnimation:UITableViewRowAnimationNone];
 }
 
 - (void)tableView:(UITableView *)tableView didEndEditingRowAtIndexPath:(NSIndexPath *)indexPath {
     self.isEditing = NO;
-    [self reloadVisibleCells];
+    [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath, nil] withRowAnimation:UITableViewRowAnimationNone];
 }
 
 - (void) reloadVisibleCells {
-    for (UITableViewCell *cell in self.tableView.visibleCells)
+    for (UITableViewCell *cell in [[NSMutableArray alloc] initWithArray:self.tableView.visibleCells]){
         [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:[self.tableView indexPathForCell:cell], nil] withRowAnimation:UITableViewRowAnimationNone];
+    }
 }
 
 - (void)insertNewObject:(id)sender
