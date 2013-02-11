@@ -33,13 +33,13 @@
 }
 
 - (void)setupNavigationTitle {
-    CGRect frame = CGRectMake(0, 0, 400, 44);
+    CGRect frame = CGRectMake(0, 0, 900, 44);
     UILabel *label = [[UILabel alloc] initWithFrame:frame];
     label.backgroundColor = [UIColor clearColor];
     label.font = [UIFont fontWithName:@"Snell Roundhand" size:28.0f];
     label.textAlignment = 1;
     label.textColor = [UIColor whiteColor];
-    label.text = @"Delightful  ";
+    label.text = @"Delightful";
     self.navigationItem.titleView = label;
 }
 
