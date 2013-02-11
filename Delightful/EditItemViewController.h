@@ -1,15 +1,16 @@
 //
-//  AddItemViewController.h
+//  EditItemViewController.h
 //  Delightful
 //
-//  Created by Jared on 2/1/13.
+//  Created by Jared on 2/10/13.
 //  Copyright (c) 2013 com.company. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface AddItemViewController : UIViewController
+@interface EditItemViewController : UIViewController
 
+@property NSIndexPath *selectedIndexPath;
 @property (weak, nonatomic) IBOutlet UITextField *nameField;
 @property (weak, nonatomic) IBOutlet UITextField *quantityField;
 @property (weak, nonatomic) IBOutlet UIButton *dismissButton;
@@ -18,8 +19,11 @@
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
-- (IBAction)dismiss:(id)sender;
-- (IBAction)addItem:(id)sender;
+
+- (void)updateItem;
 - (IBAction)dismissKeyboard:(id)sender;
 - (IBAction)incrementQuantity:(id)sender;
+- (IBAction)updateMeasurement:(id)sender;
+
+
 @end

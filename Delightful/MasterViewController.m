@@ -9,6 +9,7 @@
 #import "MasterViewController.h"
 
 #import "Item.h"
+#import "EditItemViewController.h"
 
 @interface MasterViewController ()
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
@@ -25,6 +26,7 @@
 {
     [super viewDidLoad];
     [self showEditButtonIfNotEmpty];
+    self.tableView.allowsSelectionDuringEditing = YES;
 }
 
 - (void)didReceiveMemoryWarning
@@ -38,6 +40,20 @@
         self.navigationItem.leftBarButtonItem = self.editButtonItem;
     else
         self.navigationItem.leftBarButtonItem = nil;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"addItem"]) {
+        [[segue destinationViewController] setFetchedResultsController:self.fetchedResultsController];
+        [[segue destinationViewController] setManagedObjectContext:self.managedObjectContext];
+    } else if([[segue identifier] isEqualToString:@"detail"]){
+        [[segue destinationViewController] setFetchedResultsController:self.fetchedResultsController];
+        [[segue destinationViewController] setManagedObjectContext:self.managedObjectContext];
+        [[segue destinationViewController] setSelectedIndexPath:[self.tableView indexPathForSelectedRow]];
+        Item *object = [self.fetchedResultsController objectAtIndexPath:[self.tableView indexPathForSelectedRow]];
+        [[segue destinationViewController] setTitle:[NSString stringWithFormat:@"Edit %@", object.name]];
+    }
 }
 
 #pragma mark - Table View
@@ -81,11 +97,20 @@
     return NO;
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if ([[segue identifier] isEqualToString:@"addItem"]) {
-        [[segue destinationViewController] setFetchedResultsController:self.fetchedResultsController];
-        [[segue destinationViewController] setManagedObjectContext:self.managedObjectContext];
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender{
+    if ([identifier isEqual:@"addItem"] || (self.tableView.editing == YES && [identifier isEqual:@"detail"])) {
+        return YES;
+    } else return NO;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (tableView.editing == YES) {
+        // Don't toggle checked status during editing
+    } else {
+        Item *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        object.checked = object.checked.boolValue ? [[NSNumber alloc] initWithBool:NO] : [[NSNumber alloc] initWithBool:YES];
+        NSError *error = nil;
+        if (![[self.fetchedResultsController managedObjectContext] save:&error]) NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
     }
 }
 
@@ -160,14 +185,6 @@
 {
     [self.tableView endUpdates];
     [self showEditButtonIfNotEmpty];
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    Item *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    if(object.checked.boolValue == YES) object.checked = [[NSNumber alloc] initWithBool:NO];
-    else object.checked = [[NSNumber alloc] initWithBool:YES];
-    NSError *error = nil;
-    if (![[self.fetchedResultsController managedObjectContext] save:&error]) NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
 }
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
