@@ -122,15 +122,25 @@
         // Put setting button on top right navigation bar
         self.rightButtonTempHold = self.navigationItem.rightBarButtonItem;
         UIBarButtonItem *settingsButton = [[UIBarButtonItem alloc] initWithTitle:@"Settings" style:UIBarButtonItemStylePlain target:self action:@selector(insertNewObject:)];
+        // Hide the checkmark
         [self reloadVisibleCells];
         self.navigationItem.rightBarButtonItem = settingsButton;
-        [super setEditing:editing animated:animated];
     } else {
         // Put "+" button on top right navigation bar
         self.navigationItem.rightBarButtonItem = self.rightButtonTempHold;
         [self performSelector:@selector(reloadVisibleCells) withObject:nil afterDelay:.25];
-        [super setEditing:editing animated:animated];
     }
+    [super setEditing:editing animated:animated];
+}
+
+- (void)tableView:(UITableView *)tableView willBeginEditingRowAtIndexPath:(NSIndexPath *)indexPath {
+    self.isEditing = YES;
+    [self reloadVisibleCells];
+}
+
+- (void)tableView:(UITableView *)tableView didEndEditingRowAtIndexPath:(NSIndexPath *)indexPath {
+    self.isEditing = NO;
+    [self reloadVisibleCells];
 }
 
 - (void) reloadVisibleCells {
