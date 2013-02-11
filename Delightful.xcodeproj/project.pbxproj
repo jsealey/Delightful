@@ -12,6 +12,7 @@
 		7F1CB43816BCC8BA00F77D92 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F1CB43716BCC8BA00F77D92 /* Foundation.framework */; };
 		7F1CB43A16BCC8BA00F77D92 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F1CB43916BCC8BA00F77D92 /* CoreGraphics.framework */; };
 		7F1CB43C16BCC8BA00F77D92 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F1CB43B16BCC8BA00F77D92 /* CoreData.framework */; };
+		7FB80ED216C9852C00C25E3E /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB80ED116C9852C00C25E3E /* SettingsViewController.m */; };
 		7FC4F79F16C4918C005E904C /* Delightful.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 7FC4F79E16C4918C005E904C /* Delightful.xcdatamodel */; };
 		7FD4024F16C46ECD0042346C /* AddItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD4024A16C46ECD0042346C /* AddItemViewController.m */; };
 		7FD4025016C46ECD0042346C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD4024C16C46ECD0042346C /* AppDelegate.m */; };
@@ -41,6 +42,8 @@
 		7F1CB43716BCC8BA00F77D92 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7F1CB43916BCC8BA00F77D92 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		7F1CB43B16BCC8BA00F77D92 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		7FB80ED016C9852C00C25E3E /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		7FB80ED116C9852C00C25E3E /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		7FC4F79E16C4918C005E904C /* Delightful.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Delightful.xcdatamodel; sourceTree = "<group>"; };
 		7FD4024916C46ECD0042346C /* AddItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddItemViewController.h; path = Delightful/AddItemViewController.h; sourceTree = SOURCE_ROOT; };
 		7FD4024A16C46ECD0042346C /* AddItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddItemViewController.m; path = Delightful/AddItemViewController.m; sourceTree = SOURCE_ROOT; };
@@ -122,6 +125,8 @@
 				7FD4024A16C46ECD0042346C /* AddItemViewController.m */,
 				7F16E50016C8885A00C5C060 /* EditItemViewController.h */,
 				7F16E50116C8885A00C5C060 /* EditItemViewController.m */,
+				7FB80ED016C9852C00C25E3E /* SettingsViewController.h */,
+				7FB80ED116C9852C00C25E3E /* SettingsViewController.m */,
 				7FC4F79E16C4918C005E904C /* Delightful.xcdatamodel */,
 				7FD4028916C472090042346C /* MainStoryboard.storyboard */,
 				7F1CB43E16BCC8BA00F77D92 /* Supporting Files */,
@@ -243,6 +248,7 @@
 				7FD4027016C46F690042346C /* main.m in Sources */,
 				7FC4F79F16C4918C005E904C /* Delightful.xcdatamodel in Sources */,
 				7F16E50216C8885A00C5C060 /* EditItemViewController.m in Sources */,
+				7FB80ED216C9852C00C25E3E /* SettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

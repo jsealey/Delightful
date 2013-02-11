@@ -10,6 +10,7 @@
 
 #import "Item.h"
 #import "EditItemViewController.h"
+#import "SettingsViewController.h"
 
 @interface MasterViewController ()
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
@@ -27,6 +28,7 @@
     [super viewDidLoad];
     [self showEditButtonIfNotEmpty];
     self.tableView.allowsSelectionDuringEditing = YES;
+    self.isEditing = NO;
 }
 
 - (void)didReceiveMemoryWarning
@@ -51,8 +53,8 @@
         [[segue destinationViewController] setFetchedResultsController:self.fetchedResultsController];
         [[segue destinationViewController] setManagedObjectContext:self.managedObjectContext];
         [[segue destinationViewController] setSelectedIndexPath:[self.tableView indexPathForSelectedRow]];
-        Item *object = [self.fetchedResultsController objectAtIndexPath:[self.tableView indexPathForSelectedRow]];
-        [[segue destinationViewController] setTitle:[NSString stringWithFormat:@"Edit %@", object.name]];
+        [[segue destinationViewController] setTitle:@"Edit"];
+        // TODO: Set back button text to "back"
     }
 }
 
@@ -112,6 +114,35 @@
         NSError *error = nil;
         if (![[self.fetchedResultsController managedObjectContext] save:&error]) NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
     }
+}
+
+- (void)setEditing:(BOOL)editing animated:(BOOL)animated {
+    self.isEditing = editing;
+    if(editing){
+        // Put setting button on top right navigation bar
+        self.rightButtonTempHold = self.navigationItem.rightBarButtonItem;
+        UIBarButtonItem *settingsButton = [[UIBarButtonItem alloc] initWithTitle:@"Settings" style:UIBarButtonItemStylePlain target:self action:@selector(insertNewObject:)];
+        [self reloadVisibleCells];
+        self.navigationItem.rightBarButtonItem = settingsButton;
+        [super setEditing:editing animated:animated];
+    } else {
+        // Put "+" button on top right navigation bar
+        self.navigationItem.rightBarButtonItem = self.rightButtonTempHold;
+        [self performSelector:@selector(reloadVisibleCells) withObject:nil afterDelay:.25];
+        [super setEditing:editing animated:animated];
+    }
+}
+
+- (void) reloadVisibleCells {
+    for (UITableViewCell *cell in self.tableView.visibleCells)
+        [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:[self.tableView indexPathForCell:cell], nil] withRowAnimation:UITableViewRowAnimationNone];
+}
+
+- (void)insertNewObject:(id)sender
+{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    SettingsViewController *settingsViewController = (SettingsViewController *)[storyboard instantiateViewControllerWithIdentifier:@"settings"];
+    [self.navigationController presentViewController:settingsViewController animated:YES completion:nil];
 }
 
 #pragma mark - Fetched results controller
@@ -192,6 +223,9 @@
     Item *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
     [(UILabel *)[cell viewWithTag:1] setText:object.name];
     [(UILabel *)[cell viewWithTag:2]setText:[NSString stringWithFormat:@"%@ %@",object.quantity,[Item getMeasurementName:object.measurement]]];
+
+    // Hide checkmark when configuring cells in edit mode
+    [(UILabel *)[cell viewWithTag:3] setHidden:self.isEditing];
     if(object.checked.boolValue == YES)[(UILabel *)[cell viewWithTag:3] setText:@"\u2705"];
     else [(UILabel *)[cell viewWithTag:3] setText:@"\u2B1C"];
 }

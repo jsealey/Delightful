@@ -12,6 +12,9 @@
 
 @interface MasterViewController : UITableViewController <NSFetchedResultsControllerDelegate>
 
+@property UIBarButtonItem *rightButtonTempHold;
+@property BOOL isEditing;
+
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
