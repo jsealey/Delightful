@@ -29,6 +29,18 @@
     [self showEditButtonIfNotEmpty];
     self.tableView.allowsSelectionDuringEditing = YES;
     self.isEditing = NO;
+    [self setupNavigationTitle];
+}
+
+- (void)setupNavigationTitle {
+    CGRect frame = CGRectMake(0, 0, 400, 44);
+    UILabel *label = [[UILabel alloc] initWithFrame:frame];
+    label.backgroundColor = [UIColor clearColor];
+    label.font = [UIFont fontWithName:@"Snell Roundhand" size:28.0f];
+    label.textAlignment = 1;
+    label.textColor = [UIColor whiteColor];
+    label.text = @"Delightful  ";
+    self.navigationItem.titleView = label;
 }
 
 - (void)didReceiveMemoryWarning
@@ -116,22 +128,7 @@
     }
 }
 
-- (void)setEditing:(BOOL)editing animated:(BOOL)animated {
-    self.isEditing = editing;
-    if(editing){
-        // Put setting button on top right navigation bar
-        self.rightButtonTempHold = self.navigationItem.rightBarButtonItem;
-        UIBarButtonItem *settingsButton = [[UIBarButtonItem alloc] initWithTitle:@"Settings" style:UIBarButtonItemStylePlain target:self action:@selector(insertNewObject:)];
-        // Hide the checkmark
-        [self reloadVisibleCells];
-        self.navigationItem.rightBarButtonItem = settingsButton;
-    } else {
-        // Put "+" button on top right navigation bar
-        self.navigationItem.rightBarButtonItem = self.rightButtonTempHold;
-        [self performSelector:@selector(reloadVisibleCells) withObject:nil afterDelay:.25];
-    }
-    [super setEditing:editing animated:animated];
-}
+#pragma mark - Table View Editing
 
 - (void)tableView:(UITableView *)tableView willBeginEditingRowAtIndexPath:(NSIndexPath *)indexPath {
     self.isEditing = YES;
@@ -149,12 +146,30 @@
     }
 }
 
+- (void)setEditing:(BOOL)editing animated:(BOOL)animated {
+    self.isEditing = editing;
+    if(editing){
+        // Put setting button on top right navigation bar
+        self.rightButtonTempHold = self.navigationItem.rightBarButtonItem;
+        UIBarButtonItem *settingsButton = [[UIBarButtonItem alloc] initWithTitle:@"Settings" style:UIBarButtonItemStylePlain target:self action:@selector(insertNewObject:)];
+        // Hide the checkmark
+        [self reloadVisibleCells];
+        self.navigationItem.rightBarButtonItem = settingsButton;
+    } else {
+        // Put "+" button on top right navigation bar
+        self.navigationItem.rightBarButtonItem = self.rightButtonTempHold;
+        [self performSelector:@selector(reloadVisibleCells) withObject:nil afterDelay:.25];
+    }
+    [super setEditing:editing animated:animated];
+}
+
 - (void)insertNewObject:(id)sender
 {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
     SettingsViewController *settingsViewController = (SettingsViewController *)[storyboard instantiateViewControllerWithIdentifier:@"settings"];
     [self.navigationController presentViewController:settingsViewController animated:YES completion:nil];
 }
+
 
 #pragma mark - Fetched results controller
 
