@@ -33,7 +33,7 @@
 }
 
 - (void)setupNavigationTitle {
-    CGRect frame = CGRectMake(0, 0, 900, 44);
+    CGRect frame = CGRectMake(0, 0, 170, 44);
     UILabel *label = [[UILabel alloc] initWithFrame:frame];
     label.backgroundColor = [UIColor clearColor];
     label.font = [UIFont fontWithName:@"Snell Roundhand" size:28.0f];
@@ -52,8 +52,13 @@
 - (void)showEditButtonIfNotEmpty {
     if([[self.fetchedResultsController sections] count] > 0 && [[self.fetchedResultsController sections][0] numberOfObjects] > 0)
         self.navigationItem.leftBarButtonItem = self.editButtonItem;
-    else
+    else {
         self.navigationItem.leftBarButtonItem = nil;
+        if(self.rightButtonTempHold){
+            self.navigationItem.rightBarButtonItem = self.rightButtonTempHold;
+            [self setEditing:NO];
+        }
+    }
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -159,6 +164,7 @@
         // Put "+" button on top right navigation bar
         self.navigationItem.rightBarButtonItem = self.rightButtonTempHold;
         [self performSelector:@selector(reloadVisibleCells) withObject:nil afterDelay:.25];
+        self.rightButtonTempHold = nil;
     }
     [super setEditing:editing animated:animated];
 }
