@@ -2,7 +2,7 @@
 
 iPhone app to help promote healthy shopping and organize meal plans.
 
-![Splash](http://s9.postimage.org/uogao5j7z/Screen_Shot_2013_02_06_at_6_45_27_PM.png "title")
+![Splash](http://s7.postimage.org/4mbsivwh7/sample_Image.png "title")
 
 ## Copyright
 
