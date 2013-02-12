@@ -7,8 +7,7 @@
 //
 
 #import "AppDelegate.h"
-
-#import "MasterViewController.h"
+#import "Model.h"
 
 @implementation AppDelegate
 
@@ -18,11 +17,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    UITabBarController *tabBar = (UITabBarController *)self.window.rootViewController;
-    UINavigationController *navigationController = (UINavigationController *)[tabBar.viewControllers objectAtIndex:0];
-    
-    MasterViewController *controller = (MasterViewController *)navigationController.topViewController;
-    controller.managedObjectContext = self.managedObjectContext;
+    Model *model = [Model modelSingleton];
+    model.managedObjectContext = self.managedObjectContext;
+    model.managedObjectModel = self.managedObjectModel;
+    model.persistentStoreCoordinator = self.persistentStoreCoordinator;
     return YES;
 }
 							

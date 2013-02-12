@@ -30,7 +30,8 @@ UIAlertView *progressAlert;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    Item *object = [self.fetchedResultsController objectAtIndexPath:self.selectedIndexPath];
+    _model = [Model modelSingleton];
+    Item *object = [_model.fetchedResultsController objectAtIndexPath:self.selectedIndexPath];
     _nameField.text = object.name;
     _quantityField.text = [NSString stringWithFormat:@"%i",[object.quantity integerValue]];
     _measurement.selectedSegmentIndex = [object.measurement integerValue];
@@ -64,12 +65,12 @@ UIAlertView *progressAlert;
 
 - (void)updateItem {
     if(![_nameField.text isEqual:@""] && [_quantityField.text integerValue]){
-        Item *object = [self.fetchedResultsController objectAtIndexPath:self.selectedIndexPath];
+        Item *object = [_model.fetchedResultsController objectAtIndexPath:self.selectedIndexPath];
         object.name = _nameField.text;
         object.quantity = [[NSNumber alloc] initWithInt:[_quantityField.text integerValue]];
         object.measurement = [[NSNumber alloc] initWithInt:_measurement.selectedSegmentIndex];
         NSError *error = nil;
-        if (![[self.fetchedResultsController managedObjectContext] save:&error]) NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        if (![_model.managedObjectContext save:&error]) NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
     }
 
 }

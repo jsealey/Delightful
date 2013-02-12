@@ -35,6 +35,7 @@
 		7FD4028816C46FA30042346C /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FD4027D16C46FA30042346C /* Default@2x.png */; };
 		7FD4028B16C472090042346C /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FD4028916C472090042346C /* MainStoryboard.storyboard */; };
 		7FD4028E16C472180042346C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7FD4028C16C472180042346C /* InfoPlist.strings */; };
+		7FDCD8C916C9F4F900EB10E2 /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FDCD8C816C9F4F900EB10E2 /* Model.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,6 +76,8 @@
 		7FD4027D16C46FA30042346C /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		7FD4028A16C472090042346C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = Delightful/en.lproj/MainStoryboard.storyboard; sourceTree = SOURCE_ROOT; };
 		7FD4028D16C472180042346C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Delightful/en.lproj/InfoPlist.strings; sourceTree = SOURCE_ROOT; };
+		7FDCD8C716C9F4F900EB10E2 /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
+		7FDCD8C816C9F4F900EB10E2 /* Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Model.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +138,8 @@
 				7F16E50116C8885A00C5C060 /* EditItemViewController.m */,
 				7FB80ED016C9852C00C25E3E /* SettingsViewController.h */,
 				7FB80ED116C9852C00C25E3E /* SettingsViewController.m */,
+				7FDCD8C716C9F4F900EB10E2 /* Model.h */,
+				7FDCD8C816C9F4F900EB10E2 /* Model.m */,
 				7FC4F79E16C4918C005E904C /* Delightful.xcdatamodel */,
 				7FD4028916C472090042346C /* MainStoryboard.storyboard */,
 				7F1CB43E16BCC8BA00F77D92 /* Supporting Files */,
@@ -261,6 +266,7 @@
 				7FC4F79F16C4918C005E904C /* Delightful.xcdatamodel in Sources */,
 				7F16E50216C8885A00C5C060 /* EditItemViewController.m in Sources */,
 				7FB80ED216C9852C00C25E3E /* SettingsViewController.m in Sources */,
+				7FDCD8C916C9F4F900EB10E2 /* Model.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

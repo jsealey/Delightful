@@ -31,6 +31,7 @@ UIAlertView *progressAlert;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    _model = [Model modelSingleton];
 }
 
 - (void)didReceiveMemoryWarning
@@ -45,9 +46,8 @@ UIAlertView *progressAlert;
 
 - (IBAction)addItem:(id)sender {
     if(![_nameField.text isEqual:@""] && [_quantityField.text integerValue]){
-        NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
-        NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
-        Item *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
+        NSEntityDescription *entity = [[_model.fetchedResultsController fetchRequest] entity];
+        Item *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:_model.managedObjectContext];
         newManagedObject.timeStamp = [NSDate date];
         newManagedObject.name = _nameField.text;
         newManagedObject.category = @"Dairy";
@@ -55,7 +55,7 @@ UIAlertView *progressAlert;
         newManagedObject.quantity = [[NSNumber alloc] initWithInt:[_quantityField.text integerValue]];
         newManagedObject.checked = [[NSNumber alloc] initWithBool:NO];
         NSError *error = nil;
-        if (![context save:&error]) {
+        if (![_model.managedObjectContext save:&error]) {
             NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         }
       

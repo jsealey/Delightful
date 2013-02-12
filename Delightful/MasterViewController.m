@@ -7,10 +7,10 @@
 //
 
 #import "MasterViewController.h"
-
 #import "Item.h"
 #import "EditItemViewController.h"
 #import "SettingsViewController.h"
+#import "Model.h"
 
 @interface MasterViewController ()
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
@@ -26,6 +26,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    _model = [Model modelSingleton];
+    // The initial fetched controller needs to come from MasterViewController so the delegate can be properly set
+    _model.fetchedResultsController = self.fetchedResultsController;
     [self showEditButtonIfNotEmpty];
     self.tableView.allowsSelectionDuringEditing = YES;
     self.isEditing = NO;
@@ -46,11 +49,10 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    self.fetchedResultsController = nil;
 }
 
 - (void)showEditButtonIfNotEmpty {
-    if([[self.fetchedResultsController sections] count] > 0 && [[self.fetchedResultsController sections][0] numberOfObjects] > 0)
+    if([[_model.fetchedResultsController sections] count] > 0 && [[_model.fetchedResultsController sections][0] numberOfObjects] > 0)
         self.navigationItem.leftBarButtonItem = self.editButtonItem;
     else {
         self.navigationItem.leftBarButtonItem = nil;
@@ -64,11 +66,8 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([[segue identifier] isEqualToString:@"addItem"]) {
-        [[segue destinationViewController] setFetchedResultsController:self.fetchedResultsController];
-        [[segue destinationViewController] setManagedObjectContext:self.managedObjectContext];
+        // Do nothing. (The model takes care of any data passing that would have happened here)
     } else if([[segue identifier] isEqualToString:@"detail"]){
-        [[segue destinationViewController] setFetchedResultsController:self.fetchedResultsController];
-        [[segue destinationViewController] setManagedObjectContext:self.managedObjectContext];
         [[segue destinationViewController] setSelectedIndexPath:[self.tableView indexPathForSelectedRow]];
         [[segue destinationViewController] setTitle:@"Edit"];
         self.navigationItem.backBarButtonItem =
@@ -83,12 +82,12 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return [[self.fetchedResultsController sections] count];
+    return [[_model.fetchedResultsController sections] count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    id <NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController sections][section];
+    id <NSFetchedResultsSectionInfo> sectionInfo = [_model.fetchedResultsController sections][section];
     return [sectionInfo numberOfObjects];
 }
 
@@ -107,11 +106,9 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
-        [context deleteObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
-        
+        [_model.managedObjectContext deleteObject:[_model.fetchedResultsController objectAtIndexPath:indexPath]];
         NSError *error = nil;
-        if (![context save:&error]) NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        if (![_model.managedObjectContext save:&error]) NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
     }   
 }
 
@@ -125,10 +122,10 @@
     if (tableView.editing == YES) {
         // Don't toggle checked status during editing
     } else {
-        Item *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        Item *object = [_model.fetchedResultsController objectAtIndexPath:indexPath];
         object.checked = object.checked.boolValue ? [[NSNumber alloc] initWithBool:NO] : [[NSNumber alloc] initWithBool:YES];
         NSError *error = nil;
-        if (![[self.fetchedResultsController managedObjectContext] save:&error]) NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        if (![_model.managedObjectContext save:&error]) NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
     }
 }
 
@@ -181,22 +178,22 @@
 
 - (NSFetchedResultsController *)fetchedResultsController
 {
-    if (_fetchedResultsController != nil) {
-        return _fetchedResultsController;
+    if (_model.fetchedResultsController != nil) {
+        return _model.fetchedResultsController;
     }
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Item" inManagedObjectContext:self.managedObjectContext];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Item" inManagedObjectContext:_model.managedObjectContext];
     [fetchRequest setEntity:entity];
     [fetchRequest setFetchBatchSize:20];
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"timeStamp" ascending:NO];
     NSArray *sortDescriptors = @[sortDescriptor];
     [fetchRequest setSortDescriptors:sortDescriptors];
-    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"Master"];
+    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:_model.managedObjectContext sectionNameKeyPath:nil cacheName:@"Master"];
     aFetchedResultsController.delegate = self;
-    self.fetchedResultsController = aFetchedResultsController;
+    _model.fetchedResultsController = aFetchedResultsController;
 	NSError *error = nil;
-	if (![self.fetchedResultsController performFetch:&error]) NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-    return _fetchedResultsController;
+	if (![_model.fetchedResultsController performFetch:&error]) NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+    return _model.fetchedResultsController;
 }    
 
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller
@@ -252,7 +249,7 @@
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
-    Item *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    Item *object = [_model.fetchedResultsController objectAtIndexPath:indexPath];
     [(UILabel *)[cell viewWithTag:1] setText:object.name];
     [(UILabel *)[cell viewWithTag:2]setText:[NSString stringWithFormat:@"%@ %@",object.quantity,[Item getMeasurementName:object.measurement]]];
 

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Model.h"
 
 @interface AddItemViewController : UIViewController
 
@@ -14,9 +15,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *quantityField;
 @property (weak, nonatomic) IBOutlet UIButton *dismissButton;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *measurement;
-
-@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
-@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property Model *model;
 
 - (IBAction)dismiss:(id)sender;
 - (IBAction)addItem:(id)sender;

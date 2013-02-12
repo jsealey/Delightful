@@ -9,13 +9,12 @@
 #import <UIKit/UIKit.h>
 
 #import <CoreData/CoreData.h>
+#import "Model.h"
 
 @interface MasterViewController : UITableViewController <NSFetchedResultsControllerDelegate>
 
 @property UIBarButtonItem *rightButtonTempHold;
 @property BOOL isEditing;
-
-@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
-@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property Model *model;
 
 @end
