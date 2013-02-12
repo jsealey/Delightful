@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <QuartzCore/QuartzCore.h>
 
 @interface SettingsViewController : UIViewController
 - (IBAction)setMeasuringSystem:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *metricButton;
+@property (weak, nonatomic) IBOutlet UIButton *usButton;
 
 @end

@@ -66,7 +66,11 @@
         [[segue destinationViewController] setManagedObjectContext:self.managedObjectContext];
         [[segue destinationViewController] setSelectedIndexPath:[self.tableView indexPathForSelectedRow]];
         [[segue destinationViewController] setTitle:@"Edit"];
-        // TODO: Set back button text to "back"
+        self.navigationItem.backBarButtonItem =
+        [[UIBarButtonItem alloc] initWithTitle:@"Back"
+                                         style:UIBarButtonItemStyleBordered
+                                        target:nil
+                                        action:nil];
     }
 }
 
@@ -104,11 +108,6 @@
         NSError *error = nil;
         if (![context save:&error]) NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
     }   
-}
-
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return NO;
 }
 
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender{
