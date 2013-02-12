@@ -13,6 +13,8 @@
 		7F1CB43A16BCC8BA00F77D92 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F1CB43916BCC8BA00F77D92 /* CoreGraphics.framework */; };
 		7F1CB43C16BCC8BA00F77D92 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F1CB43B16BCC8BA00F77D92 /* CoreData.framework */; };
 		7F8A071D16C9C41200EFB1F8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F8A071C16C9C41200EFB1F8 /* QuartzCore.framework */; };
+		7F8A072F16C9C9EA00EFB1F8 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F8A072D16C9C9E900EFB1F8 /* settings.png */; };
+		7F8A073016C9C9EA00EFB1F8 /* settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F8A072E16C9C9E900EFB1F8 /* settings@2x.png */; };
 		7FB80ED216C9852C00C25E3E /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB80ED116C9852C00C25E3E /* SettingsViewController.m */; };
 		7FC4F79F16C4918C005E904C /* Delightful.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 7FC4F79E16C4918C005E904C /* Delightful.xcdatamodel */; };
 		7FD4024F16C46ECD0042346C /* AddItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD4024A16C46ECD0042346C /* AddItemViewController.m */; };
@@ -44,6 +46,8 @@
 		7F1CB43916BCC8BA00F77D92 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		7F1CB43B16BCC8BA00F77D92 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		7F8A071C16C9C41200EFB1F8 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		7F8A072D16C9C9E900EFB1F8 /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
+		7F8A072E16C9C9E900EFB1F8 /* settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings@2x.png"; sourceTree = "<group>"; };
 		7FB80ED016C9852C00C25E3E /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		7FB80ED116C9852C00C25E3E /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		7FC4F79E16C4918C005E904C /* Delightful.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Delightful.xcdatamodel; sourceTree = "<group>"; };
@@ -155,6 +159,8 @@
 		7FD4027216C46FA30042346C /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				7F8A072D16C9C9E900EFB1F8 /* settings.png */,
+				7F8A072E16C9C9E900EFB1F8 /* settings@2x.png */,
 				7FD4027316C46FA30042346C /* cart.png */,
 				7FD4027416C46FA30042346C /* cart@2x.png */,
 				7FD4027516C46FA30042346C /* cartTab.png */,
@@ -235,6 +241,8 @@
 				7FD4028816C46FA30042346C /* Default@2x.png in Resources */,
 				7FD4028B16C472090042346C /* MainStoryboard.storyboard in Resources */,
 				7FD4028E16C472180042346C /* InfoPlist.strings in Resources */,
+				7F8A072F16C9C9EA00EFB1F8 /* settings.png in Resources */,
+				7F8A073016C9C9EA00EFB1F8 /* settings@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -39,7 +39,7 @@
     label.font = [UIFont fontWithName:@"Snell Roundhand" size:28.0f];
     label.textAlignment = 1;
     label.textColor = [UIColor whiteColor];
-    label.text = @"Delightful";
+    label.text = @"Delightful    ";
     self.navigationItem.titleView = label;
 }
 
@@ -150,7 +150,8 @@
     if(editing){
         // Put setting button on top right navigation bar
         self.rightButtonTempHold = self.navigationItem.rightBarButtonItem;
-        UIBarButtonItem *settingsButton = [[UIBarButtonItem alloc] initWithTitle:@"Settings" style:UIBarButtonItemStylePlain target:self action:@selector(insertNewObject:)];
+        UIBarButtonItem *settingsButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"settings.png"] style:UIBarButtonItemStylePlain target:self action:@selector(insertNewObject:)];
+        
         // Hide the checkmark
         [self reloadVisibleCells];
         self.navigationItem.rightBarButtonItem = settingsButton;
