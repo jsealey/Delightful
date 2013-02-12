@@ -258,6 +258,7 @@
 
     // Hide checkmark when configuring cells in edit mode
     [(UILabel *)[cell viewWithTag:3] setHidden:self.isEditing];
+    cell.selectionStyle = self.isEditing ? UITableViewCellSelectionStyleGray : UITableViewCellSelectionStyleNone;
     if(object.checked.boolValue == YES)[(UILabel *)[cell viewWithTag:3] setText:@"\u2705"];
     else [(UILabel *)[cell viewWithTag:3] setText:@"\u2B1C"];
 }
