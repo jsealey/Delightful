@@ -68,6 +68,7 @@
 }
 
 - (IBAction)setMeasuringSystem:(id)sender {
+    [sender setBackgroundColor:[[UIColor alloc] initWithRed:0.1f green:0.1f blue:0.1f alpha:1.0f]];
     // TODO: Implementation for setting measurement system
     [self dismissViewControllerAnimated:YES completion:nil];
 }

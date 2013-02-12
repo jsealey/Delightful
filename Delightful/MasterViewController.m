@@ -39,7 +39,7 @@
     label.font = [UIFont fontWithName:@"Snell Roundhand" size:28.0f];
     label.textAlignment = 1;
     label.textColor = [UIColor whiteColor];
-    label.text = @"Delightful    ";
+    label.text = @"Delightful  ";
     self.navigationItem.titleView = label;
 }
 
