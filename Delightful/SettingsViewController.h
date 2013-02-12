@@ -13,5 +13,7 @@
 - (IBAction)setMeasuringSystem:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *metricButton;
 @property (weak, nonatomic) IBOutlet UIButton *usButton;
+- (IBAction)changeColorLight:(id)sender;
+- (IBAction)changeColorDark:(id)sender;
 
 @end

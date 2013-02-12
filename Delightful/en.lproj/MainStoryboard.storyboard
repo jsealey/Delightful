@@ -162,6 +162,8 @@
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
+                                                    <action selector="changeColorDark:" destination="OgC-pS-xZW" eventType="touchDragOutside" id="Tld-Ct-wzV"/>
+                                                    <action selector="changeColorLight:" destination="OgC-pS-xZW" eventType="touchDown" id="KfI-uc-UIx"/>
                                                     <action selector="setMeasuringSystem:" destination="OgC-pS-xZW" eventType="touchUpInside" id="6w4-ss-2gm"/>
                                                 </connections>
                                             </button>
@@ -178,6 +180,8 @@
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
+                                                    <action selector="changeColorDark:" destination="OgC-pS-xZW" eventType="touchDragOutside" id="9QI-ob-KWC"/>
+                                                    <action selector="changeColorLight:" destination="OgC-pS-xZW" eventType="touchDown" id="bnN-BB-wcp"/>
                                                     <action selector="setMeasuringSystem:" destination="OgC-pS-xZW" eventType="touchUpInside" id="K0P-IQ-1dX"/>
                                                 </connections>
                                             </button>
@@ -620,6 +624,8 @@
         <class className="SettingsViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsViewController.h"/>
             <relationships>
+                <relationship kind="action" name="changeColorDark:"/>
+                <relationship kind="action" name="changeColorLight:"/>
                 <relationship kind="action" name="setMeasuringSystem:"/>
                 <relationship kind="outlet" name="metricButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="usButton" candidateClass="UIButton"/>
