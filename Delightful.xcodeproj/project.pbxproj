@@ -15,6 +15,7 @@
 		7F8A071D16C9C41200EFB1F8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F8A071C16C9C41200EFB1F8 /* QuartzCore.framework */; };
 		7F8A072F16C9C9EA00EFB1F8 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F8A072D16C9C9E900EFB1F8 /* settings.png */; };
 		7F8A073016C9C9EA00EFB1F8 /* settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F8A072E16C9C9E900EFB1F8 /* settings@2x.png */; };
+		7F9A65B316CAC2F200EBBA30 /* RecipeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F9A65B216CAC2F200EBBA30 /* RecipeTableViewController.m */; };
 		7FB80ED216C9852C00C25E3E /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB80ED116C9852C00C25E3E /* SettingsViewController.m */; };
 		7FC4F79F16C4918C005E904C /* Delightful.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 7FC4F79E16C4918C005E904C /* Delightful.xcdatamodel */; };
 		7FD4024F16C46ECD0042346C /* AddItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD4024A16C46ECD0042346C /* AddItemViewController.m */; };
@@ -49,6 +50,8 @@
 		7F8A071C16C9C41200EFB1F8 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		7F8A072D16C9C9E900EFB1F8 /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
 		7F8A072E16C9C9E900EFB1F8 /* settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings@2x.png"; sourceTree = "<group>"; };
+		7F9A65B116CAC2F200EBBA30 /* RecipeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeTableViewController.h; sourceTree = "<group>"; };
+		7F9A65B216CAC2F200EBBA30 /* RecipeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeTableViewController.m; sourceTree = "<group>"; };
 		7FB80ED016C9852C00C25E3E /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		7FB80ED116C9852C00C25E3E /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		7FC4F79E16C4918C005E904C /* Delightful.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Delightful.xcdatamodel; sourceTree = "<group>"; };
@@ -128,16 +131,9 @@
 		7F1CB43D16BCC8BA00F77D92 /* Delightful */ = {
 			isa = PBXGroup;
 			children = (
+				7F9A65B416CAC2FD00EBBA30 /* Tabs */,
 				7FD4024B16C46ECD0042346C /* AppDelegate.h */,
 				7FD4024C16C46ECD0042346C /* AppDelegate.m */,
-				7FD4024D16C46ECD0042346C /* MasterViewController.h */,
-				7FD4024E16C46ECD0042346C /* MasterViewController.m */,
-				7FD4024916C46ECD0042346C /* AddItemViewController.h */,
-				7FD4024A16C46ECD0042346C /* AddItemViewController.m */,
-				7F16E50016C8885A00C5C060 /* EditItemViewController.h */,
-				7F16E50116C8885A00C5C060 /* EditItemViewController.m */,
-				7FB80ED016C9852C00C25E3E /* SettingsViewController.h */,
-				7FB80ED116C9852C00C25E3E /* SettingsViewController.m */,
 				7FDCD8C716C9F4F900EB10E2 /* Model.h */,
 				7FDCD8C816C9F4F900EB10E2 /* Model.m */,
 				7FC4F79E16C4918C005E904C /* Delightful.xcdatamodel */,
@@ -159,6 +155,47 @@
 				7FD4026C16C46F690042346C /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7F9A65B416CAC2FD00EBBA30 /* Tabs */ = {
+			isa = PBXGroup;
+			children = (
+				7F9A65B516CAC30D00EBBA30 /* Shopping List */,
+				7F9A65B716CAC33500EBBA30 /* Recipes */,
+			);
+			name = Tabs;
+			sourceTree = "<group>";
+		};
+		7F9A65B516CAC30D00EBBA30 /* Shopping List */ = {
+			isa = PBXGroup;
+			children = (
+				7FD4024D16C46ECD0042346C /* MasterViewController.h */,
+				7FD4024E16C46ECD0042346C /* MasterViewController.m */,
+				7F9A65B616CAC31B00EBBA30 /* subviews */,
+			);
+			name = "Shopping List";
+			sourceTree = "<group>";
+		};
+		7F9A65B616CAC31B00EBBA30 /* subviews */ = {
+			isa = PBXGroup;
+			children = (
+				7FD4024916C46ECD0042346C /* AddItemViewController.h */,
+				7FD4024A16C46ECD0042346C /* AddItemViewController.m */,
+				7F16E50016C8885A00C5C060 /* EditItemViewController.h */,
+				7F16E50116C8885A00C5C060 /* EditItemViewController.m */,
+				7FB80ED016C9852C00C25E3E /* SettingsViewController.h */,
+				7FB80ED116C9852C00C25E3E /* SettingsViewController.m */,
+			);
+			name = subviews;
+			sourceTree = "<group>";
+		};
+		7F9A65B716CAC33500EBBA30 /* Recipes */ = {
+			isa = PBXGroup;
+			children = (
+				7F9A65B116CAC2F200EBBA30 /* RecipeTableViewController.h */,
+				7F9A65B216CAC2F200EBBA30 /* RecipeTableViewController.m */,
+			);
+			name = Recipes;
 			sourceTree = "<group>";
 		};
 		7FD4027216C46FA30042346C /* Assets */ = {
@@ -267,6 +304,7 @@
 				7F16E50216C8885A00C5C060 /* EditItemViewController.m in Sources */,
 				7FB80ED216C9852C00C25E3E /* SettingsViewController.m in Sources */,
 				7FDCD8C916C9F4F900EB10E2 /* Model.m in Sources */,
+				7F9A65B316CAC2F200EBBA30 /* RecipeTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

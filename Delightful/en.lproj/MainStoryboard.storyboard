@@ -23,10 +23,10 @@
             </objects>
             <point key="canvasLocation" x="-549" y="647"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Recipe Table View Controller - Delightful-->
         <scene sceneID="iaS-Nr-nzW">
             <objects>
-                <tableViewController id="Hhr-QO-4Nu" sceneMemberID="viewController">
+                <tableViewController title="Delightful" id="Hhr-QO-4Nu" customClass="RecipeTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Xgr-Du-vpz">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -47,7 +47,7 @@
                             <outlet property="delegate" destination="Hhr-QO-4Nu" id="fhG-9w-xok"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="BxJ-56-Huk"/>
+                    <navigationItem key="navigationItem" title="Delightful" id="BxJ-56-Huk"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x3N-mL-mYa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -592,46 +592,6 @@
         <image name="check.png" width="30" height="30"/>
         <image name="chef.png" width="30" height="30"/>
     </resources>
-    <classes>
-        <class className="AddItemViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddItemViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="addItem:"/>
-                <relationship kind="action" name="dismiss:"/>
-                <relationship kind="action" name="dismissKeyboard:"/>
-                <relationship kind="action" name="incrementQuantity:"/>
-                <relationship kind="outlet" name="dismissButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="measurement" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="nameField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="quantityField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="EditItemViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/EditItemViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="dismissKeyboard:"/>
-                <relationship kind="action" name="incrementQuantity:"/>
-                <relationship kind="action" name="updateMeasurement:"/>
-                <relationship kind="outlet" name="dismissButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="measurement" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="nameField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="quantityField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="MasterViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MasterViewController.h"/>
-        </class>
-        <class className="SettingsViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="changeColorDark:"/>
-                <relationship kind="action" name="changeColorLight:"/>
-                <relationship kind="action" name="setMeasuringSystem:"/>
-                <relationship kind="outlet" name="metricButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="usButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
