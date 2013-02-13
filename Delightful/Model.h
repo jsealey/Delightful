@@ -15,6 +15,9 @@
 @property (strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
+- (BOOL) getMeasuringSetting;
+- (void) setMeasuringSetting:(BOOL)measuring;
+
 + (Model *)modelSingleton;
 
 @end

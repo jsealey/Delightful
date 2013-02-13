@@ -32,11 +32,19 @@ UIAlertView *progressAlert;
 {
     [super viewDidLoad];
     _model = [Model modelSingleton];
+    [self setupMeasurementValues];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
+}
+
+- (void) setupMeasurementValues {
+    for(int i=0; i < 3;++i)
+        [_measurement
+                    setTitle:[Item getMeasurementName:[[NSNumber alloc] initWithInteger:i] ]
+           forSegmentAtIndex:i];
 }
 
 - (IBAction)dismiss:(id)sender {

@@ -35,11 +35,19 @@ UIAlertView *progressAlert;
     _nameField.text = object.name;
     _quantityField.text = [NSString stringWithFormat:@"%i",[object.quantity integerValue]];
     _measurement.selectedSegmentIndex = [object.measurement integerValue];
+    [self setupMeasurementValues];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
+}
+
+- (void) setupMeasurementValues {
+    for(int i=0; i < 3;++i)
+        [_measurement
+         setTitle:[Item getMeasurementName:[[NSNumber alloc] initWithInteger:i] ]
+         forSegmentAtIndex:i];
 }
 
 -(void)dismissAlertView:(UIAlertView *)alertView{
@@ -96,7 +104,6 @@ UIAlertView *progressAlert;
 
 - (IBAction)updateMeasurement:(id)sender {
     [self updateItem];
-    NSLog(@"updateMeasruement");
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {

@@ -19,11 +19,22 @@
 @dynamic name;
 
 + (NSString *)getMeasurementName:(NSNumber *) measurement{
-    switch([measurement integerValue]){
-        case 0: return @"pcs.";
-        case 1: return @"lbs";
-        case 2: return @"oz";
-        default: return @"IDK";
+    Model *model = [Model modelSingleton];
+    
+    if(model.getMeasuringSetting){
+        switch([measurement integerValue]){
+            case 0: return @"pcs.";
+            case 1: return @"gr.";
+            case 2: return @"ml.";
+            default: return @"IDK";
+        }
+    } else {
+        switch([measurement integerValue]){
+            case 0: return @"pcs.";
+            case 1: return @"lbs";
+            case 2: return @"oz";
+            default: return @"IDK";
+        }
     }
 }
 

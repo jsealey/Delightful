@@ -7,6 +7,7 @@
 //
 
 #import "SettingsViewController.h"
+#import "MasterViewController.h"
 
 @interface SettingsViewController ()
 
@@ -30,6 +31,7 @@
     
     [self addGradient:_metricButton];
     [self addGradient:_usButton];
+    _model = [Model modelSingleton];
 }
 
 -(void) addGradient:(UIButton *) _button {
@@ -64,12 +66,12 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (IBAction)setMeasuringSystem:(id)sender {
     [sender setBackgroundColor:[UIColor blackColor]];
-    // TODO: Implementation for setting measurement system
+    [_model setMeasuringSetting:[[[NSNumber alloc] initWithInt:[sender tag]] boolValue]];
+    [self.parent reloadVisibleCells];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

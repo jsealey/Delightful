@@ -8,11 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
+#import "Model.h"
+#import "MasterViewController.h"
 
 @interface SettingsViewController : UIViewController
 - (IBAction)setMeasuringSystem:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *metricButton;
 @property (weak, nonatomic) IBOutlet UIButton *usButton;
+@property Model *model;
+@property MasterViewController *parent;
 - (IBAction)changeColorLight:(id)sender;
 - (IBAction)changeColorDark:(id)sender;
 

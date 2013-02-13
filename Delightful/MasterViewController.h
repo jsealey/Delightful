@@ -16,5 +16,5 @@
 @property UIBarButtonItem *rightButtonTempHold;
 @property BOOL isEditing;
 @property Model *model;
-
+- (void) reloadVisibleCells;
 @end

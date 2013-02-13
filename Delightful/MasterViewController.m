@@ -170,9 +170,9 @@
 {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
     SettingsViewController *settingsViewController = (SettingsViewController *)[storyboard instantiateViewControllerWithIdentifier:@"settings"];
+    [settingsViewController setParent:self];
     [self.navigationController presentViewController:settingsViewController animated:YES completion:nil];
 }
-
 
 #pragma mark - Fetched results controller
 
