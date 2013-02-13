@@ -18,8 +18,6 @@
 		7F9A65B316CAC2F200EBBA30 /* RecipeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F9A65B216CAC2F200EBBA30 /* RecipeTableViewController.m */; };
 		7F9A65BE16CB417700EBBA30 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F9A65BC16CB417700EBBA30 /* icon@2x.png */; };
 		7F9A65BF16CB417700EBBA30 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F9A65BD16CB417700EBBA30 /* icon.png */; };
-		7F9A65C116CB418F00EBBA30 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F9A65C016CB418F00EBBA30 /* icon@2x.png */; };
-		7F9A65C316CB419200EBBA30 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F9A65C216CB419200EBBA30 /* icon.png */; };
 		7FB80ED216C9852C00C25E3E /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB80ED116C9852C00C25E3E /* SettingsViewController.m */; };
 		7FC4F79F16C4918C005E904C /* Delightful.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 7FC4F79E16C4918C005E904C /* Delightful.xcdatamodel */; };
 		7FD4024F16C46ECD0042346C /* AddItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD4024A16C46ECD0042346C /* AddItemViewController.m */; };
@@ -58,8 +56,6 @@
 		7F9A65B216CAC2F200EBBA30 /* RecipeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeTableViewController.m; sourceTree = "<group>"; };
 		7F9A65BC16CB417700EBBA30 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
 		7F9A65BD16CB417700EBBA30 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
-		7F9A65C016CB418F00EBBA30 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
-		7F9A65C216CB419200EBBA30 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		7FB80ED016C9852C00C25E3E /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		7FB80ED116C9852C00C25E3E /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		7FC4F79E16C4918C005E904C /* Delightful.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Delightful.xcdatamodel; sourceTree = "<group>"; };
@@ -110,8 +106,6 @@
 		7F1CB42916BCC8B900F77D92 = {
 			isa = PBXGroup;
 			children = (
-				7F9A65C216CB419200EBBA30 /* icon.png */,
-				7F9A65C016CB418F00EBBA30 /* icon@2x.png */,
 				7F1CB43D16BCC8BA00F77D92 /* Delightful */,
 				7F1CB43416BCC8BA00F77D92 /* Frameworks */,
 				7F1CB43316BCC8BA00F77D92 /* Products */,
@@ -299,8 +293,6 @@
 				7F8A073016C9C9EA00EFB1F8 /* settings@2x.png in Resources */,
 				7F9A65BE16CB417700EBBA30 /* icon@2x.png in Resources */,
 				7F9A65BF16CB417700EBBA30 /* icon.png in Resources */,
-				7F9A65C116CB418F00EBBA30 /* icon@2x.png in Resources */,
-				7F9A65C316CB419200EBBA30 /* icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

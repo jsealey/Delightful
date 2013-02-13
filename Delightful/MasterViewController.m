@@ -18,13 +18,11 @@
 
 @implementation MasterViewController
 
-- (void)awakeFromNib
-{
+- (void)awakeFromNib{
     [super awakeFromNib];
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad{
     [super viewDidLoad];
     _model = [Model modelSingleton];
     // The initial fetched controller needs to come from MasterViewController so the delegate can be properly set
@@ -46,8 +44,7 @@
     self.navigationItem.titleView = label;
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning{
     [super didReceiveMemoryWarning];
 }
 
@@ -63,8 +60,7 @@
     }
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([[segue identifier] isEqualToString:@"addItem"]) {
         // Do nothing. (The model takes care of any data passing that would have happened here)
     } else if([[segue identifier] isEqualToString:@"detail"]){
@@ -78,44 +74,40 @@
     }
 }
 
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender{
+    if ([identifier isEqual:@"addItem"] || (self.tableView.editing == YES && [identifier isEqual:@"detail"])) {
+        return YES;
+    } else return NO;
+}
+
+
 #pragma mark - Table View
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return [[_model.fetchedResultsController sections] count];
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     id <NSFetchedResultsSectionInfo> sectionInfo = [_model.fetchedResultsController sections][section];
     return [sectionInfo numberOfObjects];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     [self configureCell:cell atIndexPath:indexPath];
     return cell;
 }
 
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
     return YES;
 }
 
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         [_model.managedObjectContext deleteObject:[_model.fetchedResultsController objectAtIndexPath:indexPath]];
         NSError *error = nil;
         if (![_model.managedObjectContext save:&error]) NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
     }   
-}
-
-- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender{
-    if ([identifier isEqual:@"addItem"] || (self.tableView.editing == YES && [identifier isEqual:@"detail"])) {
-        return YES;
-    } else return NO;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -132,12 +124,13 @@
 #pragma mark - Table View Editing
 
 - (void)tableView:(UITableView *)tableView willBeginEditingRowAtIndexPath:(NSIndexPath *)indexPath {
-    self.isEditing = YES;
+    self.isEditing = self.isEditingSingleCell = YES;
+    self.currentEditIndexPath = indexPath;
     [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath, nil] withRowAnimation:UITableViewRowAnimationNone];
 }
 
 - (void)tableView:(UITableView *)tableView didEndEditingRowAtIndexPath:(NSIndexPath *)indexPath {
-    self.isEditing = NO;
+    self.isEditing = self.isEditingSingleCell =  NO;
     [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath, nil] withRowAnimation:UITableViewRowAnimationNone];
 }
 
@@ -148,26 +141,29 @@
 }
 
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated {
-    self.isEditing = editing;
-    if(editing){
-        // Put setting button on top right navigation bar
-        self.rightButtonTempHold = self.navigationItem.rightBarButtonItem;
-        UIBarButtonItem *settingsButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"settings.png"] style:UIBarButtonItemStylePlain target:self action:@selector(insertNewObject:)];
-        
-        // Hide the checkmark
-        [self reloadVisibleCells];
-        self.navigationItem.rightBarButtonItem = settingsButton;
+    if(self.isEditingSingleCell){
+        [self tableView:self.tableView didEndEditingRowAtIndexPath:self.currentEditIndexPath];
     } else {
-        // Put "+" button on top right navigation bar
-        self.navigationItem.rightBarButtonItem = self.rightButtonTempHold;
-        [self performSelector:@selector(reloadVisibleCells) withObject:nil afterDelay:.25];
-        self.rightButtonTempHold = nil;
+        self.isEditing = editing;
+        if(editing){
+            // Put setting button on top right navigation bar
+            self.rightButtonTempHold = self.navigationItem.rightBarButtonItem;
+            UIBarButtonItem *settingsButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"settings.png"] style:UIBarButtonItemStylePlain target:self action:@selector(insertNewObject:)];
+            
+            // Hide the checkmark
+            [self reloadVisibleCells];
+            self.navigationItem.rightBarButtonItem = settingsButton;
+        } else {
+            // Put "+" button on top right navigation bar
+            self.navigationItem.rightBarButtonItem = self.rightButtonTempHold;
+            [self performSelector:@selector(reloadVisibleCells) withObject:nil afterDelay:.25];
+            self.rightButtonTempHold = nil;
+        }
     }
     [super setEditing:editing animated:animated];
 }
 
-- (void)insertNewObject:(id)sender
-{
+- (void)insertNewObject:(id)sender{
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
     SettingsViewController *settingsViewController = (SettingsViewController *)[storyboard instantiateViewControllerWithIdentifier:@"settings"];
     [settingsViewController setParent:self];
@@ -176,8 +172,7 @@
 
 #pragma mark - Fetched results controller
 
-- (NSFetchedResultsController *)fetchedResultsController
-{
+- (NSFetchedResultsController *)fetchedResultsController{
     if (_model.fetchedResultsController != nil) {
         return _model.fetchedResultsController;
     }
@@ -196,14 +191,12 @@
     return _model.fetchedResultsController;
 }    
 
-- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller
-{
+- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller{
     [self.tableView beginUpdates];
 }
 
 - (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id <NSFetchedResultsSectionInfo>)sectionInfo
-           atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type
-{
+           atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type{
     switch(type) {
         case NSFetchedResultsChangeInsert:
             [self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
@@ -217,8 +210,7 @@
 
 - (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject
        atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type
-      newIndexPath:(NSIndexPath *)newIndexPath
-{
+      newIndexPath:(NSIndexPath *)newIndexPath{
     UITableView *tableView = self.tableView;
     
     switch(type) {
@@ -241,14 +233,12 @@
     }
 }
 
-- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
-{
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller{
     [self.tableView endUpdates];
     [self showEditButtonIfNotEmpty];
 }
 
-- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
-{
+- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath{
     Item *object = [_model.fetchedResultsController objectAtIndexPath:indexPath];
     [(UILabel *)[cell viewWithTag:1] setText:object.name];
     [(UILabel *)[cell viewWithTag:2]setText:[NSString stringWithFormat:@"%@ %@",object.quantity,[Item getMeasurementName:object.measurement]]];
