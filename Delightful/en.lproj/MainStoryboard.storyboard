@@ -248,7 +248,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ZpF-Jt-XLs">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="414"/>
+                                        <rect key="frame" x="0.0" y="-200" width="320" height="814"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" size="button"/>
                                         <state key="normal">
@@ -384,6 +384,9 @@
                                         <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
                                     </view>
                                 </subviews>
+                                <connections>
+                                    <outlet property="delegate" destination="Csf-bg-2l6" id="w0a-A1-oxM"/>
+                                </connections>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
@@ -393,6 +396,7 @@
                         <outlet property="measurement" destination="IDG-aO-hrf" id="nLp-no-iPq"/>
                         <outlet property="nameField" destination="cNu-cx-9eF" id="Pff-go-UYt"/>
                         <outlet property="quantityField" destination="QgB-cV-kyw" id="mqA-oc-Uc1"/>
+                        <outlet property="scrollView" destination="RAw-gS-wc3" id="Guc-TT-ru5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SEB-5r-2Ih" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -412,7 +416,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="MXH-11-pBX">
-                                        <rect key="frame" x="0.0" y="-8" width="320" height="466"/>
+                                        <rect key="frame" x="0.0" y="-182" width="320" height="814"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" size="button"/>
                                         <state key="normal">
@@ -552,6 +556,9 @@
                                         <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
                                     </view>
                                 </subviews>
+                                <connections>
+                                    <outlet property="delegate" destination="b16-9n-KDN" id="ZhZ-P6-Tp4"/>
+                                </connections>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
@@ -562,6 +569,7 @@
                         <outlet property="measurement" destination="N9x-bN-vGF" id="QYQ-e2-DiT"/>
                         <outlet property="nameField" destination="pdc-zM-1n9" id="Nja-VE-vzo"/>
                         <outlet property="quantityField" destination="qje-v3-jrl" id="BD0-E8-N9f"/>
+                        <outlet property="scrollView" destination="M0c-tG-lbE" id="FrG-Ah-S8a"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8QQ-Rj-c21" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -604,6 +612,7 @@
                 <relationship kind="outlet" name="measurement" candidateClass="UISegmentedControl"/>
                 <relationship kind="outlet" name="nameField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="quantityField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
             </relationships>
         </class>
         <class className="EditItemViewController" superclassName="UIViewController">
@@ -616,13 +625,11 @@
                 <relationship kind="outlet" name="measurement" candidateClass="UISegmentedControl"/>
                 <relationship kind="outlet" name="nameField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="quantityField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
             </relationships>
         </class>
         <class className="MasterViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MasterViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="measureType" candidateClass="UILabel"/>
-            </relationships>
         </class>
         <class className="RecipeTableViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RecipeTableViewController.h"/>

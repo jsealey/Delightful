@@ -50,6 +50,11 @@ UIAlertView *progressAlert;
          forSegmentAtIndex:i];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    _scrollView.contentSize=CGSizeMake(0,600.0);
+}
+
 -(void)dismissAlertView:(UIAlertView *)alertView{
     [alertView dismissWithClickedButtonIndex:0 animated:YES];
 }

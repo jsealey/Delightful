@@ -9,12 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "Model.h"
 
-@interface AddItemViewController : UIViewController
+@interface AddItemViewController : UIViewController <UIScrollViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *nameField;
 @property (weak, nonatomic) IBOutlet UITextField *quantityField;
 @property (weak, nonatomic) IBOutlet UIButton *dismissButton;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *measurement;
+@property (nonatomic, strong) IBOutlet UIScrollView *scrollView;
 @property Model *model;
 
 - (IBAction)dismiss:(id)sender;
