@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate>{
+    
+}
 
 @property (strong, nonatomic) UIWindow *window;
 
@@ -18,5 +20,7 @@
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
+- (void)setupNavigationTitle:(UINavigationItem *)navController;
+- (void)setupTableViewBackground:(UITableView *)tableView;
 
 @end

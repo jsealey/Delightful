@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <QuartzCore/QuartzCore.h>
 #import "Model.h"
+#import "KGNoise.h"
 
 @interface AddItemViewController : UIViewController <UIScrollViewDelegate>
 
@@ -16,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *dismissButton;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *measurement;
 @property (nonatomic, strong) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UIView *formContainerView;
 @property Model *model;
 
 - (IBAction)dismiss:(id)sender;

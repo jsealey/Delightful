@@ -15,6 +15,7 @@
 - (IBAction)setMeasuringSystem:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *metricButton;
 @property (weak, nonatomic) IBOutlet UIButton *usButton;
+@property (weak, nonatomic) IBOutlet UIView *buttonContainerView;
 @property Model *model;
 @property MasterViewController *parent;
 - (IBAction)changeColorLight:(id)sender;

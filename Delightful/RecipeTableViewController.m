@@ -26,18 +26,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self setupNavigationTitle];
-}
-
-- (void)setupNavigationTitle {
-    CGRect frame = CGRectMake(0, 0, 170, 44);
-    UILabel *label = [[UILabel alloc] initWithFrame:frame];
-    label.backgroundColor = [UIColor clearColor];
-    label.font = [UIFont fontWithName:@"Snell Roundhand" size:28.0f];
-    label.textAlignment = 1;
-    label.textColor = [UIColor whiteColor];
-    label.text = @"Delightful  ";
-    self.navigationItem.titleView = label;
+    [[AppDelegate alloc] setupTableViewBackground:self.tableView];
+    [[AppDelegate alloc] setupNavigationTitle:self.navigationItem];
 }
 
 - (void)didReceiveMemoryWarning
@@ -71,45 +61,6 @@
     
     return cell;
 }
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 #pragma mark - Table view delegate
 

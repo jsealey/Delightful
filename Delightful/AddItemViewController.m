@@ -33,6 +33,13 @@ UIAlertView *progressAlert;
     [super viewDidLoad];
     _model = [Model modelSingleton];
     [self setupMeasurementValues];
+    _formContainerView.backgroundColor = [_formContainerView.backgroundColor colorWithNoiseWithOpacity:0.1 andBlendMode:kCGBlendModeDarken];
+    
+    CALayer *layer = _formContainerView.layer;
+    layer.cornerRadius = 8.0f;
+    layer.masksToBounds = YES;
+    layer.borderWidth = 1.0f;
+    layer.borderColor = [UIColor darkGrayColor].CGColor;
 }
 
 - (void)didReceiveMemoryWarning
@@ -97,13 +104,13 @@ UIAlertView *progressAlert;
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
-    [self animateTextField: textField up: YES];
+   // [self animateTextField: textField up: YES];
 }
 
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
-    [self animateTextField: textField up: NO];
+   // [self animateTextField: textField up: NO];
 }
 
 - (void) animateTextField: (UITextField*) textField up: (BOOL) up

@@ -25,23 +25,12 @@
 - (void)viewDidLoad{
     [super viewDidLoad];
     _model = [Model modelSingleton];
-    // The initial fetched controller needs to come from MasterViewController so the delegate can be properly set
     _model.fetchedResultsController = self.fetchedResultsController;
     [self showEditButtonIfNotEmpty];
     self.tableView.allowsSelectionDuringEditing = YES;
     self.isEditing = NO;
-    [self setupNavigationTitle];
-}
-
-- (void)setupNavigationTitle {
-    CGRect frame = CGRectMake(0, 0, 170, 44);
-    UILabel *label = [[UILabel alloc] initWithFrame:frame];
-    label.backgroundColor = [UIColor clearColor];
-    label.font = [UIFont fontWithName:@"Snell Roundhand" size:28.0f];
-    label.textAlignment = 1;
-    label.textColor = [UIColor whiteColor];
-    label.text = @"Delightful  ";
-    self.navigationItem.titleView = label;
+    [[AppDelegate alloc] setupTableViewBackground:self.tableView];
+    [[AppDelegate alloc] setupNavigationTitle:self.navigationItem];
 }
 
 - (void)didReceiveMemoryWarning{
@@ -248,6 +237,8 @@
     cell.selectionStyle = self.isEditing ? UITableViewCellSelectionStyleGray : UITableViewCellSelectionStyleNone;
     if(object.checked.boolValue == YES)[(UILabel *)[cell viewWithTag:3] setText:@"\u2705"];
     else [(UILabel *)[cell viewWithTag:3] setText:@"\u2B1C"];
+    
+    cell.backgroundColor = [[UIColor whiteColor] colorWithNoiseWithOpacity:0.05 andBlendMode:kCGBlendModeDarken];
 }
 
 @end

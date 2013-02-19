@@ -10,6 +10,8 @@
 
 #import <CoreData/CoreData.h>
 #import "Model.h"
+#import "KGNoise.h"
+#import "AppDelegate.h"
 
 @interface MasterViewController : UITableViewController <NSFetchedResultsControllerDelegate>
 

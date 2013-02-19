@@ -36,6 +36,28 @@ UIAlertView *progressAlert;
     _quantityField.text = [NSString stringWithFormat:@"%i",[object.quantity integerValue]];
     _measurement.selectedSegmentIndex = [object.measurement integerValue];
     [self setupMeasurementValues];
+    
+    _formContainerView.backgroundColor = [_formContainerView.backgroundColor colorWithNoiseWithOpacity:0.1 andBlendMode:kCGBlendModeDarken];
+
+    CALayer *layer = _formContainerView.layer;
+    layer.cornerRadius = 8.0f;
+    layer.masksToBounds = YES;
+    layer.borderWidth = 1.0f;
+    layer.borderColor = [UIColor darkGrayColor].CGColor;
+}
+
+- (UIImage *)imageWithColor:(UIColor *)color {
+    CGRect rect = CGRectMake(0.0f, 0.0f, 1.0f, 1.0f);
+    UIGraphicsBeginImageContext(rect.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    
+    CGContextSetFillColorWithColor(context, [color CGColor]);
+    CGContextFillRect(context, rect);
+    
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return image;
 }
 
 - (void)didReceiveMemoryWarning
@@ -66,13 +88,13 @@ UIAlertView *progressAlert;
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
-    [self animateTextField: textField up: YES];
+   // [self animateTextField: textField up: YES];
 }
 
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
-    [self animateTextField: textField up: NO];
+   // [self animateTextField: textField up: NO];
     [self updateItem];
 }
 

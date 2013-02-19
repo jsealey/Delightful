@@ -32,6 +32,13 @@
     [self addGradient:_metricButton];
     [self addGradient:_usButton];
     _model = [Model modelSingleton];
+    _buttonContainerView.backgroundColor = [_buttonContainerView.backgroundColor colorWithNoiseWithOpacity:0.1 andBlendMode:kCGBlendModeDarken];
+    
+    CALayer *layer = _buttonContainerView.layer;
+    layer.cornerRadius = 8.0f;
+    layer.masksToBounds = YES;
+    layer.borderWidth = 1.0f;
+    layer.borderColor = [UIColor colorWithWhite:0.5f alpha:0.2f].CGColor;
 }
 
 -(void) addGradient:(UIButton *) _button {
@@ -69,17 +76,17 @@
 }
 
 - (IBAction)setMeasuringSystem:(id)sender {
-    [sender setBackgroundColor:[UIColor blackColor]];
+    [self changeColorLight:sender];
     [_model setMeasuringSetting:[[[NSNumber alloc] initWithInt:[sender tag]] boolValue]];
     [self.parent reloadVisibleCells];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)changeColorLight:(id)sender {
-    [sender setBackgroundColor:[[UIColor alloc] initWithRed:0.1f green:0.1f blue:0.1f alpha:1.0f]];
+    [sender setBackgroundColor:[[UIColor alloc] initWithRed:120.0f/255 green:166.0f/255 blue:143.0f/255 alpha:1.0f]];
 }
 
 - (IBAction)changeColorDark:(id)sender {
-    [sender setBackgroundColor:[UIColor blackColor]];
+    [sender setBackgroundColor:[[UIColor alloc] initWithRed:83.0f/255 green:127.0f/255 blue:121.0f/255 alpha:1.0f]];
 }
 @end
