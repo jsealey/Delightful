@@ -44,6 +44,10 @@ UIAlertView *progressAlert;
     layer.masksToBounds = YES;
     layer.borderWidth = 1.0f;
     layer.borderColor = [UIColor darkGrayColor].CGColor;
+    _notificationView = [[GCDiscreetNotificationView alloc] initWithText:@""
+                                                            showActivity:NO
+                                                      inPresentationMode:GCDiscreetNotificationViewPresentationModeTop
+                                                                  inView:_scrollView];
 }
 
 - (UIImage *)imageWithColor:(UIColor *)color {
@@ -98,6 +102,12 @@ UIAlertView *progressAlert;
     [self updateItem];
 }
 
+- (void) notification:(NSString *)title{
+    [self.notificationView setTextLabel:title];
+    [self.notificationView show:YES];
+    [self.notificationView hideAnimatedAfter:1.0];
+}
+
 - (void)updateItem {
     if(![_nameField.text isEqual:@""] && [_quantityField.text integerValue]){
         Item *object = [_model.fetchedResultsController objectAtIndexPath:self.selectedIndexPath];
@@ -106,9 +116,11 @@ UIAlertView *progressAlert;
         object.measurement = [[NSNumber alloc] initWithInt:_measurement.selectedSegmentIndex];
         NSError *error = nil;
         if (![_model.managedObjectContext save:&error]) NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        [self notification:[NSString stringWithFormat:@"Updated: %@ %@ of %@", object.quantity,[Item getMeasurementName:object.measurement], object.name]];
     }
-
 }
+
+
 
 - (void) animateTextField: (UITextField*) textField up: (BOOL) up
 {

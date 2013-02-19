@@ -61,6 +61,7 @@
                                         target:nil
                                         action:nil];
     }
+    [[segue destinationViewController] setParent:self];
 }
 
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender{

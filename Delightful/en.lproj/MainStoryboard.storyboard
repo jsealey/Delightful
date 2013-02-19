@@ -268,7 +268,7 @@
                                         </connections>
                                     </button>
                                     <view autoresizesSubviews="NO" contentMode="center" id="dlg-b3-AG3">
-                                        <rect key="frame" x="20" y="20" width="280" height="123"/>
+                                        <rect key="frame" x="20" y="33" width="280" height="123"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dzN-jO-k5c">
@@ -387,7 +387,7 @@
                                         </connections>
                                     </button>
                                     <view autoresizesSubviews="NO" contentMode="center" id="Mon-vn-4cB">
-                                        <rect key="frame" x="20" y="20" width="280" height="123"/>
+                                        <rect key="frame" x="20" y="33" width="280" height="123"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dQj-PI-WSX">

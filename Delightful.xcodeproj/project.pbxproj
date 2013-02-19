@@ -23,6 +23,7 @@
 		7F9A65B316CAC2F200EBBA30 /* RecipeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F9A65B216CAC2F200EBBA30 /* RecipeTableViewController.m */; };
 		7F9A65BE16CB417700EBBA30 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F9A65BC16CB417700EBBA30 /* icon@2x.png */; };
 		7F9A65BF16CB417700EBBA30 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F9A65BD16CB417700EBBA30 /* icon.png */; };
+		7FA796C816D3492200102AF7 /* GCDiscreetNotificationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA796C716D3492200102AF7 /* GCDiscreetNotificationView.m */; };
 		7FB80ED216C9852C00C25E3E /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB80ED116C9852C00C25E3E /* SettingsViewController.m */; };
 		7FC4F79F16C4918C005E904C /* Delightful.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 7FC4F79E16C4918C005E904C /* Delightful.xcdatamodel */; };
 		7FD4024F16C46ECD0042346C /* AddItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD4024A16C46ECD0042346C /* AddItemViewController.m */; };
@@ -67,6 +68,8 @@
 		7F9A65B216CAC2F200EBBA30 /* RecipeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeTableViewController.m; sourceTree = "<group>"; };
 		7F9A65BC16CB417700EBBA30 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
 		7F9A65BD16CB417700EBBA30 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		7FA796C616D3492200102AF7 /* GCDiscreetNotificationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDiscreetNotificationView.h; sourceTree = "<group>"; };
+		7FA796C716D3492200102AF7 /* GCDiscreetNotificationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDiscreetNotificationView.m; sourceTree = "<group>"; };
 		7FB80ED016C9852C00C25E3E /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		7FB80ED116C9852C00C25E3E /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		7FC4F79E16C4918C005E904C /* Delightful.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Delightful.xcdatamodel; sourceTree = "<group>"; };
@@ -166,6 +169,8 @@
 				7FD4026B16C46F690042346C /* Item.m */,
 				7F66435316D2DEF4004E527B /* KGNoise.h */,
 				7F66435416D2DEF4004E527B /* KGNoise.m */,
+				7FA796C616D3492200102AF7 /* GCDiscreetNotificationView.h */,
+				7FA796C716D3492200102AF7 /* GCDiscreetNotificationView.m */,
 				7FD4028C16C472180042346C /* InfoPlist.strings */,
 				7FD4026816C46F690042346C /* Delightful-Info.plist */,
 				7FD4026916C46F690042346C /* Delightful-Prefix.pch */,
@@ -335,6 +340,7 @@
 				7FDCD8C916C9F4F900EB10E2 /* Model.m in Sources */,
 				7F9A65B316CAC2F200EBBA30 /* RecipeTableViewController.m in Sources */,
 				7F66435516D2DEF4004E527B /* KGNoise.m in Sources */,
+				7FA796C816D3492200102AF7 /* GCDiscreetNotificationView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

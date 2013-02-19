@@ -10,6 +10,9 @@
 #import <QuartzCore/QuartzCore.h>
 #import "Model.h"
 #import "KGNoise.h"
+#import "GCDiscreetNotificationView.h"
+#import "MasterViewController.h"
+
 
 @interface AddItemViewController : UIViewController <UIScrollViewDelegate>
 
@@ -20,6 +23,8 @@
 @property (nonatomic, strong) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIView *formContainerView;
 @property Model *model;
+@property MasterViewController *parent;
+@property (nonatomic, retain) GCDiscreetNotificationView *notificationView;
 
 - (IBAction)dismiss:(id)sender;
 - (IBAction)addItem:(id)sender;

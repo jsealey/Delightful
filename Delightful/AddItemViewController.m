@@ -40,6 +40,11 @@ UIAlertView *progressAlert;
     layer.masksToBounds = YES;
     layer.borderWidth = 1.0f;
     layer.borderColor = [UIColor darkGrayColor].CGColor;
+    
+    _notificationView = [[GCDiscreetNotificationView alloc] initWithText:@""
+                                                           showActivity:NO
+                                                     inPresentationMode:GCDiscreetNotificationViewPresentationModeTop
+                                                                 inView:_scrollView];
 }
 
 - (void)didReceiveMemoryWarning
@@ -55,11 +60,28 @@ UIAlertView *progressAlert;
 }
 
 - (IBAction)dismiss:(id)sender {
-    [self addItem:nil];
+    [self addItemPrivate:YES];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (IBAction)addItem:(id)sender {
+- (void) notification:(NSString *)title isForParent:(BOOL)isForParent{
+    if(isForParent == YES){
+        _notificationView = [[GCDiscreetNotificationView alloc] initWithText:@""
+                                                                 showActivity:NO
+                                                           inPresentationMode:GCDiscreetNotificationViewPresentationModeTop
+                                                                       inView:_parent.navigationController.navigationBar];
+    } else {
+        _notificationView = [[GCDiscreetNotificationView alloc] initWithText:@""
+                                                                showActivity:NO
+                                                          inPresentationMode:GCDiscreetNotificationViewPresentationModeTop
+                                                                      inView:_scrollView];
+    }
+    [self.notificationView setTextLabel:title];
+    [self.notificationView show:YES];
+    [self.notificationView hideAnimatedAfter:1.0];
+}
+
+- (void) addItemPrivate:(BOOL)isForParent {
     if(![_nameField.text isEqual:@""] && [_quantityField.text integerValue]){
         NSEntityDescription *entity = [[_model.fetchedResultsController fetchRequest] entity];
         Item *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:_model.managedObjectContext];
@@ -73,19 +95,17 @@ UIAlertView *progressAlert;
         if (![_model.managedObjectContext save:&error]) {
             NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         }
-      
-        progressAlert = [[UIAlertView alloc]
-                        initWithTitle:[NSString stringWithFormat:@"Added %@", _nameField.text]
-                              message:[NSString stringWithFormat:@"%@ %@", _quantityField.text, [Item getMeasurementName:newManagedObject.measurement]]
-                             delegate: self
-                    cancelButtonTitle: nil
-                    otherButtonTitles: nil];
-        [progressAlert show];
-        [self performSelector:@selector(dismissAlertView:) withObject:progressAlert afterDelay:1];
+        [self notification:[NSString stringWithFormat:@"Added %@ %@ of %@", _quantityField.text,[Item getMeasurementName:newManagedObject.measurement], _nameField.text] isForParent:isForParent];
+        
         [self dismissKeyboard:nil];
         [_nameField setText:@""];
         [_quantityField setText:@""];
     }
+
+}
+
+- (IBAction)addItem:(id)sender {
+    [self addItemPrivate:NO];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
