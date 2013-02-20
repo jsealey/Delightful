@@ -114,13 +114,16 @@
 #pragma mark - Table View Editing
 
 - (void)tableView:(UITableView *)tableView willBeginEditingRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"willBeginEditingRowAtIndexPath");
     self.isEditing = self.isEditingSingleCell = YES;
     self.currentEditIndexPath = indexPath;
     [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath, nil] withRowAnimation:UITableViewRowAnimationNone];
 }
 
 - (void)tableView:(UITableView *)tableView didEndEditingRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"didEndEditingRowAtIndexPath");
     self.isEditing = self.isEditingSingleCell =  NO;
+    self.currentEditIndexPath = nil;
     [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath, nil] withRowAnimation:UITableViewRowAnimationNone];
 }
 
@@ -229,12 +232,16 @@
 }
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath{
+//NSLog(@"isEditing:%i isEditingSingleCell:%i  row:%i currentIndexPathEqual:%i", self.isEditing ,self.isEditingSingleCell, indexPath.row, [self.currentEditIndexPath isEqual:indexPath]);
     Item *object = [_model.fetchedResultsController objectAtIndexPath:indexPath];
     [(UILabel *)[cell viewWithTag:1] setText:object.name];
     [(UILabel *)[cell viewWithTag:2]setText:[NSString stringWithFormat:@"%@ %@",object.quantity,[Item getMeasurementName:object.measurement]]];
 
     // Hide checkmark when configuring cells in edit mode
-    [(UILabel *)[cell viewWithTag:3] setHidden:self.isEditing];
+    if(self.isEditingSingleCell){
+        [(UILabel *)[cell viewWithTag:3] setHidden:[self.currentEditIndexPath isEqual:indexPath]];
+    } else [(UILabel *)[cell viewWithTag:3] setHidden:self.isEditing];
+    
     cell.selectionStyle = self.isEditing ? UITableViewCellSelectionStyleGray : UITableViewCellSelectionStyleNone;
     if(object.checked.boolValue == YES)[(UILabel *)[cell viewWithTag:3] setText:@"\u2705"];
     else [(UILabel *)[cell viewWithTag:3] setText:@"\u2B1C"];
