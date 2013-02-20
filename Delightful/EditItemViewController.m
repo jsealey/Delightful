@@ -109,8 +109,14 @@ UIAlertView *progressAlert;
 }
 
 - (void)updateItem {
-    if(![_nameField.text isEqual:@""] && [_quantityField.text integerValue]){
-        Item *object = [_model.fetchedResultsController objectAtIndexPath:self.selectedIndexPath];
+    Item *object = [_model.fetchedResultsController objectAtIndexPath:self.selectedIndexPath];
+    // This is just saying to only update when something was changed
+    if(  ![_nameField.text isEqual:@""]
+       && [_quantityField.text integerValue]
+       && (   ![_nameField.text isEqualToString:object.name]
+           || [_quantityField.text integerValue]!=[object.quantity integerValue]
+           || _measurement.selectedSegmentIndex!=[object.measurement integerValue])
+       ){
         object.name = _nameField.text;
         object.quantity = [[NSNumber alloc] initWithInt:[_quantityField.text integerValue]];
         object.measurement = [[NSNumber alloc] initWithInt:_measurement.selectedSegmentIndex];
