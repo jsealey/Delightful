@@ -90,22 +90,17 @@ UIAlertView *progressAlert;
     [_quantityField resignFirstResponder];
 }
 
-- (void)textFieldDidBeginEditing:(UITextField *)textField
-{
-   // [self animateTextField: textField up: YES];
-}
-
+- (void)textFieldDidBeginEditing:(UITextField *)textField{}
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
-   // [self animateTextField: textField up: NO];
     [self updateItem];
 }
 
 - (void) notification:(NSString *)title{
     [self.notificationView setTextLabel:title];
     [self.notificationView show:YES];
-    [self.notificationView hideAnimatedAfter:1.0];
+    [self.notificationView hideAnimatedAfter:1.0f];
 }
 
 - (void)updateItem {
@@ -120,26 +115,9 @@ UIAlertView *progressAlert;
         object.name = _nameField.text;
         object.quantity = [[NSNumber alloc] initWithInt:[_quantityField.text integerValue]];
         object.measurement = [[NSNumber alloc] initWithInt:_measurement.selectedSegmentIndex];
-        NSError *error = nil;
-        if (![_model.managedObjectContext save:&error]) NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        [_model updateItem:object];
         [self notification:[NSString stringWithFormat:@"Updated: %@ %@ of %@", object.quantity,[Item getMeasurementName:object.measurement], object.name]];
     }
-}
-
-
-
-- (void) animateTextField: (UITextField*) textField up: (BOOL) up
-{
-    const int movementDistance = 50; // tweak as needed
-    const float movementDuration = 0.3f; // tweak as needed
-    
-    int movement = (up ? -movementDistance : movementDistance);
-    
-    [UIView beginAnimations: @"anim" context: nil];
-    [UIView setAnimationBeginsFromCurrentState: YES];
-    [UIView setAnimationDuration: movementDuration];
-    self.parentViewController.view.frame = CGRectOffset(self.parentViewController.view.frame, 0, movement);
-    [UIView commitAnimations];
 }
 
 - (IBAction)incrementQuantity:(id)sender {

@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Item.h"
 
 @interface Model : NSObject
 
@@ -15,9 +16,24 @@
 @property (strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
-- (BOOL) getMeasuringSetting;
++ (Model *)modelSingleton;
+
+#pragma mark Create
 - (void) setMeasuringSetting:(BOOL)measuring;
 
-+ (Model *)modelSingleton;
+- (void) addItemWithName:(NSString *)name
+    withCategory:(NSString *)category
+ withMeasurement:(NSNumber*)measurement
+    withQuantity:(NSNumber*)quantity;
+
+#pragma mark Read
+
+- (BOOL) getMeasuringSetting;
+
+#pragma mark Update
+
+- (void) updateItem:(Item*)item;
+
+#pragma mark Delete
 
 @end

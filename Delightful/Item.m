@@ -19,9 +19,7 @@
 @dynamic name;
 
 + (NSString *)getMeasurementName:(NSNumber *) measurement{
-    Model *model = [Model modelSingleton];
-    
-    if(model.getMeasuringSetting){
+    if([[[NSUserDefaults standardUserDefaults] objectForKey:@"measuringSetting"] boolValue]){
         switch([measurement integerValue]){
             case 0: return @"pcs.";
             case 1: return @"gr.";

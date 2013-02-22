@@ -83,19 +83,10 @@ UIAlertView *progressAlert;
 
 - (void) addItemPrivate:(BOOL)isForParent {
     if(![_nameField.text isEqual:@""] && [_quantityField.text integerValue]){
-        NSEntityDescription *entity = [[_model.fetchedResultsController fetchRequest] entity];
-        Item *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:_model.managedObjectContext];
-        newManagedObject.timeStamp = [NSDate date];
-        newManagedObject.name = _nameField.text;
-        newManagedObject.category = @"Dairy";
-        newManagedObject.measurement = [[NSNumber alloc] initWithInt:_measurement.selectedSegmentIndex];
-        newManagedObject.quantity = [[NSNumber alloc] initWithInt:[_quantityField.text integerValue]];
-        newManagedObject.checked = [[NSNumber alloc] initWithBool:NO];
-        NSError *error = nil;
-        if (![_model.managedObjectContext save:&error]) {
-            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-        }
-        [self notification:[NSString stringWithFormat:@"Added %@ %@ of %@", _quantityField.text,[Item getMeasurementName:newManagedObject.measurement], _nameField.text] isForParent:isForParent];
+        
+        [_model addItemWithName:_nameField.text withCategory:@"Default" withMeasurement:[[NSNumber alloc] initWithInt:_measurement.selectedSegmentIndex] withQuantity:[[NSNumber alloc] initWithInt:[_quantityField.text integerValue]]];
+        
+        [self notification:[NSString stringWithFormat:@"Added %@ %@ of %@", _quantityField.text,[Item getMeasurementName:[[NSNumber alloc] initWithInt:_measurement.selectedSegmentIndex]], _nameField.text] isForParent:isForParent];
         
         [self dismissKeyboard:nil];
         [_nameField setText:@""];
