@@ -12,6 +12,7 @@
 #import "Model.h"
 #import "KGNoise.h"
 #import "AppDelegate.h"
+#import <Parse/Parse.h>
 
 @interface MasterViewController : UITableViewController <NSFetchedResultsControllerDelegate>
 

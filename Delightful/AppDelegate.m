@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import "Model.h"
+#import "Constants.h"
+#import <Parse/Parse.h>
 
 @implementation AppDelegate
 
@@ -17,6 +19,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    #warning set your Parse appliactionId and clientKey
+    [Parse setApplicationId:kParseApplicationID
+                  clientKey:kParseClientKey];
+    
     Model *model = [Model modelSingleton];
     model.managedObjectContext = self.managedObjectContext;
     model.managedObjectModel = self.managedObjectModel;

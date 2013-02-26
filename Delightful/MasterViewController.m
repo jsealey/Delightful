@@ -31,6 +31,10 @@
     self.isEditing = NO;
     [[AppDelegate alloc] setupTableViewBackground:self.tableView];
     [[AppDelegate alloc] setupNavigationTitle:self.navigationItem];
+    
+//    PFObject *testObject = [PFObject objectWithClassName:@"TestObject"];
+//    [testObject setObject:@"bar" forKey:@"foo"];
+//    [testObject save];
 }
 
 - (void)didReceiveMemoryWarning{
