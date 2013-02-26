@@ -4,8 +4,7 @@ Delightful is an iPhone application for organizing meal plans and generating sho
 
 **Delightful will be free on the app store.**
 
-![My image](http://s8.postimage.org/42mrcmwhh/i_OS_Simulator_Screen_shot_Feb_25_2013_8_08_31_P.png)
-
+![My image](http://s11.postimage.org/z3s5bg6er/i_OS_Simulator_Screen_shot_Feb_25_2013_8_12_39_P.png)
 
 ## Getting Started
 
