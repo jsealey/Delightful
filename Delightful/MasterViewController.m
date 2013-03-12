@@ -8,6 +8,7 @@
 
 #import "MasterViewController.h"
 #import "Item.h"
+#import "AddItemViewController.h"
 #import "EditItemViewController.h"
 #import "SettingsViewController.h"
 #import "Model.h"
@@ -132,7 +133,9 @@
     NSLog(@"didEndEditingRowAtIndexPath");
     self.isEditing = self.isEditingSingleCell =  NO;
     self.currentEditIndexPath = nil;
-    [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath, nil] withRowAnimation:UITableViewRowAnimationNone];
+    [self reloadVisibleCells];
+    //[self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath, nil] withRowAnimation:UITableViewRowAnimationNone];
+    [self showEditButtonIfNotEmpty];
 }
 
 - (void) reloadVisibleCells {
@@ -166,7 +169,8 @@
 
 - (void)insertNewObject:(id)sender{
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-    UIViewController *addItemController = (UIViewController *)[storyboard instantiateViewControllerWithIdentifier:@"addItem"];
+    AddItemViewController *addItemController = (AddItemViewController *)[storyboard instantiateViewControllerWithIdentifier:@"addItem"];
+    [addItemController setParent:self];
     [self.navigationController presentViewController:addItemController animated:YES completion:nil];
 }
 
