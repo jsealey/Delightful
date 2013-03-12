@@ -69,7 +69,9 @@
         UIPanGestureRecognizer* panGesture= [[UIPanGestureRecognizer alloc] initWithTarget:rootController action:@selector(panItem:)];
         [panGesture setMaximumNumberOfTouches:2];
         [panGesture setDelegate:source];
-        [destination.view addGestureRecognizer:panGesture];
+        
+        if([[destination.viewControllers objectAtIndex:0] isKindOfClass:[UITableViewController class]]) [(UIView*)destination.navigationBar addGestureRecognizer:panGesture];
+        else [destination.view addGestureRecognizer:panGesture];
     }
     
 }

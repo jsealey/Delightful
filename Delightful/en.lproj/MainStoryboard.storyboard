@@ -7,7 +7,7 @@
         <!--Navigation Controller - Shopping List-->
         <scene sceneID="11">
             <objects>
-                <navigationController id="3" sceneMemberID="viewController">
+                <navigationController restorationIdentifier="two" id="3" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Shopping List" image="check.png" id="osE-cj-2N9"/>
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="4">
                         <autoresizingMask key="autoresizingMask"/>
@@ -24,7 +24,7 @@
         <!--Master View Controller - Master-->
         <scene sceneID="18">
             <objects>
-                <tableViewController storyboardIdentifier="" title="Master" id="12" customClass="MasterViewController" sceneMemberID="viewController">
+                <tableViewController restorationIdentifier="six" storyboardIdentifier="" title="Master" id="12" customClass="MasterViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="13">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -433,7 +433,7 @@
         <scene sceneID="mFS-sS-XAi">
             <objects>
                 <viewController id="KBp-cW-OI5" customClass="SASlideMenuRootViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8ml-KP-tsY">
+                    <view key="view" contentMode="scaleToFill" restorationIdentifier="four" id="8ml-KP-tsY">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -449,9 +449,8 @@
         <!--Slide View Controller-->
         <scene sceneID="7HD-kb-vg7">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="DCz-ar-Zxl" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="oxJ-vT-ZPi" customClass="SlideViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" bounces="NO" dataMode="static" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="b7n-O2-UXr">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" restorationIdentifier="one" bounces="NO" dataMode="static" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="b7n-O2-UXr">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.31764706969261169" green="0.4901961088180542" blue="0.46666669845581055" alpha="1" colorSpace="deviceRGB"/>
@@ -541,6 +540,7 @@
                         <segue destination="g8E-ek-Sa7" kind="custom" identifier="sync" customClass="SASlideMenuContentSegue" id="5ER-eO-CWi"/>
                     </connections>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DCz-ar-Zxl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-592" y="694"/>
         </scene>
@@ -649,7 +649,7 @@
         <!--Navigation Controller - Sync-->
         <scene sceneID="LcH-Od-APj">
             <objects>
-                <navigationController id="g8E-ek-Sa7" sceneMemberID="viewController">
+                <navigationController restorationIdentifier="three" id="g8E-ek-Sa7" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Sync" image="sync.png" id="LMA-Ld-Mme"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="k4D-ou-vso">
