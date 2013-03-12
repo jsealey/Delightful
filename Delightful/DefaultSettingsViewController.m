@@ -77,7 +77,7 @@
     [self addGradient:_loginButton];
     [self addGradient:_logoutButton];
 
-    _synchronizeButton.titleLabel.font = [UIFont fontWithName:@"SnellRoundhand-BlackScript" size:26.0f];
+    [[AppDelegate alloc] setupNavigationTitle:self.navigationItem];
 
 }
 

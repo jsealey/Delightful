@@ -42,14 +42,18 @@
 }
 
 - (void)showEditButtonIfNotEmpty {
-    if([[_model.fetchedResultsController sections] count] > 0 && [[_model.fetchedResultsController sections][0] numberOfObjects] > 0)
-        self.navigationItem.leftBarButtonItem = self.editButtonItem;
-    else {
-        self.navigationItem.leftBarButtonItem = nil;
-        if(self.rightButtonTempHold){
-            self.navigationItem.rightBarButtonItem = self.rightButtonTempHold;
+    if([[_model.fetchedResultsController sections] count] > 0 && [[_model.fetchedResultsController sections][0] numberOfObjects] > 0){
+        NSArray *myButtonArray = [[NSArray alloc] initWithObjects:
+                                    [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)],
+                                  self.editButtonItem,
+                                  nil];
+        self.navigationItem.rightBarButtonItems = myButtonArray;
+    } else {
+       // if(self.rightButtonTempHold){
             [self setEditing:NO];
-        }
+            self.navigationItem.rightBarButtonItems = [[NSArray alloc] initWithObjects:
+                                                       [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)], nil];
+       // }
     }
 }
 
@@ -144,15 +148,15 @@
         self.isEditing = editing;
         if(editing){
             // Put setting button on top right navigation bar
-            self.rightButtonTempHold = self.navigationItem.rightBarButtonItem;
-            UIBarButtonItem *settingsButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"settings.png"] style:UIBarButtonItemStylePlain target:self action:@selector(insertNewObject:)];
+            self.rightButtonTempHold = self.navigationItem.rightBarButtonItems;
+            UIBarButtonItem *settingsButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"settings.png"] style:UIBarButtonItemStylePlain target:self action:@selector(changeSettings:)];
             
             // Hide the checkmark
             [self reloadVisibleCells];
-            self.navigationItem.rightBarButtonItem = settingsButton;
+            self.navigationItem.rightBarButtonItems = [[NSArray alloc] initWithObjects:settingsButton, self.editButtonItem, nil];
         } else {
             // Put "+" button on top right navigation bar
-            self.navigationItem.rightBarButtonItem = self.rightButtonTempHold;
+            self.navigationItem.rightBarButtonItems = self.rightButtonTempHold;
             [self performSelector:@selector(reloadVisibleCells) withObject:nil afterDelay:.25];
             self.rightButtonTempHold = nil;
         }
@@ -161,6 +165,12 @@
 }
 
 - (void)insertNewObject:(id)sender{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    UIViewController *addItemController = (UIViewController *)[storyboard instantiateViewControllerWithIdentifier:@"addItem"];
+    [self.navigationController presentViewController:addItemController animated:YES completion:nil];
+}
+
+- (void)changeSettings:(id)sender{
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
     SettingsViewController *settingsViewController = (SettingsViewController *)[storyboard instantiateViewControllerWithIdentifier:@"settings"];
     [settingsViewController setParent:self];

@@ -16,7 +16,7 @@
 
 @interface MasterViewController : UITableViewController <NSFetchedResultsControllerDelegate>
 
-@property UIBarButtonItem *rightButtonTempHold;
+@property NSArray *rightButtonTempHold;
 @property BOOL isEditing;
 @property BOOL isEditingSingleCell;
 @property NSIndexPath *currentEditIndexPath;

@@ -31,6 +31,3 @@ profile
 DerivedData
 .idea/
 *.hmap
-
-# Ignore constants file for API Keys
-Constants.m

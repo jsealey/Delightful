@@ -19,7 +19,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    #warning set your Parse appliactionId and clientKey
     [Parse setApplicationId:kParseApplicationID
                   clientKey:kParseClientKey];
     
@@ -27,12 +26,11 @@
     model.managedObjectContext = self.managedObjectContext;
     model.managedObjectModel = self.managedObjectModel;
     model.persistentStoreCoordinator = self.persistentStoreCoordinator;
-    [[UITabBar appearance] setSelectedImageTintColor:[UIColor colorWithRed:203.0f/255 green:212.0f/255 blue:156.0f/255 alpha:1.0f]];
     return YES;
 }
 
 - (void)setupNavigationTitle:(UINavigationItem *)navController {
-    CGRect frame = CGRectMake(0, 0, 170, 44);
+    CGRect frame = CGRectMake(0, 0, 100, 44);
     UILabel *label = [[UILabel alloc] initWithFrame:frame];
     label.backgroundColor = [UIColor clearColor];
     label.font = [UIFont fontWithName:@"SnellRoundhand-BlackScript" size:28.0f];
