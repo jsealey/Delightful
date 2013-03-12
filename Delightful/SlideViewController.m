@@ -61,9 +61,6 @@
 }
 
 -(Boolean) disablePanGestureForIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.row ==0) {
-        return YES;
-    }
     return NO;
 }
 
