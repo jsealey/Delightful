@@ -28,25 +28,23 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    if (![PFUser currentUser]) { // No user logged in
         
-        // Create the log in view controller
-        _logInViewController = [[PFLogInViewController alloc] init];
-        [_logInViewController setDelegate:self]; // Set ourselves as the delegate
-        
-        // Create the sign up view controller
-        PFSignUpViewController *signUpViewController = [[PFSignUpViewController alloc] init];
+    // Create the log in view controller
+    _logInViewController = [[PFLogInViewController alloc] init];
+    [_logInViewController setDelegate:self]; // Set ourselves as the delegate
+    
+    // Create the sign up view controller
+    PFSignUpViewController *signUpViewController = [[PFSignUpViewController alloc] init];
 
-        
-        // Change title from "Parse" to "Delightful"
-        [_logInViewController.logInView setLogo:[self generateLogo]];
-        [signUpViewController.signUpView setLogo:[self generateLogo]];
-        
-        [signUpViewController setDelegate:self]; // Set ourselves as the delegate
-        
-        // Assign our sign up controller to be displayed from the login controller
-        [_logInViewController setSignUpController:signUpViewController];
-    }
+    
+    // Change title from "Parse" to "Delightful"
+    [_logInViewController.logInView setLogo:[self generateLogo]];
+    [signUpViewController.signUpView setLogo:[self generateLogo]];
+    
+    [signUpViewController setDelegate:self]; // Set ourselves as the delegate
+    
+    // Assign our sign up controller to be displayed from the login controller
+    [_logInViewController setSignUpController:signUpViewController];
     
 }
 
@@ -162,6 +160,7 @@
 }
 
 - (IBAction)synchronize:(id)sender {
+    NSLog(@"Start Synchronization");
 }
 
 #pragma mark - Cool Effects
