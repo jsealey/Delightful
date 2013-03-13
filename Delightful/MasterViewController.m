@@ -44,9 +44,11 @@
 
 - (void)showEditButtonIfNotEmpty {
     if([[_model.fetchedResultsController sections] count] > 0 && [[_model.fetchedResultsController sections][0] numberOfObjects] > 0){
+        UIBarButtonItem *editButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"pencil.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(setEditing:animated:)];
+        
         NSArray *myButtonArray = [[NSArray alloc] initWithObjects:
                                     [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)],
-                                  self.editButtonItem,
+                                  editButton,
                                   nil];
         self.navigationItem.rightBarButtonItems = myButtonArray;
     } else {
@@ -56,6 +58,10 @@
                                                        [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)], nil];
        // }
     }
+}
+
+- (void) turnOffEditMode {
+    [self setEditing:NO animated:YES];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
@@ -72,6 +78,8 @@
     }
     [[segue destinationViewController] setParent:self];
 }
+                                                                                                                                                                                
+                                                                                                                                                                            
 
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender{
     if ([identifier isEqual:@"addItem"] || (self.tableView.editing == YES && [identifier isEqual:@"detail"])) {
@@ -83,6 +91,7 @@
 #pragma mark - Table View
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    NSLog(@"%d",[[_model.fetchedResultsController sections] count]);
     return [[_model.fetchedResultsController sections] count];
 }
 
@@ -118,6 +127,12 @@
         NSError *error = nil;
         if (![_model.managedObjectContext save:&error]) NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
     }
+}
+
+- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Return NO if you do not want the item to be re-orderable.
+    return YES;
 }
 
 #pragma mark - Table View Editing
@@ -156,7 +171,8 @@
             
             // Hide the checkmark
             [self reloadVisibleCells];
-            self.navigationItem.rightBarButtonItems = [[NSArray alloc] initWithObjects:settingsButton, self.editButtonItem, nil];
+            UIBarButtonItem *editButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"todo.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(turnOffEditMode)];
+            self.navigationItem.rightBarButtonItems = [[NSArray alloc] initWithObjects:settingsButton, editButton, nil];
         } else {
             // Put "+" button on top right navigation bar
             self.navigationItem.rightBarButtonItems = self.rightButtonTempHold;
@@ -259,7 +275,7 @@
     if(self.isEditingSingleCell){
         [(UILabel *)[cell viewWithTag:3] setHidden:[self.currentEditIndexPath isEqual:indexPath]];
     } else [(UILabel *)[cell viewWithTag:3] setHidden:self.isEditing];
-    
+
     cell.selectionStyle = self.isEditing ? UITableViewCellSelectionStyleGray : UITableViewCellSelectionStyleNone;
     if(object.checked.boolValue == YES)[(UILabel *)[cell viewWithTag:3] setText:@"\u2705"];
     else [(UILabel *)[cell viewWithTag:3] setText:@"\u2B1C"];
