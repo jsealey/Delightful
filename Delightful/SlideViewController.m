@@ -9,12 +9,17 @@
 #import <QuartzCore/QuartzCore.h>
 #import "SlideViewController.h"
 #import "MenuCell.h"
+#import "KGNoise.h"
 
 @interface SlideViewController ()
 
 @end
 
 @implementation SlideViewController
+
+- (void) viewDidLoad {
+    self.tableView.backgroundColor = [[UIColor colorWithRed:81/255.0 green:125/255.0 blue:119/255.0 alpha:1.0] colorWithNoiseWithOpacity:0.1 andBlendMode:kCGBlendModeDarken];
+}
 
 -(id) initWithCoder:(NSCoder *)aDecoder{
     if (self = [super initWithCoder:aDecoder]) {

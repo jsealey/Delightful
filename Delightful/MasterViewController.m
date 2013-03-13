@@ -52,11 +52,9 @@
                                   nil];
         self.navigationItem.rightBarButtonItems = myButtonArray;
     } else {
-       // if(self.rightButtonTempHold){
-            [self setEditing:NO];
-            self.navigationItem.rightBarButtonItems = [[NSArray alloc] initWithObjects:
-                                                       [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)], nil];
-       // }
+        [self setEditing:NO];
+        self.navigationItem.rightBarButtonItems = [[NSArray alloc] initWithObjects:
+                                                   [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)], nil];
     }
 }
 
@@ -128,13 +126,6 @@
         if (![_model.managedObjectContext save:&error]) NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
     }
 }
-
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-
 #pragma mark - Table View Editing
 
 - (void)tableView:(UITableView *)tableView willBeginEditingRowAtIndexPath:(NSIndexPath *)indexPath {
