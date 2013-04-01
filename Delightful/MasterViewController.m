@@ -111,10 +111,12 @@
 }
 
 - (void) priceNotification{
-    _totalPriceNotificationView = [[GCDiscreetNotificationView alloc] initWithText:@""
-                                         showActivity:NO
-                                   inPresentationMode:GCDiscreetNotificationViewPresentationModeBottom
-                                    inView:self.navigationController.view];
+    if (!_totalPriceNotificationView) {
+        _totalPriceNotificationView = [[GCDiscreetNotificationView alloc] initWithText:@""
+                                             showActivity:NO
+                                       inPresentationMode:GCDiscreetNotificationViewPresentationModeBottom
+                                        inView:self.navigationController.view];
+    }
     double total=0;
     for(int i=0; i < _model.fetchedResultsController.fetchedObjects.count;++i){
         Item *object = [_model.fetchedResultsController.fetchedObjects objectAtIndex:i];
