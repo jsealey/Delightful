@@ -67,7 +67,7 @@
             self.navigationItem.rightBarButtonItems = [[NSArray alloc] initWithObjects:settingsButton, editButton, nil];
             
         }else{
-            UIBarButtonItem *editButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"pencil.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(setEditing:animated:)];
+            UIBarButtonItem *editButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"pencil.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(turnOnEditMode)];
             
             NSArray *myButtonArray = [[NSArray alloc] initWithObjects:
                                         [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)],
@@ -80,6 +80,10 @@
         self.navigationItem.rightBarButtonItems = [[NSArray alloc] initWithObjects:
                                                    [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)], nil];
     }
+}
+
+- (void)turnOnEditMode {
+    [self setEditing:YES animated:YES];
 }
 
 - (void) turnOffEditMode {
@@ -209,6 +213,7 @@
             self.navigationItem.rightBarButtonItems = self.rightButtonTempHold;
             [self performSelector:@selector(reloadVisibleCells) withObject:nil afterDelay:.25];
             self.rightButtonTempHold = nil;
+            self.isEditing = self.isEditingSingleCell = NO;
         }
     }
     [super setEditing:editing animated:animated];
