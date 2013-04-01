@@ -93,6 +93,7 @@ dispatch_queue_t myQueue;
         [self dismissKeyboard:nil];
         [_nameField setText:@""];
         [_quantityField setText:@""];
+        [_priceField setText:@""];
     }
     [self.parent priceNotification];
 }
