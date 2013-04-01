@@ -44,6 +44,7 @@ dispatch_queue_t myQueue;
                                                            showActivity:NO
                                                      inPresentationMode:GCDiscreetNotificationViewPresentationModeTop
                                                                  inView:_scrollView];
+    _notificationView.hidden = YES;
 }
 
 - (void)didReceiveMemoryWarning
@@ -65,19 +66,21 @@ dispatch_queue_t myQueue;
 
 - (void) notification:(NSString *)title isForParent:(BOOL)isForParent{
     if(isForParent == YES){
-        _notificationView = [[GCDiscreetNotificationView alloc] initWithText:@""
-                                                                 showActivity:NO
-                                                           inPresentationMode:GCDiscreetNotificationViewPresentationModeTop
-                                                                       inView:_parent.navigationController.navigationBar];
+        _notificationView.view = _parent.navigationController.navigationBar;
     } else {
-        _notificationView = [[GCDiscreetNotificationView alloc] initWithText:@""
-                                                                showActivity:NO
-                                                          inPresentationMode:GCDiscreetNotificationViewPresentationModeTop
-                                                                      inView:_scrollView];
+        _notificationView.view = _scrollView;
     }
+    _notificationView.hidden = NO;
     [self.notificationView setTextLabel:title];
     [self.notificationView show:YES];
     [self.notificationView hideAnimatedAfter:1.0];
+    myQueue = dispatch_queue_create("My Queue", NULL);
+    dispatch_async(myQueue, ^{
+        [NSThread sleepForTimeInterval:1.5];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            _notificationView.hidden = YES;
+        });
+    });
 }
 
 - (void) addItemPrivate:(BOOL)isForParent {
