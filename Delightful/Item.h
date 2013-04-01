@@ -15,6 +15,7 @@
 @property (nonatomic, retain) NSNumber * checked;
 @property (nonatomic, retain) NSNumber * quantity;
 @property (nonatomic, retain) NSNumber * measurement;
+@property (nonatomic, retain) NSNumber * price;
 @property (nonatomic, retain) NSString * name;
 
 + (NSString *)getMeasurementName:(NSNumber *)measurement;

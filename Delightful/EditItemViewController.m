@@ -16,7 +16,6 @@
 
 @implementation EditItemViewController
 dispatch_queue_t myQueue;
-UIAlertView *progressAlert;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -36,6 +35,7 @@ UIAlertView *progressAlert;
     _quantityField.text = [NSString stringWithFormat:@"%i",[object.quantity integerValue]];
     _measurement.selectedSegmentIndex = [object.measurement integerValue];
     [self setupMeasurementValues];
+    _priceField.text = [[NSString alloc] initWithFormat:@"%.2f", object.price.doubleValue];
     
     _formContainerView.backgroundColor = [_formContainerView.backgroundColor colorWithNoiseWithOpacity:0.1 andBlendMode:kCGBlendModeDarken];
 
@@ -88,6 +88,7 @@ UIAlertView *progressAlert;
 - (IBAction)dismissKeyboard:(id)sender {
     [_nameField resignFirstResponder];
     [_quantityField resignFirstResponder];
+    [_priceField resignFirstResponder];
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField{}
@@ -108,15 +109,19 @@ UIAlertView *progressAlert;
     // This is just saying to only update when something was changed
     if(  ![_nameField.text isEqual:@""]
        && [_quantityField.text integerValue]
-       && (   ![_nameField.text isEqualToString:object.name]
+       // If at least one field has been changed...
+       && (  ![_nameField.text isEqualToString:object.name]
            || [_quantityField.text integerValue]!=[object.quantity integerValue]
-           || _measurement.selectedSegmentIndex!=[object.measurement integerValue])
+           || _measurement.selectedSegmentIndex!=[object.measurement integerValue]
+           || _priceField.text.doubleValue!=[object.price doubleValue])
        ){
         object.name = _nameField.text;
         object.quantity = [[NSNumber alloc] initWithInt:[_quantityField.text integerValue]];
         object.measurement = [[NSNumber alloc] initWithInt:_measurement.selectedSegmentIndex];
+        object.price = [[NSNumber alloc] initWithDouble:[_priceField.text doubleValue]];
         [_model updateItem:object];
-        [self notification:[NSString stringWithFormat:@"Updated: %@ %@ of %@", object.quantity,[Item getMeasurementName:object.measurement], object.name]];
+        [self notification:[NSString stringWithFormat:@"%@ %@ of %@ at $%.2f", object.quantity,[Item getMeasurementName:object.measurement], object.name, object.price.doubleValue]];
+        [_parent showEditButtonIfNotEmpty];
     }
 }
 

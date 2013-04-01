@@ -12,6 +12,7 @@
 #import "Model.h"
 #import "KGNoise.h"
 #import "AppDelegate.h"
+#import "GCDiscreetNotificationView.h"
 #import <Parse/Parse.h>
 
 @interface MasterViewController : UITableViewController <NSFetchedResultsControllerDelegate>
@@ -22,4 +23,7 @@
 @property NSIndexPath *currentEditIndexPath;
 @property Model *model;
 - (void) reloadVisibleCells;
+- (void)showEditButtonIfNotEmpty;
+- (void) priceNotification;
+@property (nonatomic, retain) GCDiscreetNotificationView *totalPriceNotificationView;
 @end

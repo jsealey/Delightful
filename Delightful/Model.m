@@ -28,6 +28,7 @@
     withCategory:(NSString *)category
  withMeasurement:(NSNumber*)measurement
     withQuantity:(NSNumber*)quantity
+       withPrice:(NSNumber*)price
 {
     NSEntityDescription *entity = [[_fetchedResultsController fetchRequest] entity];
     Item *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:_managedObjectContext];
@@ -36,6 +37,7 @@
     newManagedObject.category = category;
     newManagedObject.measurement = measurement;
     newManagedObject.quantity = quantity;
+    newManagedObject.price = price;
     newManagedObject.checked = [[NSNumber alloc] initWithBool:NO];
     NSError *error = nil;
     if (![_managedObjectContext save:&error]) {

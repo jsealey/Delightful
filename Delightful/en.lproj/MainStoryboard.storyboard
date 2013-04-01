@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C3012" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="KBp-cW-OI5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="KBp-cW-OI5">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -212,7 +212,7 @@
                                         </connections>
                                     </button>
                                     <view autoresizesSubviews="NO" contentMode="center" id="dlg-b3-AG3">
-                                        <rect key="frame" x="20" y="33" width="280" height="123"/>
+                                        <rect key="frame" x="20" y="33" width="280" height="132"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dzN-jO-k5c">
@@ -221,9 +221,16 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="czo-qc-8Ia">
-                                                <rect key="frame" x="0.0" y="0.0" width="280" height="123"/>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Price" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qtj-cx-5oP">
+                                                <rect key="frame" x="11" y="95" width="39" height="21"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="czo-qc-8Ia">
+                                                <rect key="frame" x="0.0" y="0.0" width="280" height="132"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                 <state key="normal">
@@ -238,13 +245,13 @@
                                                 </connections>
                                             </button>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="Cp4-iC-Rju">
-                                                <rect key="frame" x="98" y="73" width="42" height="30"/>
+                                                <rect key="frame" x="98" y="56" width="42" height="30"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                             </textField>
                                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="81I-ZE-MFi">
-                                                <rect key="frame" x="148" y="74" width="119" height="30"/>
+                                                <rect key="frame" x="148" y="56" width="119" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <segments>
                                                     <segment title="pcs."/>
@@ -254,7 +261,7 @@
                                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             </segmentedControl>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="RqS-cr-EJN">
-                                                <rect key="frame" x="11" y="76.5" width="85" height="24"/>
+                                                <rect key="frame" x="11" y="59" width="85" height="24"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                 <state key="normal" title="Amount +">
@@ -274,6 +281,11 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                                             </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="NCB-CA-ccd">
+                                                <rect key="frame" x="98" y="91" width="61" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="decimalPad" enablesReturnKeyAutomatically="YES"/>
+                                            </textField>
                                         </subviews>
                                         <color key="backgroundColor" red="0.31764706970000001" green="0.49019610879999997" blue="0.46666669849999998" alpha="1" colorSpace="deviceRGB"/>
                                         <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
@@ -291,6 +303,7 @@
                         <outlet property="formContainerView" destination="dlg-b3-AG3" id="U1h-ED-JWA"/>
                         <outlet property="measurement" destination="81I-ZE-MFi" id="AyC-Q8-MDl"/>
                         <outlet property="nameField" destination="P4H-GD-WwD" id="nb5-ng-VAo"/>
+                        <outlet property="priceField" destination="NCB-CA-ccd" id="bfv-SC-79v"/>
                         <outlet property="quantityField" destination="Cp4-iC-Rju" id="jXU-hY-ni0"/>
                         <outlet property="scrollView" destination="RAw-gS-wc3" id="Guc-TT-ru5"/>
                     </connections>
@@ -331,7 +344,7 @@
                                         </connections>
                                     </button>
                                     <view autoresizesSubviews="NO" contentMode="center" id="Mon-vn-4cB">
-                                        <rect key="frame" x="20" y="33" width="280" height="123"/>
+                                        <rect key="frame" x="20" y="33" width="280" height="132"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dQj-PI-WSX">
@@ -340,8 +353,15 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Price" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bc7-qQ-Uuv">
+                                                <rect key="frame" x="11" y="95" width="39" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ZwU-5l-iyu">
-                                                <rect key="frame" x="0.0" y="0.0" width="280" height="123"/>
+                                                <rect key="frame" x="0.0" y="0.5" width="280" height="132"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -358,7 +378,7 @@
                                                 </connections>
                                             </button>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="qje-v3-jrl">
-                                                <rect key="frame" x="98" y="73" width="42" height="30"/>
+                                                <rect key="frame" x="98" y="56" width="42" height="30"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -367,7 +387,7 @@
                                                 </connections>
                                             </textField>
                                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="N9x-bN-vGF">
-                                                <rect key="frame" x="148" y="74" width="119" height="30"/>
+                                                <rect key="frame" x="148" y="56" width="119" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <segments>
                                                     <segment title="pcs."/>
@@ -380,7 +400,7 @@
                                                 </connections>
                                             </segmentedControl>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="QY9-NP-VRk">
-                                                <rect key="frame" x="11" y="76.5" width="85" height="24"/>
+                                                <rect key="frame" x="11" y="59" width="85" height="24"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                 <state key="normal" title="Amount +">
@@ -403,6 +423,15 @@
                                                     <outlet property="delegate" destination="b16-9n-KDN" id="8QK-JP-MeA"/>
                                                 </connections>
                                             </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="8fd-7X-DPQ">
+                                                <rect key="frame" x="97.5" y="91" width="61" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="decimalPad" enablesReturnKeyAutomatically="YES"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="b16-9n-KDN" id="Ufp-rO-b09"/>
+                                                </connections>
+                                            </textField>
                                         </subviews>
                                         <color key="backgroundColor" red="0.31764706969261169" green="0.4901961088180542" blue="0.46666669845581055" alpha="1" colorSpace="deviceRGB"/>
                                         <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
@@ -421,6 +450,7 @@
                         <outlet property="formContainerView" destination="Mon-vn-4cB" id="caF-Nd-8pI"/>
                         <outlet property="measurement" destination="N9x-bN-vGF" id="QYQ-e2-DiT"/>
                         <outlet property="nameField" destination="pdc-zM-1n9" id="Nja-VE-vzo"/>
+                        <outlet property="priceField" destination="8fd-7X-DPQ" id="h3q-Lg-8Vz"/>
                         <outlet property="quantityField" destination="qje-v3-jrl" id="BD0-E8-N9f"/>
                         <outlet property="scrollView" destination="M0c-tG-lbE" id="FrG-Ah-S8a"/>
                     </connections>
@@ -687,6 +717,7 @@
                 <relationship kind="outlet" name="formContainerView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="measurement" candidateClass="UISegmentedControl"/>
                 <relationship kind="outlet" name="nameField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="priceField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="quantityField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
             </relationships>
@@ -715,6 +746,7 @@
                 <relationship kind="outlet" name="formContainerView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="measurement" candidateClass="UISegmentedControl"/>
                 <relationship kind="outlet" name="nameField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="priceField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="quantityField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
             </relationships>

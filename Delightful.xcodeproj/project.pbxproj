@@ -59,7 +59,6 @@
 		7F8A072F16C9C9EA00EFB1F8 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F8A072D16C9C9E900EFB1F8 /* settings.png */; };
 		7F8A073016C9C9EA00EFB1F8 /* settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F8A072E16C9C9E900EFB1F8 /* settings@2x.png */; };
 		7F8DB74D16EDADBD002CB947 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8DB74C16EDADBD002CB947 /* Constants.m */; };
-		7F9A65B316CAC2F200EBBA30 /* RecipeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F9A65B216CAC2F200EBBA30 /* RecipeTableViewController.m */; };
 		7F9A65BE16CB417700EBBA30 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F9A65BC16CB417700EBBA30 /* icon@2x.png */; };
 		7F9A65BF16CB417700EBBA30 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F9A65BD16CB417700EBBA30 /* icon.png */; };
 		7F9C555D16D701A20015224C /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F9C555C16D701A20015224C /* Parse.framework */; };
@@ -173,8 +172,6 @@
 		7F8A072D16C9C9E900EFB1F8 /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
 		7F8A072E16C9C9E900EFB1F8 /* settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings@2x.png"; sourceTree = "<group>"; };
 		7F8DB74C16EDADBD002CB947 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
-		7F9A65B116CAC2F200EBBA30 /* RecipeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeTableViewController.h; sourceTree = "<group>"; };
-		7F9A65B216CAC2F200EBBA30 /* RecipeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeTableViewController.m; sourceTree = "<group>"; };
 		7F9A65BC16CB417700EBBA30 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
 		7F9A65BD16CB417700EBBA30 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		7F9C555C16D701A20015224C /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
@@ -309,11 +306,7 @@
 				7FDCD8C816C9F4F900EB10E2 /* Model.m */,
 				7FC4F79E16C4918C005E904C /* Delightful.xcdatamodel */,
 				7FD4028916C472090042346C /* MainStoryboard.storyboard */,
-				7F27F50916EE97B30021F223 /* SlideViewController.h */,
-				7F27F50A16EE97B30021F223 /* SlideViewController.m */,
-				7F27F54516EE9DF30021F223 /* MenuCell.h */,
-				7F27F54616EE9DF30021F223 /* MenuCell.m */,
-				7F9A65B416CAC2FD00EBBA30 /* Tabs */,
+				7F9A65B416CAC2FD00EBBA30 /* SlideMenuViews */,
 				7F1CB43E16BCC8BA00F77D92 /* Supporting Files */,
 			);
 			path = Delightful;
@@ -401,14 +394,17 @@
 			name = slideMenuImages;
 			sourceTree = "<group>";
 		};
-		7F9A65B416CAC2FD00EBBA30 /* Tabs */ = {
+		7F9A65B416CAC2FD00EBBA30 /* SlideMenuViews */ = {
 			isa = PBXGroup;
 			children = (
+				7F27F50916EE97B30021F223 /* SlideViewController.h */,
+				7F27F50A16EE97B30021F223 /* SlideViewController.m */,
+				7F27F54516EE9DF30021F223 /* MenuCell.h */,
+				7F27F54616EE9DF30021F223 /* MenuCell.m */,
 				7F9A65B516CAC30D00EBBA30 /* Shopping List */,
-				7F9A65B716CAC33500EBBA30 /* Recipes */,
 				7FCB518416DC1182003C1177 /* Sync */,
 			);
-			name = Tabs;
+			name = SlideMenuViews;
 			sourceTree = "<group>";
 		};
 		7F9A65B516CAC30D00EBBA30 /* Shopping List */ = {
@@ -432,15 +428,6 @@
 				7FB80ED116C9852C00C25E3E /* SettingsViewController.m */,
 			);
 			name = subviews;
-			sourceTree = "<group>";
-		};
-		7F9A65B716CAC33500EBBA30 /* Recipes */ = {
-			isa = PBXGroup;
-			children = (
-				7F9A65B116CAC2F200EBBA30 /* RecipeTableViewController.h */,
-				7F9A65B216CAC2F200EBBA30 /* RecipeTableViewController.m */,
-			);
-			name = Recipes;
 			sourceTree = "<group>";
 		};
 		7FCB518416DC1182003C1177 /* Sync */ = {
@@ -606,7 +593,6 @@
 				7F16E50216C8885A00C5C060 /* EditItemViewController.m in Sources */,
 				7FB80ED216C9852C00C25E3E /* SettingsViewController.m in Sources */,
 				7FDCD8C916C9F4F900EB10E2 /* Model.m in Sources */,
-				7F9A65B316CAC2F200EBBA30 /* RecipeTableViewController.m in Sources */,
 				7F66435516D2DEF4004E527B /* KGNoise.m in Sources */,
 				7FA796C816D3492200102AF7 /* GCDiscreetNotificationView.m in Sources */,
 				7FCB518716DC11BE003C1177 /* DefaultSettingsViewController.m in Sources */,

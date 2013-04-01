@@ -17,6 +17,7 @@
 @dynamic quantity;
 @dynamic measurement;
 @dynamic name;
+@dynamic price;
 
 + (NSString *)getMeasurementName:(NSNumber *) measurement{
     if([[[NSUserDefaults standardUserDefaults] objectForKey:@"measuringSetting"] boolValue]){
@@ -24,14 +25,14 @@
             case 0: return @"pcs.";
             case 1: return @"gr.";
             case 2: return @"ml.";
-            default: return @"IDK";
+            default: return @"error";
         }
     } else {
         switch([measurement integerValue]){
             case 0: return @"pcs.";
             case 1: return @"lbs";
             case 2: return @"oz";
-            default: return @"IDK";
+            default: return @"error";
         }
     }
 }

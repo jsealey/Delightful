@@ -27,15 +27,23 @@
     [super viewDidLoad];
     _model = [Model modelSingleton];
     _model.fetchedResultsController = self.fetchedResultsController;
-    [self showEditButtonIfNotEmpty];
+    NSLog(@"viewDidLoad");
+    self.isEditingSingleCell = self.isEditing = NO;
     self.tableView.allowsSelectionDuringEditing = YES;
-    self.isEditing = NO;
     [[AppDelegate alloc] setupTableViewBackground:self.tableView];
     [[AppDelegate alloc] setupNavigationTitle:self.navigationItem];
-    
-//    PFObject *testObject = [PFObject objectWithClassName:@"TestObject"];
-//    [testObject setObject:@"bar" forKey:@"foo"];
-//    [testObject save];
+    [self priceNotification];
+    // This is some example code for saving objects with Parse
+    //    PFObject *testObject = [PFObject objectWithClassName:@"TestObject"];
+    //    [testObject setObject:@"bar" forKey:@"foo"];
+    //    [testObject save];
+}
+
+- (void) viewWillAppear:(BOOL)animated {
+    NSLog(@"viewWillAppear");
+    [super viewWillAppear:animated];
+    NSLog(@"%d  %d", self.isEditing, self.isEditingSingleCell);
+    [self showEditButtonIfNotEmpty];
 }
 
 - (void)didReceiveMemoryWarning{
@@ -43,14 +51,30 @@
 }
 
 - (void)showEditButtonIfNotEmpty {
-    if([[_model.fetchedResultsController sections] count] > 0 && [[_model.fetchedResultsController sections][0] numberOfObjects] > 0){
-        UIBarButtonItem *editButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"pencil.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(setEditing:animated:)];
-        
-        NSArray *myButtonArray = [[NSArray alloc] initWithObjects:
-                                    [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)],
-                                  editButton,
-                                  nil];
-        self.navigationItem.rightBarButtonItems = myButtonArray;
+    if([[_model.fetchedResultsController sections] count] > 0
+       && [[_model.fetchedResultsController sections][0] numberOfObjects] > 0){
+        if(self.isEditingSingleCell){
+            self.navigationItem.rightBarButtonItems = [[NSArray alloc] initWithObjects:nil];
+        } else if(self.isEditing){
+            
+            // Put setting button on top right navigation bar
+            self.rightButtonTempHold = self.navigationItem.rightBarButtonItems;
+            UIBarButtonItem *settingsButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"settings.png"] style:UIBarButtonItemStylePlain target:self action:@selector(changeSettings:)];
+            
+            // Hide the checkmark
+            [self reloadVisibleCells];
+            UIBarButtonItem *editButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"todo.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(turnOffEditMode)];
+            self.navigationItem.rightBarButtonItems = [[NSArray alloc] initWithObjects:settingsButton, editButton, nil];
+            
+        }else{
+            UIBarButtonItem *editButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"pencil.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(setEditing:animated:)];
+            
+            NSArray *myButtonArray = [[NSArray alloc] initWithObjects:
+                                        [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)],
+                                      editButton,
+                                      nil];
+            self.navigationItem.rightBarButtonItems = myButtonArray;
+        }
     } else {
         [self setEditing:NO];
         self.navigationItem.rightBarButtonItems = [[NSArray alloc] initWithObjects:
@@ -59,7 +83,10 @@
 }
 
 - (void) turnOffEditMode {
+    self.isEditing = self.isEditingSingleCell = NO;
     [self setEditing:NO animated:YES];
+    [self priceNotification];
+    [self showEditButtonIfNotEmpty];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
@@ -75,21 +102,31 @@
                                         action:nil];
     }
     [[segue destinationViewController] setParent:self];
-}
-                                                                                                                                                                                
+}                                                                                                                                                                            
                                                                                                                                                                             
-
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender{
     if ([identifier isEqual:@"addItem"] || (self.tableView.editing == YES && [identifier isEqual:@"detail"])) {
         return YES;
     } else return NO;
 }
 
+- (void) priceNotification{
+    _totalPriceNotificationView = [[GCDiscreetNotificationView alloc] initWithText:@""
+                                         showActivity:NO
+                                   inPresentationMode:GCDiscreetNotificationViewPresentationModeBottom
+                                    inView:self.navigationController.view];
+    double total=0;
+    for(int i=0; i < _model.fetchedResultsController.fetchedObjects.count;++i){
+        Item *object = [_model.fetchedResultsController.fetchedObjects objectAtIndex:i];
+        total += object.quantity.integerValue * object.price.doubleValue;
+    }
+    [self.totalPriceNotificationView setTextLabel:[NSString stringWithFormat:@"Total: $%.2f", total]];
+    [self.totalPriceNotificationView show:YES];
+}
 
 #pragma mark - Table View
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    NSLog(@"%d",[[_model.fetchedResultsController sections] count]);
     return [[_model.fetchedResultsController sections] count];
 }
 
@@ -104,16 +141,12 @@
     return cell;
 }
 
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
-    return YES;
-}
-
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         [_model.managedObjectContext deleteObject:[_model.fetchedResultsController objectAtIndexPath:indexPath]];
         NSError *error = nil;
         if (![_model.managedObjectContext save:&error]) NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-    }   
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -133,6 +166,8 @@
     self.isEditing = self.isEditingSingleCell = YES;
     self.currentEditIndexPath = indexPath;
     [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath, nil] withRowAnimation:UITableViewRowAnimationNone];
+    [_totalPriceNotificationView hide:YES];
+    [self showEditButtonIfNotEmpty];
 }
 
 - (void)tableView:(UITableView *)tableView didEndEditingRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -140,8 +175,9 @@
     self.isEditing = self.isEditingSingleCell =  NO;
     self.currentEditIndexPath = nil;
     [self reloadVisibleCells];
-    //[self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath, nil] withRowAnimation:UITableViewRowAnimationNone];
     [self showEditButtonIfNotEmpty];
+    //[self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath, nil] withRowAnimation:UITableViewRowAnimationNone];
+    [self priceNotification];
 }
 
 - (void) reloadVisibleCells {
@@ -151,11 +187,13 @@
 }
 
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated {
+    NSLog(@"Editing %d %d %d", self.isEditingSingleCell, self.isEditing, editing);
     if(self.isEditingSingleCell){
         [self tableView:self.tableView didEndEditingRowAtIndexPath:self.currentEditIndexPath];
     } else {
         self.isEditing = editing;
         if(editing){
+            [_totalPriceNotificationView hide:YES];
             // Put setting button on top right navigation bar
             self.rightButtonTempHold = self.navigationItem.rightBarButtonItems;
             UIBarButtonItem *settingsButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"settings.png"] style:UIBarButtonItemStylePlain target:self action:@selector(changeSettings:)];
@@ -253,14 +291,17 @@
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller{
     [self.tableView endUpdates];
-    [self showEditButtonIfNotEmpty];
 }
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath{
 //NSLog(@"isEditing:%i isEditingSingleCell:%i  row:%i currentIndexPathEqual:%i", self.isEditing ,self.isEditingSingleCell, indexPath.row, [self.currentEditIndexPath isEqual:indexPath]);
     Item *object = [_model.fetchedResultsController objectAtIndexPath:indexPath];
     [(UILabel *)[cell viewWithTag:1] setText:object.name];
-    [(UILabel *)[cell viewWithTag:2]setText:[NSString stringWithFormat:@"%@ %@",object.quantity,[Item getMeasurementName:object.measurement]]];
+    NSString *subtext =[NSString stringWithFormat:@"%@ %@",object.quantity,[Item getMeasurementName:object.measurement]];
+    if(object.price.integerValue)
+        subtext = [NSString stringWithFormat:@"%@ - $%.2f",subtext,object.price.doubleValue * object.quantity.integerValue];
+    [(UILabel *)[cell viewWithTag:2]setText:subtext];
+        
 
     // Hide checkmark when configuring cells in edit mode
     if(self.isEditingSingleCell){

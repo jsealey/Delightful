@@ -18,6 +18,7 @@
 @property NSIndexPath *selectedIndexPath;
 @property (weak, nonatomic) IBOutlet UITextField *nameField;
 @property (weak, nonatomic) IBOutlet UITextField *quantityField;
+@property (weak, nonatomic) IBOutlet UITextField *priceField;
 @property (weak, nonatomic) IBOutlet UIButton *dismissButton;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *measurement;
 @property (nonatomic, strong) IBOutlet UIScrollView *scrollView;

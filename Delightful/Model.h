@@ -24,7 +24,8 @@
 - (void) addItemWithName:(NSString *)name
     withCategory:(NSString *)category
  withMeasurement:(NSNumber*)measurement
-    withQuantity:(NSNumber*)quantity;
+    withQuantity:(NSNumber*)quantity
+       withPrice:(NSNumber*)price;
 
 #pragma mark Read
 

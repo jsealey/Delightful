@@ -17,7 +17,6 @@
 @implementation AddItemViewController
 
 dispatch_queue_t myQueue;
-UIAlertView *progressAlert;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -55,7 +54,7 @@ UIAlertView *progressAlert;
 - (void) setupMeasurementValues {
     for(int i=0; i < 3;++i)
         [_measurement
-                    setTitle:[Item getMeasurementName:[[NSNumber alloc] initWithInteger:i] ]
+                    setTitle:[Item getMeasurementName:[[NSNumber alloc] initWithInteger:i]]
            forSegmentAtIndex:i];
 }
 
@@ -84,7 +83,7 @@ UIAlertView *progressAlert;
 - (void) addItemPrivate:(BOOL)isForParent {
     if(![_nameField.text isEqual:@""] && [_quantityField.text integerValue]){
         
-        [_model addItemWithName:_nameField.text withCategory:@"Default" withMeasurement:[[NSNumber alloc] initWithInt:_measurement.selectedSegmentIndex] withQuantity:[[NSNumber alloc] initWithInt:[_quantityField.text integerValue]]];
+        [_model addItemWithName:_nameField.text withCategory:@"Default" withMeasurement:[[NSNumber alloc] initWithInt:_measurement.selectedSegmentIndex] withQuantity:[[NSNumber alloc] initWithInt:[_quantityField.text integerValue]] withPrice:[[NSNumber alloc] initWithDouble:[_priceField.text doubleValue]]];
         
         [self notification:[NSString stringWithFormat:@"Added %@ %@ of %@", _quantityField.text,[Item getMeasurementName:[[NSNumber alloc] initWithInt:_measurement.selectedSegmentIndex]], _nameField.text] isForParent:isForParent];
         
@@ -92,7 +91,7 @@ UIAlertView *progressAlert;
         [_nameField setText:@""];
         [_quantityField setText:@""];
     }
-
+    [self.parent priceNotification];
 }
 
 - (IBAction)addItem:(id)sender {
@@ -111,6 +110,7 @@ UIAlertView *progressAlert;
 - (IBAction)dismissKeyboard:(id)sender {
     [_nameField resignFirstResponder];
     [_quantityField resignFirstResponder];
+    [_priceField resignFirstResponder];
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField
