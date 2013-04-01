@@ -47,7 +47,7 @@ dispatch_queue_t myQueue;
     _notificationView = [[GCDiscreetNotificationView alloc] initWithText:@""
                                                             showActivity:NO
                                                       inPresentationMode:GCDiscreetNotificationViewPresentationModeTop
-                                                                  inView:_scrollView];
+                                                                  inView:self.view];
 }
 
 - (UIImage *)imageWithColor:(UIColor *)color {
