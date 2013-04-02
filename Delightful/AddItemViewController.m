@@ -66,7 +66,7 @@ dispatch_queue_t myQueue;
 
 - (void) notification:(NSString *)title isForParent:(BOOL)isForParent{
     if(isForParent == YES){
-        _notificationView.view = _parent.navigationController.navigationBar;
+        _notificationView.view = _parent.tableView;
     } else {
         _notificationView.view = _scrollView;
     }
@@ -76,7 +76,7 @@ dispatch_queue_t myQueue;
     [self.notificationView hideAnimatedAfter:1.0];
     myQueue = dispatch_queue_create("My Queue", NULL);
     dispatch_async(myQueue, ^{
-        [NSThread sleepForTimeInterval:1.5];
+        [NSThread sleepForTimeInterval:1.20];
         dispatch_async(dispatch_get_main_queue(), ^{
             _notificationView.hidden = YES;
         });
