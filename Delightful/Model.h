@@ -15,12 +15,11 @@
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+@property UIViewController *masterController;
 
 + (Model *)modelSingleton;
 
 #pragma mark Create
-- (void) setMeasuringSetting:(BOOL)measuring;
-
 - (void) addItemWithName:(NSString *)name
     withCategory:(NSString *)category
  withMeasurement:(NSNumber*)measurement
@@ -30,9 +29,12 @@
 #pragma mark Read
 
 - (BOOL) getMeasuringSetting;
+- (NSNumber*) getTaxRate;
 
 #pragma mark Update
 
+- (void) setMeasuringSetting:(BOOL)measuring;
+- (void) setTaxRate:(NSNumber*)measuring;
 - (void) updateItem:(Item*)item;
 
 #pragma mark Delete

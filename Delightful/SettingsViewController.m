@@ -27,47 +27,21 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
-    
-    [self addGradient:_metricButton];
-    [self addGradient:_usButton];
     _model = [Model modelSingleton];
     _buttonContainerView.backgroundColor = [_buttonContainerView.backgroundColor colorWithNoiseWithOpacity:0.1 andBlendMode:kCGBlendModeDarken];
-    
     CALayer *layer = _buttonContainerView.layer;
     layer.cornerRadius = 8.0f;
     layer.masksToBounds = YES;
     layer.borderWidth = 1.0f;
-    layer.borderColor = [UIColor colorWithWhite:0.5f alpha:0.2f].CGColor;
-}
-
--(void) addGradient:(UIButton *) _button {
+    layer.borderColor = [UIColor darkGrayColor].CGColor;
+    [[AppDelegate alloc] setupNavigationTitle:self.navigationItem];
     
-    // Add Border
-    CALayer *layer = _button.layer;
-    layer.cornerRadius = 8.0f;
-    layer.masksToBounds = YES;
-    layer.borderWidth = 1.0f;
-    layer.borderColor = [UIColor colorWithWhite:0.5f alpha:0.2f].CGColor;
-    
-    // Add Shine
-    CAGradientLayer *shineLayer = [CAGradientLayer layer];
-    shineLayer.frame = layer.bounds;
-    shineLayer.colors = [NSArray arrayWithObjects:
-                         (id)[UIColor colorWithWhite:1.0f alpha:0.4f].CGColor,
-                         (id)[UIColor colorWithWhite:1.0f alpha:0.2f].CGColor,
-                         (id)[UIColor colorWithWhite:0.75f alpha:0.2f].CGColor,
-                         (id)[UIColor colorWithWhite:0.4f alpha:0.2f].CGColor,
-                         (id)[UIColor colorWithWhite:1.0f alpha:0.4f].CGColor,
-                         nil];
-    shineLayer.locations = [NSArray arrayWithObjects:
-                            [NSNumber numberWithFloat:0.0f],
-                            [NSNumber numberWithFloat:0.5f],
-                            [NSNumber numberWithFloat:0.5f],
-                            [NSNumber numberWithFloat:0.8f],
-                            [NSNumber numberWithFloat:1.0f],
-                            nil];
-    [layer addSublayer:shineLayer];
+    _notificationView = [[GCDiscreetNotificationView alloc] initWithText:@""
+                                                            showActivity:NO
+                                                      inPresentationMode:GCDiscreetNotificationViewPresentationModeTop
+                                                                  inView:self.view];
+    _measurementSegmentedController.selectedSegmentIndex = [_model getMeasuringSetting];
+    _taxTextField.text = [NSString stringWithFormat:@"%.2f",[[_model getTaxRate] doubleValue]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -76,17 +50,27 @@
 }
 
 - (IBAction)setMeasuringSystem:(id)sender {
-    [self changeColorLight:sender];
-    [_model setMeasuringSetting:[[[NSNumber alloc] initWithInt:[sender tag]] boolValue]];
-    [self.parent reloadVisibleCells];
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [_model setMeasuringSetting:[[[NSNumber alloc] initWithInt:((UISegmentedControl *)sender).selectedSegmentIndex] boolValue]];
+    [self notification:[NSString stringWithFormat:@"Updated to %@",[((UISegmentedControl *)sender) titleForSegmentAtIndex:((UISegmentedControl *)sender).selectedSegmentIndex]]];
+    [(MasterViewController*)_model.masterController reloadVisibleCells];
 }
 
-- (IBAction)changeColorLight:(id)sender {
-    [sender setBackgroundColor:[[UIColor alloc] initWithRed:120.0f/255 green:166.0f/255 blue:143.0f/255 alpha:1.0f]];
+- (IBAction)setTaxRate:(id)sender {
+    if([((UITextView *)sender).text doubleValue] != [[_model getTaxRate] doubleValue]){
+        [_model setTaxRate:[[NSNumber alloc] initWithDouble:[((UITextView *)sender).text doubleValue]]];
+        [self notification:[NSString stringWithFormat:@"Updated tax rate: %.2f%%",[((UITextView *)sender).text doubleValue]]];
+        [(MasterViewController*)_model.masterController reloadVisibleCells];
+        [(MasterViewController*)_model.masterController priceNotification];
+    }
 }
 
-- (IBAction)changeColorDark:(id)sender {
-    [sender setBackgroundColor:[[UIColor alloc] initWithRed:83.0f/255 green:127.0f/255 blue:121.0f/255 alpha:1.0f]];
+- (IBAction)dismissKeyboard:(id)sender {
+    [_taxTextField resignFirstResponder];
+}
+
+- (void) notification:(NSString *)title{
+    [self.notificationView setTextLabel:title];
+    [self.notificationView show:YES];
+    [self.notificationView hideAnimatedAfter:1.0f];
 }
 @end

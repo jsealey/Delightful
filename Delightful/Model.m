@@ -62,12 +62,23 @@
     return [[defaults objectForKey:@"measuringSetting"] boolValue];
 }
 
+- (NSNumber*) getTaxRate {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    return [defaults objectForKey:@"taxRate"];
+}
+
 #pragma mark - Update
 
 // Metric = YES, US = NO
 - (void) setMeasuringSetting:(BOOL)measuring {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setBool:measuring forKey:@"measuringSetting"];
+    [defaults synchronize];
+}
+
+- (void) setTaxRate:(NSNumber*)measuring {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setDouble:[measuring doubleValue] forKey:@"taxRate"];
     [defaults synchronize];
 }
 

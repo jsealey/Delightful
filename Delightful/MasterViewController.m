@@ -10,7 +10,6 @@
 #import "Item.h"
 #import "AddItemViewController.h"
 #import "EditItemViewController.h"
-#import "SettingsViewController.h"
 #import "Model.h"
 
 @interface MasterViewController ()
@@ -33,6 +32,7 @@
     [[AppDelegate alloc] setupTableViewBackground:self.tableView];
     [[AppDelegate alloc] setupNavigationTitle:self.navigationItem];
     [self priceNotification];
+    _model.masterController = self;
     // This is some example code for saving objects with Parse
     //    PFObject *testObject = [PFObject objectWithClassName:@"TestObject"];
     //    [testObject setObject:@"bar" forKey:@"foo"];
@@ -57,14 +57,16 @@
             self.navigationItem.rightBarButtonItems = [[NSArray alloc] initWithObjects:nil];
         } else if(self.isEditing){
             
-            // Put setting button on top right navigation bar
+            // Put delete button on top right navigation bar
             self.rightButtonTempHold = self.navigationItem.rightBarButtonItems;
-            UIBarButtonItem *settingsButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"settings.png"] style:UIBarButtonItemStylePlain target:self action:@selector(changeSettings:)];
+            UIBarButtonItem *deleteButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash target:self action:@selector(deleteActionSheet:)];
+            deleteButton.tintColor = [UIColor colorWithRed:0.83 green:0.00 blue:0.00 alpha:0.5];
             
             // Hide the checkmark
             [self reloadVisibleCells];
             UIBarButtonItem *editButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"todo.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(turnOffEditMode)];
-            self.navigationItem.rightBarButtonItems = [[NSArray alloc] initWithObjects:settingsButton, editButton, nil];
+            editButton.tintColor = [[UIColor colorWithRed:81/255.0 green:125/255.0 blue:119/255.0 alpha:0.1] colorWithNoiseWithOpacity:0.1 andBlendMode:kCGBlendModeDarken];
+            self.navigationItem.rightBarButtonItems = [[NSArray alloc] initWithObjects:deleteButton, editButton, nil];
             
         }else{
             UIBarButtonItem *editButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"pencil.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(turnOnEditMode)];
@@ -126,7 +128,7 @@
         Item *object = [_model.fetchedResultsController.fetchedObjects objectAtIndex:i];
         total += object.quantity.integerValue * object.price.doubleValue;
     }
-    [self.totalPriceNotificationView setTextLabel:[NSString stringWithFormat:@"Total: $%.2f", total]];
+    [self.totalPriceNotificationView setTextLabel:[NSString stringWithFormat:@"Total: $%.2f", total * (([[_model getTaxRate] doubleValue]/100) + 1)]];
     [self.totalPriceNotificationView show:YES];
 }
 
@@ -200,14 +202,16 @@
         self.isEditing = editing;
         if(editing){
             [_totalPriceNotificationView hide:YES];
-            // Put setting button on top right navigation bar
+            // Put delete button on top right navigation bar
             self.rightButtonTempHold = self.navigationItem.rightBarButtonItems;
-            UIBarButtonItem *settingsButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"settings.png"] style:UIBarButtonItemStylePlain target:self action:@selector(changeSettings:)];
+            UIBarButtonItem *deleteButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash target:self action:@selector(deleteActionSheet:)];
+            deleteButton.tintColor = [UIColor colorWithRed:0.83 green:0.00 blue:0.00 alpha:0.5];
             
             // Hide the checkmark
             [self reloadVisibleCells];
             UIBarButtonItem *editButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"todo.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(turnOffEditMode)];
-            self.navigationItem.rightBarButtonItems = [[NSArray alloc] initWithObjects:settingsButton, editButton, nil];
+            editButton.tintColor = [[UIColor colorWithRed:81/255.0 green:125/255.0 blue:119/255.0 alpha:0.1] colorWithNoiseWithOpacity:0.1 andBlendMode:kCGBlendModeDarken];
+            self.navigationItem.rightBarButtonItems = [[NSArray alloc] initWithObjects:deleteButton, editButton, nil];
         } else {
             // Put "+" button on top right navigation bar
             self.navigationItem.rightBarButtonItems = self.rightButtonTempHold;
@@ -226,11 +230,32 @@
     [self.navigationController presentViewController:addItemController animated:YES completion:nil];
 }
 
-- (void)changeSettings:(id)sender{
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-    SettingsViewController *settingsViewController = (SettingsViewController *)[storyboard instantiateViewControllerWithIdentifier:@"settings"];
-    [settingsViewController setParent:self];
-    [self.navigationController presentViewController:settingsViewController animated:YES completion:nil];
+- (void)deleteActionSheet:(id)sender{
+    BlockActionSheet *sheet = [BlockActionSheet sheetWithTitle:@""];
+    [sheet setDestructiveButtonWithTitle:@"Delete List" block:^{
+        // Code to confirm delete list, THEN delete list
+        BlockActionSheet *verifySheet = [BlockActionSheet sheetWithTitle:@"Are you SURE you want to delete your list?"];
+        [verifySheet setDestructiveButtonWithTitle:@"Yes Please" block:^{
+            NSError *error;
+            _model.fetchedResultsController.delegate = nil;               // turn off delegate callbacks
+            for (Item *row in [_model.fetchedResultsController fetchedObjects]) {
+                [_model.managedObjectContext deleteObject:row];
+            }
+            if (![_model.managedObjectContext save:&error]) {
+                NSLog(@"Delete message error %@, %@", error, [error userInfo]);
+            }
+            _model.fetchedResultsController.delegate = self;              // reconnect after mass delete
+            if (![_model.fetchedResultsController performFetch:&error]) { // resync controller
+                NSLog(@"fetchMessages error %@, %@", error, [error userInfo]);
+            }
+            [self.tableView reloadData];
+            [self showEditButtonIfNotEmpty];
+        }];
+        [verifySheet setCancelButtonWithTitle:@"Cancel Button" block:nil];
+        [verifySheet showInView:self.view];
+    }];
+    [sheet setCancelButtonWithTitle:@"Cancel Button" block:nil];
+    [sheet showInView:self.view];
 }
 
 #pragma mark - Fetched results controller
@@ -306,7 +331,9 @@
     [(UILabel *)[cell viewWithTag:1] setText:object.name];
     NSString *subtext =[NSString stringWithFormat:@"%@ %@",object.quantity,[Item getMeasurementName:object.measurement]];
     if(object.price.integerValue)
-        subtext = [NSString stringWithFormat:@"%@ - $%.2f",subtext,object.price.doubleValue * object.quantity.integerValue];
+        subtext = [NSString stringWithFormat:@"%@ - $%.2f",
+                   subtext,
+                   object.price.doubleValue * object.quantity.integerValue * (([[_model getTaxRate] doubleValue]/100)+1)];
     [(UILabel *)[cell viewWithTag:2]setText:subtext];
         
 

@@ -12,13 +12,14 @@
 #import "MasterViewController.h"
 
 @interface SettingsViewController : UIViewController
-- (IBAction)setMeasuringSystem:(id)sender;
-@property (weak, nonatomic) IBOutlet UIButton *metricButton;
-@property (weak, nonatomic) IBOutlet UIButton *usButton;
-@property (weak, nonatomic) IBOutlet UIView *buttonContainerView;
 @property Model *model;
-@property MasterViewController *parent;
-- (IBAction)changeColorLight:(id)sender;
-- (IBAction)changeColorDark:(id)sender;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *measurementSegmentedController;
+@property (nonatomic, retain) GCDiscreetNotificationView *notificationView;
+@property (weak, nonatomic) IBOutlet UIView *buttonContainerView;
+@property (weak, nonatomic) IBOutlet UITextField *taxTextField;
+- (IBAction)dismissKeyboard:(id)sender;
+- (IBAction)setMeasuringSystem:(id)sender;
+- (IBAction)setTaxRate:(id)sender;
+
 
 @end

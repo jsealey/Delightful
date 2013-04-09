@@ -54,8 +54,8 @@
 -(NSString*) segueIdForIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.row == 0) {
         return @"list";
-//    }else if (indexPath.row == 1){
-//        return @"recipe";
+    }else if (indexPath.row == 1){
+        return @"setting";
     }else{
         return @"sync";
     }

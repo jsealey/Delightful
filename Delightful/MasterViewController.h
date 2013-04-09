@@ -13,6 +13,7 @@
 #import "KGNoise.h"
 #import "AppDelegate.h"
 #import "GCDiscreetNotificationView.h"
+#import "BlockActionSheet.h"
 #import <Parse/Parse.h>
 
 @interface MasterViewController : UITableViewController <NSFetchedResultsControllerDelegate>
