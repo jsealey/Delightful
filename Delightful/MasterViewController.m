@@ -361,7 +361,7 @@
     Item *object = [_model.fetchedResultsController objectAtIndexPath:indexPath];
     [(UILabel *)[cell viewWithTag:1] setText:object.name];
     NSString *subtext =[NSString stringWithFormat:@"%@ %@",object.quantity,[Item getMeasurementName:object.measurement]];
-    if(object.price.integerValue)
+    if(object.price.doubleValue)
         subtext = [NSString stringWithFormat:@"%@ - $%.2f",
                    subtext,
                    object.price.doubleValue * object.quantity.integerValue * (([[_model getTaxRate] doubleValue]/100)+1)];
