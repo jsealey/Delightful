@@ -64,7 +64,7 @@
             
             // Hide the checkmark
             [self reloadVisibleCells];
-            UIBarButtonItem *editButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"todo.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(turnOffEditMode)];
+            UIBarButtonItem *editButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"checkmark.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(turnOffEditMode)];
             editButton.tintColor = [[UIColor colorWithRed:81/255.0 green:125/255.0 blue:119/255.0 alpha:0.1] colorWithNoiseWithOpacity:0.1 andBlendMode:kCGBlendModeDarken];
             self.navigationItem.rightBarButtonItems = [[NSArray alloc] initWithObjects:deleteButton, editButton, nil];
             
@@ -209,7 +209,7 @@
             
             // Hide the checkmark
             [self reloadVisibleCells];
-            UIBarButtonItem *editButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"todo.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(turnOffEditMode)];
+            UIBarButtonItem *editButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"checkmark.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(turnOffEditMode)];
             editButton.tintColor = [[UIColor colorWithRed:81/255.0 green:125/255.0 blue:119/255.0 alpha:0.1] colorWithNoiseWithOpacity:0.1 andBlendMode:kCGBlendModeDarken];
             self.navigationItem.rightBarButtonItems = [[NSArray alloc] initWithObjects:deleteButton, editButton, nil];
         } else {
