@@ -33,10 +33,41 @@
     [[AppDelegate alloc] setupNavigationTitle:self.navigationItem];
     [self priceNotification];
     _model.masterController = self;
+
+    UIBarButtonItem *shareButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"action.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(Share:)];
+   // UIBarButtonItem *shareButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:nil];
+    self.navigationItem.leftBarButtonItems = [[NSArray alloc] initWithObjects:self.navigationItem.leftBarButtonItem, shareButton, nil];
+    
+    
     // This is some example code for saving objects with Parse
     //    PFObject *testObject = [PFObject objectWithClassName:@"TestObject"];
     //    [testObject setObject:@"bar" forKey:@"foo"];
     //    [testObject save];
+}
+
+- (IBAction)Share:(UIBarButtonItem *)sender {
+    NSString *textToShare = @"Shopping List By Delightful\n\n";
+    double total = 0;
+    for(int i=0; i < _model.fetchedResultsController.fetchedObjects.count;++i){
+        Item *object = [_model.fetchedResultsController.fetchedObjects objectAtIndex:i];
+        total += object.quantity.integerValue * object.price.doubleValue;
+        textToShare = [NSString stringWithFormat:@"%@%d %@ of %@ at $%.2f\n",
+                           textToShare,
+                           [object.quantity integerValue],
+                           [Item getMeasurementName:object.measurement],
+                           object.name,
+                           [object.price doubleValue]
+                       ];
+    }
+    textToShare = [NSString stringWithFormat:@"%@\n\nTax Rate: %.2f%%\n\nTotal Tax: $%.2f\nTotal:     $%.2f", textToShare, [[_model getTaxRate] doubleValue],total*([[_model getTaxRate] doubleValue]/100),total*(([[_model getTaxRate] doubleValue]/100)+1)];
+    
+    UISimpleTextPrintFormatter *printData = [[UISimpleTextPrintFormatter alloc]
+                                             initWithText:textToShare];
+    NSArray *itemsToShare = [[NSArray alloc] initWithObjects:textToShare,printData, nil];
+    UIActivityViewController* activities = [[UIActivityViewController alloc] initWithActivityItems:itemsToShare applicationActivities:nil];
+    activities.excludedActivityTypes = [[NSArray alloc] initWithObjects:UIActivityTypeSaveToCameraRoll,  UIActivityTypePostToWeibo, nil];
+    
+    [self presentViewController:activities animated:YES completion:nil];
 }
 
 - (void) viewWillAppear:(BOOL)animated {

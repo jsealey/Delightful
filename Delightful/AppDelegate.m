@@ -33,10 +33,10 @@
     CGRect frame = CGRectMake(0, 0, 40, 44);
     UILabel *label = [[UILabel alloc] initWithFrame:frame];
     label.backgroundColor = [UIColor clearColor];
-    label.font = [UIFont fontWithName:@"SnellRoundhand-BlackScript" size:26.0f];
+    label.font = [UIFont fontWithName:@"SnellRoundhand-BlackScript" size:23.0f];
     label.textAlignment = 1;
     label.textColor = [UIColor whiteColor];
-    label.text = @"Delightful ";
+    label.text = @" Delightful ";
     label.shadowColor = [UIColor blackColor];
     label.shadowOffset = CGSizeMake(0.0, 1.0);
     navController.titleView = label;
