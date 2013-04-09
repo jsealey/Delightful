@@ -23,6 +23,7 @@
 @property BOOL isEditingSingleCell;
 @property NSIndexPath *currentEditIndexPath;
 @property Model *model;
+@property UIColor *cellBgColor;
 - (void) reloadVisibleCells;
 - (void)showEditButtonIfNotEmpty;
 - (void) priceNotification;
