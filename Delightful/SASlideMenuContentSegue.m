@@ -69,7 +69,8 @@
         [panGesture setMaximumNumberOfTouches:2];
         [panGesture setDelegate:source];
         
-        if([[destination.viewControllers objectAtIndex:0] isKindOfClass:[UITableViewController class]]) [(UIView*)destination.navigationBar addGestureRecognizer:panGesture];
+        //if([[destination.viewControllers objectAtIndex:0] isKindOfClass:[UITableViewController class]]) [(UIView*)destination.navigationBar addGestureRecognizer:panGesture];
+        if([[destination.viewControllers objectAtIndex:0] conformsToProtocol:@protocol(UITableViewDelegate)]) [(UIView*)destination.navigationBar addGestureRecognizer:panGesture];
         else [destination.view addGestureRecognizer:panGesture];
     }
     
