@@ -89,6 +89,6 @@
 }
 
 -(CGFloat) leftMenuVisibleWidth{
-    return 280;
+    return 270;
 }
 @end

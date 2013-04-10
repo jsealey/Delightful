@@ -18,12 +18,11 @@
     SASlideMenuRootViewController* rootController = source.rootController;
     UINavigationController* destination = self.destinationViewController;
 
-    UIButton* menuButton = [[UIButton alloc] init];
-    [rootController.leftMenu.slideMenuDataSource configureMenuButton:menuButton];
-    [menuButton addTarget:rootController action:@selector(doSlideToSide) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *menuBarButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"menuicon.png"] style:UIBarButtonItemStyleBordered target:rootController action:@selector(doSlideToSide)];
+    menuBarButton.tintColor = [UIColor colorWithRed:111/255.0 green:135/255.0 blue:131/255.0 alpha:1.0];
     
     UINavigationItem* navigationItem = destination.navigationBar.topItem;
-    navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:menuButton];
+    navigationItem.leftBarButtonItem = menuBarButton;
     
     Boolean hasRightMenu = NO;
     rootController.isRightMenuEnabled = NO;
