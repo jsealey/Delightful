@@ -85,21 +85,22 @@
     if([[_model.fetchedResultsController sections] count] > 0
        && [[_model.fetchedResultsController sections][0] numberOfObjects] > 0){
         if(self.isEditingSingleCell){
+            NSLog(@"self.isEditingSingleCell");
             self.navigationItem.rightBarButtonItems = [[NSArray alloc] initWithObjects:nil];
         } else if(self.isEditing){
-            
+            NSLog(@"self.isEditing");
             // Put delete button on top right navigation bar
             self.rightButtonTempHold = self.navigationItem.rightBarButtonItems;
             UIBarButtonItem *deleteButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash target:self action:@selector(deleteActionSheet:)];
             deleteButton.tintColor = [UIColor colorWithRed:0.83 green:0.00 blue:0.00 alpha:0.5];
             
             // Hide the checkmark
-            [self reloadVisibleCells];
+            //[self reloadVisibleCells];
             UIBarButtonItem *editButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"checkmark.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(turnOffEditMode)];
             editButton.tintColor = [[UIColor colorWithRed:81/255.0 green:125/255.0 blue:119/255.0 alpha:0.1] colorWithNoiseWithOpacity:0.1 andBlendMode:kCGBlendModeDarken];
             self.navigationItem.rightBarButtonItems = [[NSArray alloc] initWithObjects:deleteButton, editButton, nil];
-            
         }else{
+            NSLog(@"Else case");
             UIBarButtonItem *editButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"pencil.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(turnOnEditMode)];
             
             NSArray *myButtonArray = [[NSArray alloc] initWithObjects:
@@ -109,20 +110,24 @@
             self.navigationItem.rightBarButtonItems = myButtonArray;
         }
     } else {
-        [self setEditing:NO];
+        [self.tableView setEditing:NO];
         self.navigationItem.rightBarButtonItems = [[NSArray alloc] initWithObjects:
                                                    [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)], nil];
     }
 }
 
 - (void)turnOnEditMode {
-    [self setEditing:YES animated:YES];
+    self.isEditing = YES;
+    [self showEditButtonIfNotEmpty];
+    [self reloadVisibleCells];
+    [self.tableView setEditing:YES animated:YES];
 }
 
 - (void) turnOffEditMode {
     self.isEditing = self.isEditingSingleCell = NO;
-    [self setEditing:NO animated:YES];
+    [self.tableView setEditing:NO animated:YES];
     [self priceNotification];
+    [self performSelector:@selector(reloadVisibleCells) withObject:nil afterDelay:.25];
     [self showEditButtonIfNotEmpty];
 }
 

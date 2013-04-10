@@ -16,7 +16,10 @@
 #import "BlockActionSheet.h"
 #import <Parse/Parse.h>
 
-@interface MasterViewController : UITableViewController <NSFetchedResultsControllerDelegate>
+@interface MasterViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate>
+
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property NSArray *rightButtonTempHold;
 @property BOOL isEditing;
