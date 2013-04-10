@@ -125,7 +125,7 @@
     self.isEditing = YES;
     [self showEditButtonIfNotEmpty];
     [self reloadVisibleCells];
-    [self.tableView setEditing:YES animated:YES];
+    [self setEditing:YES animated:YES];
 }
 
 - (void) turnOffEditMode {
@@ -241,6 +241,7 @@
         [self tableView:self.tableView didEndEditingRowAtIndexPath:self.currentEditIndexPath];
     } else {
         self.isEditing = editing;
+        self.tableView.editing = YES;
         if(editing){
             [_totalPriceNotificationView hide:YES];
             // Put delete button on top right navigation bar
