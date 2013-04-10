@@ -35,9 +35,8 @@
     _model.masterController = self;
 
     UIBarButtonItem *shareButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"action.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(Share:)];
-   // UIBarButtonItem *shareButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:nil];
+    shareButton.tintColor = [UIColor colorWithRed:111/255.0 green:135/255.0 blue:131/255.0 alpha:1.0];
     self.navigationItem.leftBarButtonItems = [[NSArray alloc] initWithObjects:self.navigationItem.leftBarButtonItem, shareButton, nil];
-    
     
     // This is some example code for saving objects with Parse
     //    PFObject *testObject = [PFObject objectWithClassName:@"TestObject"];
@@ -97,14 +96,19 @@
             // Hide the checkmark
             //[self reloadVisibleCells];
             UIBarButtonItem *editButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"checkmark.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(turnOffEditMode)];
-            editButton.tintColor = [[UIColor colorWithRed:81/255.0 green:125/255.0 blue:119/255.0 alpha:0.1] colorWithNoiseWithOpacity:0.1 andBlendMode:kCGBlendModeDarken];
+            editButton.tintColor = [UIColor colorWithRed:111/255.0 green:135/255.0 blue:131/255.0 alpha:1.0];
             self.navigationItem.rightBarButtonItems = [[NSArray alloc] initWithObjects:deleteButton, editButton, nil];
         }else{
             NSLog(@"Else case");
             UIBarButtonItem *editButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"pencil.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(turnOnEditMode)];
+            editButton.tintColor = [UIColor colorWithRed:111/255.0 green:135/255.0 blue:131/255.0 alpha:1.0];
+            
+            UIBarButtonItem *addButton =  [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
+            addButton.tintColor = [UIColor colorWithRed:111/255.0 green:135/255.0 blue:131/255.0 alpha:1.0];
+            
             
             NSArray *myButtonArray = [[NSArray alloc] initWithObjects:
-                                        [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)],
+                                       addButton,
                                       editButton,
                                       nil];
             self.navigationItem.rightBarButtonItems = myButtonArray;
@@ -246,7 +250,7 @@
             // Hide the checkmark
             [self reloadVisibleCells];
             UIBarButtonItem *editButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"checkmark.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(turnOffEditMode)];
-            editButton.tintColor = [[UIColor colorWithRed:81/255.0 green:125/255.0 blue:119/255.0 alpha:0.1] colorWithNoiseWithOpacity:0.1 andBlendMode:kCGBlendModeDarken];
+            editButton.tintColor = [UIColor colorWithRed:111/255.0 green:135/255.0 blue:131/255.0 alpha:1.0];
             self.navigationItem.rightBarButtonItems = [[NSArray alloc] initWithObjects:deleteButton, editButton, nil];
         } else {
             // Put "+" button on top right navigation bar
