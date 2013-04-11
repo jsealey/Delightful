@@ -12,7 +12,6 @@
 #import "EditItemViewController.h"
 #import "Model.h"
 #import "UIActivityDelete.h"
-#import "UIActivityConfirm.h"
 
 @interface MasterViewController ()
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
