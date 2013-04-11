@@ -11,6 +11,8 @@
 #import "AddItemViewController.h"
 #import "EditItemViewController.h"
 #import "Model.h"
+#import "UIActivityDelete.h"
+#import "UIActivityConfirm.h"
 
 @interface MasterViewController ()
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
@@ -273,31 +275,35 @@
 }
 
 - (void)deleteActionSheet:(id)sender{
-    BlockActionSheet *sheet = [BlockActionSheet sheetWithTitle:@""];
-    [sheet setDestructiveButtonWithTitle:@"Delete List" block:^{
-        // Code to confirm delete list, THEN delete list
-        BlockActionSheet *verifySheet = [BlockActionSheet sheetWithTitle:@"Are you SURE you want to delete your list?"];
-        [verifySheet setDestructiveButtonWithTitle:@"Yes Please" block:^{
-            NSError *error;
-            _model.fetchedResultsController.delegate = nil;               // turn off delegate callbacks
-            for (Item *row in [_model.fetchedResultsController fetchedObjects]) {
-                [_model.managedObjectContext deleteObject:row];
-            }
-            if (![_model.managedObjectContext save:&error]) {
-                NSLog(@"Delete message error %@, %@", error, [error userInfo]);
-            }
-            _model.fetchedResultsController.delegate = self;              // reconnect after mass delete
-            if (![_model.fetchedResultsController performFetch:&error]) { // resync controller
-                NSLog(@"fetchMessages error %@, %@", error, [error userInfo]);
-            }
+    UIActivityDelete *deleteActivityItem = [[UIActivityDelete alloc] init];
+    UIActivityViewController *deleteActivityViewController = [[UIActivityViewController alloc] initWithActivityItems:@[@"Clear All"] applicationActivities:@[deleteActivityItem]];
+    
+    [deleteActivityViewController setExcludedActivityTypes:@[UIActivityTypeMail, UIActivityTypeMessage, UIActivityTypeAssignToContact, UIActivityTypeCopyToPasteboard, UIActivityTypePostToFacebook, UIActivityTypePostToTwitter, UIActivityTypePostToWeibo, UIActivityTypePrint, UIActivityTypeSaveToCameraRoll]];
+    
+    deleteActivityViewController.completionHandler = ^(NSString *activityType, BOOL completed) {
+        if (completed) {
+            // This code is run if the user "completes" the activity view
+            // eg: the user selects an option that is not cancel
+          NSError *error;
+          _model.fetchedResultsController.delegate = nil;
+          for (Item *row in [_model.fetchedResultsController fetchedObjects]) {
+            [_model.managedObjectContext deleteObject:row];
+          }
+          if (![_model.managedObjectContext save:&error]) {
+            NSLog(@"Delete message error %@, %@", error, [error userInfo]);
+          }
+          _model.fetchedResultsController.delegate = self;
+          if (![_model.fetchedResultsController performFetch:&error]) {
+            NSLog(@"fetchMessages error %@, %@", error, [error userInfo]);
+          }
+          dispatch_async(dispatch_get_main_queue(), ^{
             [self.tableView reloadData];
             [self showEditButtonIfNotEmpty];
-        }];
-        [verifySheet setCancelButtonWithTitle:@"Cancel Button" block:nil];
-        [verifySheet showInView:self.view];
-    }];
-    [sheet setCancelButtonWithTitle:@"Cancel Button" block:nil];
-    [sheet showInView:self.view];
+          });
+        }
+    };
+    
+    [self presentViewController:deleteActivityViewController animated:YES completion:nil];
 }
 
 #pragma mark - Fetched results controller

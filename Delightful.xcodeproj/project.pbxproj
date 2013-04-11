@@ -111,6 +111,7 @@
 		7FD4028B16C472090042346C /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FD4028916C472090042346C /* MainStoryboard.storyboard */; };
 		7FD4028E16C472180042346C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7FD4028C16C472180042346C /* InfoPlist.strings */; };
 		7FDCD8C916C9F4F900EB10E2 /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FDCD8C816C9F4F900EB10E2 /* Model.m */; };
+		E1C5292417162402009187CF /* UIActivityDelete.m in Sources */ = {isa = PBXBuildFile; fileRef = E1C5292317162402009187CF /* UIActivityDelete.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -249,6 +250,8 @@
 		7FD4028D16C472180042346C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Delightful/en.lproj/InfoPlist.strings; sourceTree = SOURCE_ROOT; };
 		7FDCD8C716C9F4F900EB10E2 /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
 		7FDCD8C816C9F4F900EB10E2 /* Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Model.m; sourceTree = "<group>"; };
+		E1C5292217162402009187CF /* UIActivityDelete.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIActivityDelete.h; sourceTree = "<group>"; };
+		E1C5292317162402009187CF /* UIActivityDelete.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIActivityDelete.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -444,6 +447,8 @@
 			children = (
 				7FD4024D16C46ECD0042346C /* MasterViewController.h */,
 				7FD4024E16C46ECD0042346C /* MasterViewController.m */,
+				E1C5292217162402009187CF /* UIActivityDelete.h */,
+				E1C5292317162402009187CF /* UIActivityDelete.m */,
 				7F9A65B616CAC31B00EBBA30 /* subviews */,
 			);
 			name = "Shopping List";
@@ -681,6 +686,7 @@
 				7F013D87171395FD00B2517B /* BlockAlertView.m in Sources */,
 				7F013D88171395FD00B2517B /* BlockBackground.m in Sources */,
 				7F013D89171395FD00B2517B /* BlockTextPromptAlertView.m in Sources */,
+				E1C5292417162402009187CF /* UIActivityDelete.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

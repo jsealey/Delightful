@@ -30,5 +30,6 @@
 - (void) reloadVisibleCells;
 - (void)showEditButtonIfNotEmpty;
 - (void) priceNotification;
+- (void)confirmDeleteAll;
 @property (nonatomic, retain) GCDiscreetNotificationView *totalPriceNotificationView;
 @end
