@@ -126,7 +126,8 @@
     self.isEditing = YES;
     [self showEditButtonIfNotEmpty];
     [self reloadVisibleCells];
-    [self setEditing:YES animated:YES];
+    [self.totalPriceNotificationView hide:YES];
+    [self.tableView setEditing:YES animated:YES];
 }
 
 - (void) turnOffEditMode {
@@ -212,7 +213,6 @@
 #pragma mark - Table View Editing
 
 - (void)tableView:(UITableView *)tableView willBeginEditingRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"willBeginEditingRowAtIndexPath");
     self.isEditing = self.isEditingSingleCell = YES;
     self.currentEditIndexPath = indexPath;
     [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath, nil] withRowAnimation:UITableViewRowAnimationNone];
@@ -221,7 +221,6 @@
 }
 
 - (void)tableView:(UITableView *)tableView didEndEditingRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"didEndEditingRowAtIndexPath");
     self.isEditing = self.isEditingSingleCell =  NO;
     self.currentEditIndexPath = nil;
     [self reloadVisibleCells];
@@ -234,36 +233,6 @@
     for (UITableViewCell *cell in [[NSMutableArray alloc] initWithArray:self.tableView.visibleCells]){
         [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:[self.tableView indexPathForCell:cell], nil] withRowAnimation:UITableViewRowAnimationNone];
     }
-}
-
-- (void)setEditing:(BOOL)editing animated:(BOOL)animated {
-    NSLog(@"Editing %d %d %d", self.isEditingSingleCell, self.isEditing, editing);
-    if(self.isEditingSingleCell){
-        [self tableView:self.tableView didEndEditingRowAtIndexPath:self.currentEditIndexPath];
-    } else {
-        self.isEditing = editing;
-        self.tableView.editing = YES;
-        if(editing){
-            [_totalPriceNotificationView hide:YES];
-            // Put delete button on top right navigation bar
-            self.rightButtonTempHold = self.navigationItem.rightBarButtonItems;
-            UIBarButtonItem *deleteButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash target:self action:@selector(deleteActionSheet:)];
-            deleteButton.tintColor = [UIColor colorWithRed:0.83 green:0.00 blue:0.00 alpha:0.5];
-            
-            // Hide the checkmark
-            [self reloadVisibleCells];
-            UIBarButtonItem *editButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"checkmark.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(turnOffEditMode)];
-            editButton.tintColor = [UIColor colorWithRed:111/255.0 green:135/255.0 blue:131/255.0 alpha:1.0];
-            self.navigationItem.rightBarButtonItems = [[NSArray alloc] initWithObjects:deleteButton, editButton, nil];
-        } else {
-            // Put "+" button on top right navigation bar
-            self.navigationItem.rightBarButtonItems = self.rightButtonTempHold;
-            [self performSelector:@selector(reloadVisibleCells) withObject:nil afterDelay:.25];
-            self.rightButtonTempHold = nil;
-            self.isEditing = self.isEditingSingleCell = NO;
-        }
-    }
-    [super setEditing:editing animated:animated];
 }
 
 - (void)insertNewObject:(id)sender{
