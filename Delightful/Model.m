@@ -21,11 +21,10 @@
     }
 }
 
-
 #pragma mark - Create
 
 - (void) addItemWithName:(NSString *)name
-    withCategory:(NSString *)category
+    withCategory:(NSNumber *)category
  withMeasurement:(NSNumber*)measurement
     withQuantity:(NSNumber*)quantity
        withPrice:(NSNumber*)price
@@ -43,15 +42,6 @@
     if (![_managedObjectContext save:&error]) {
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
     }
-}
-
-// TODO: This will get called in addItem: once I get the users account set up for cloud storage
-- (void) addItemToParseWithName:(NSString *)name
-           withCategory:(NSString *)category
-        withMeasurement:(NSNumber*)measurement
-           withQuantity:(NSNumber*)quantity
-{
-    
 }
 
 #pragma mark - Read
@@ -86,7 +76,4 @@
     NSError *error = nil;
     if (![_managedObjectContext save:&error]) NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
 }
-
-#pragma mark - Delete
-
 @end

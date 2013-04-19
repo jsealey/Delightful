@@ -13,9 +13,6 @@
 #import "KGNoise.h"
 #import "AppDelegate.h"
 #import "GCDiscreetNotificationView.h"
-#import "BlockActionSheet.h"
-#import <Parse/Parse.h>
-
 @interface MasterViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate>
 
 
@@ -30,6 +27,5 @@
 - (void) reloadVisibleCells;
 - (void)showEditButtonIfNotEmpty;
 - (void) priceNotification;
-- (void)confirmDeleteAll;
 @property (nonatomic, retain) GCDiscreetNotificationView *totalPriceNotificationView;
 @end

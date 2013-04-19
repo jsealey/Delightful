@@ -23,7 +23,6 @@
 
 -(id) initWithCoder:(NSCoder *)aDecoder{
     if (self = [super initWithCoder:aDecoder]) {
-        // Assign self to the slideMenuDataSource because self will implement SASlideMenuDatSource
         self.slideMenuDataSource = self;
         self.slideMenuDelegate = self;
     }
@@ -41,12 +40,7 @@
     return YES;
 }
 
-
-#pragma mark -
 #pragma mark SASlideMenuDataSource
-// The SASlideMenuDataSource is used to provide the initial segueid that represents the initial visibile view controller and to provide eventual additional configuration to the menu button
-
-// This is the indexPath selected at start-up
 -(NSIndexPath*) selectedIndexPath{
     return [NSIndexPath indexPathForRow:0 inSection:0];
 }

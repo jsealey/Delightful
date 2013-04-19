@@ -8,8 +8,6 @@
 
 #import "AppDelegate.h"
 #import "Model.h"
-#import "Constants.h"
-#import <Parse/Parse.h>
 
 @implementation AppDelegate
 
@@ -19,9 +17,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [Parse setApplicationId:kParseApplicationID
-                  clientKey:kParseClientKey];
-    
     Model *model = [Model modelSingleton];
     model.managedObjectContext = self.managedObjectContext;
     model.managedObjectModel = self.managedObjectModel;
@@ -46,25 +41,6 @@
     UIImageView *tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"retina_wood.png"]];
     [tempImageView setFrame:tableView.frame];
     tableView.backgroundView = tempImageView;
-}
-
-- (void)applicationWillResignActive:(UIApplication *)application
-{
-    // All data is saved immediatly after it is inserted/updated
-}
-
-- (void)applicationDidEnterBackground:(UIApplication *)application
-{
-    // All data is saved immediatly after it is inserted/updated
-}
-
-- (void)applicationWillEnterForeground:(UIApplication *)application
-{
-   // All data is saved immediatly after it is inserted/updated
-}
-
-- (void)applicationDidBecomeActive:(UIApplication *)application
-{
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application

@@ -86,7 +86,7 @@ dispatch_queue_t myQueue;
 - (void) addItemPrivate:(BOOL)isForParent {
     if(![_nameField.text isEqual:@""] && [_quantityField.text integerValue]){
         
-        [_model addItemWithName:_nameField.text withCategory:@"Default" withMeasurement:[[NSNumber alloc] initWithInt:_measurement.selectedSegmentIndex] withQuantity:[[NSNumber alloc] initWithInt:[_quantityField.text integerValue]] withPrice:[[NSNumber alloc] initWithDouble:[_priceField.text doubleValue]]];
+        [_model addItemWithName:_nameField.text withCategory:0 withMeasurement:[[NSNumber alloc] initWithInt:_measurement.selectedSegmentIndex] withQuantity:[[NSNumber alloc] initWithInt:[_quantityField.text integerValue]] withPrice:[[NSNumber alloc] initWithDouble:[_priceField.text doubleValue]]];
         
         [self notification:[NSString stringWithFormat:@"Added %@ %@ of %@", _quantityField.text,[Item getMeasurementName:[[NSNumber alloc] initWithInt:_measurement.selectedSegmentIndex]], _nameField.text] isForParent:isForParent];
         

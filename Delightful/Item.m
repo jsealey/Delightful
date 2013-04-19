@@ -18,6 +18,7 @@
 @dynamic measurement;
 @dynamic name;
 @dynamic price;
+@dynamic notes;
 
 + (NSString *)getMeasurementName:(NSNumber *) measurement{
     if([[[NSUserDefaults standardUserDefaults] objectForKey:@"measuringSetting"] boolValue]){
@@ -34,6 +35,13 @@
             case 2: return @"oz";
             default: return @"error";
         }
+    }
+}
+
++ (NSString *)getCategoryName:(NSNumber *) categoryid{
+    switch([categoryid integerValue]){
+        case 0: return @"Other";
+        default: return @"error";
     }
 }
 

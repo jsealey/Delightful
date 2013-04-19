@@ -39,11 +39,6 @@
     UIBarButtonItem *shareButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"action.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(Share:)];
     shareButton.tintColor = [UIColor colorWithRed:111/255.0 green:135/255.0 blue:131/255.0 alpha:1.0];
     self.navigationItem.leftBarButtonItems = [[NSArray alloc] initWithObjects:self.navigationItem.leftBarButtonItem, shareButton, nil];
-    
-    // This is some example code for saving objects with Parse
-    //    PFObject *testObject = [PFObject objectWithClassName:@"TestObject"];
-    //    [testObject setObject:@"bar" forKey:@"foo"];
-    //    [testObject save];
 }
 
 - (IBAction)Share:(UIBarButtonItem *)sender {
@@ -86,17 +81,11 @@
     if([[_model.fetchedResultsController sections] count] > 0
        && [[_model.fetchedResultsController sections][0] numberOfObjects] > 0){
         if(self.isEditingSingleCell){
-            NSLog(@"self.isEditingSingleCell");
             self.navigationItem.rightBarButtonItems = [[NSArray alloc] initWithObjects:nil];
         } else if(self.isEditing){
-            NSLog(@"self.isEditing");
-            // Put delete button on top right navigation bar
             self.rightButtonTempHold = self.navigationItem.rightBarButtonItems;
             UIBarButtonItem *deleteButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash target:self action:@selector(deleteActionSheet:)];
             deleteButton.tintColor = [UIColor colorWithRed:0.83 green:0.00 blue:0.00 alpha:0.5];
-            
-            // Hide the checkmark
-            //[self reloadVisibleCells];
             UIBarButtonItem *editButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"checkmark.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(turnOffEditMode)];
             editButton.tintColor = [UIColor colorWithRed:111/255.0 green:135/255.0 blue:131/255.0 alpha:1.0];
             self.navigationItem.rightBarButtonItems = [[NSArray alloc] initWithObjects:deleteButton, editButton, nil];
@@ -117,8 +106,10 @@
         }
     } else {
         [self.tableView setEditing:NO];
+        UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
+        addButton.tintColor = [UIColor colorWithRed:111/255.0 green:135/255.0 blue:131/255.0 alpha:1.0];
         self.navigationItem.rightBarButtonItems = [[NSArray alloc] initWithObjects:
-                                                   [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)], nil];
+                                                   addButton, nil];
     }
 }
 
@@ -139,9 +130,7 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    if ([[segue identifier] isEqualToString:@"addItem"]) {
-        // Do nothing. (The model takes care of any data passing that would have happened here)
-    } else if([[segue identifier] isEqualToString:@"detail"]){
+    if([[segue identifier] isEqualToString:@"detail"]){
         [[segue destinationViewController] setSelectedIndexPath:[self.tableView indexPathForSelectedRow]];
         [[segue destinationViewController] setTitle:@"Edit"];
         self.navigationItem.backBarButtonItem =
@@ -225,7 +214,6 @@
     self.currentEditIndexPath = nil;
     [self reloadVisibleCells];
     [self showEditButtonIfNotEmpty];
-    //[self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath, nil] withRowAnimation:UITableViewRowAnimationNone];
     [self priceNotification];
 }
 
@@ -250,8 +238,6 @@
     
     deleteActivityViewController.completionHandler = ^(NSString *activityType, BOOL completed) {
         if (completed) {
-            // This code is run if the user "completes" the activity view
-            // eg: the user selects an option that is not cancel
           NSError *error;
           _model.fetchedResultsController.delegate = nil;
           for (Item *row in [_model.fetchedResultsController fetchedObjects]) {
@@ -270,7 +256,6 @@
           });
         }
     };
-    
     [self presentViewController:deleteActivityViewController animated:YES completion:nil];
 }
 
@@ -293,7 +278,7 @@
 	NSError *error = nil;
 	if (![_model.fetchedResultsController performFetch:&error]) NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
     return _model.fetchedResultsController;
-}    
+}
 
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller{
     [self.tableView beginUpdates];
@@ -342,7 +327,6 @@
 }
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath{
-//NSLog(@"isEditing:%i isEditingSingleCell:%i  row:%i currentIndexPathEqual:%i", self.isEditing ,self.isEditingSingleCell, indexPath.row, [self.currentEditIndexPath isEqual:indexPath]);
     Item *object = [_model.fetchedResultsController objectAtIndexPath:indexPath];
     [(UILabel *)[cell viewWithTag:1] setText:object.name];
     NSString *subtext =[NSString stringWithFormat:@"%@ %@",object.quantity,[Item getMeasurementName:object.measurement]];
@@ -352,8 +336,6 @@
                    object.price.doubleValue * object.quantity.integerValue * (([[_model getTaxRate] doubleValue]/100)+1)];
     [(UILabel *)[cell viewWithTag:2]setText:subtext];
         
-
-    // Hide checkmark when configuring cells in edit mode
     if(self.isEditingSingleCell){
         [(UILabel *)[cell viewWithTag:3] setHidden:[self.currentEditIndexPath isEqual:indexPath]];
     } else [(UILabel *)[cell viewWithTag:3] setHidden:self.isEditing];
