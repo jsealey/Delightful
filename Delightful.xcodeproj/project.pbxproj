@@ -63,7 +63,6 @@
 		7F9C557516D7023F0015224C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F9C557416D7023F0015224C /* SystemConfiguration.framework */; };
 		7FA796C816D3492200102AF7 /* GCDiscreetNotificationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA796C716D3492200102AF7 /* GCDiscreetNotificationView.m */; };
 		7FB61F9217210C9C001E06D6 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FB61F9117210C9C001E06D6 /* icon@2x.png */; };
-		7FB61F941721E63B001E06D6 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FB61F931721E63A001E06D6 /* icon.png */; };
 		7FB80ED216C9852C00C25E3E /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB80ED116C9852C00C25E3E /* SettingsViewController.m */; };
 		7FC4F79F16C4918C005E904C /* Delightful.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 7FC4F79E16C4918C005E904C /* Delightful.xcdatamodel */; };
 		7FD4024F16C46ECD0042346C /* AddItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD4024A16C46ECD0042346C /* AddItemViewController.m */; };
@@ -77,6 +76,7 @@
 		7FD4028B16C472090042346C /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FD4028916C472090042346C /* MainStoryboard.storyboard */; };
 		7FD4028E16C472180042346C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7FD4028C16C472180042346C /* InfoPlist.strings */; };
 		7FDCD8C916C9F4F900EB10E2 /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FDCD8C816C9F4F900EB10E2 /* Model.m */; };
+		7FEA54E2172201A600A41061 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FEA54E1172201A600A41061 /* icon.png */; };
 		E1C5292417162402009187CF /* UIActivityDelete.m in Sources */ = {isa = PBXBuildFile; fileRef = E1C5292317162402009187CF /* UIActivityDelete.m */; };
 /* End PBXBuildFile section */
 
@@ -153,7 +153,6 @@
 		7FA796C616D3492200102AF7 /* GCDiscreetNotificationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDiscreetNotificationView.h; sourceTree = "<group>"; };
 		7FA796C716D3492200102AF7 /* GCDiscreetNotificationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDiscreetNotificationView.m; sourceTree = "<group>"; };
 		7FB61F9117210C9C001E06D6 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
-		7FB61F931721E63A001E06D6 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		7FB80ED016C9852C00C25E3E /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		7FB80ED116C9852C00C25E3E /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		7FC4F79E16C4918C005E904C /* Delightful.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Delightful.xcdatamodel; sourceTree = "<group>"; };
@@ -175,6 +174,7 @@
 		7FD4028D16C472180042346C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Delightful/en.lproj/InfoPlist.strings; sourceTree = SOURCE_ROOT; };
 		7FDCD8C716C9F4F900EB10E2 /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
 		7FDCD8C816C9F4F900EB10E2 /* Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Model.m; sourceTree = "<group>"; };
+		7FEA54E1172201A600A41061 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		E1C5292217162402009187CF /* UIActivityDelete.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIActivityDelete.h; sourceTree = "<group>"; };
 		E1C5292317162402009187CF /* UIActivityDelete.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIActivityDelete.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -412,7 +412,7 @@
 				7F66434F16D2DC7E004E527B /* retina_wood@2X.png */,
 				7F66435016D2DC7E004E527B /* retina_wood.png */,
 				7F2170B016D2CA0B00303CF5 /* Snell Roundhand Black Script.ttf */,
-				7FB61F931721E63A001E06D6 /* icon.png */,
+				7FEA54E1172201A600A41061 /* icon.png */,
 				7FB61F9117210C9C001E06D6 /* icon@2x.png */,
 				7FD4027B16C46FA30042346C /* Default-568h@2x.png */,
 				7FD4027C16C46FA30042346C /* Default.png */,
@@ -504,7 +504,7 @@
 				7F013DE31713B96200B2517B /* action.png in Resources */,
 				7F013DE41713B96200B2517B /* action@2x.png in Resources */,
 				7FB61F9217210C9C001E06D6 /* icon@2x.png in Resources */,
-				7FB61F941721E63B001E06D6 /* icon.png in Resources */,
+				7FEA54E2172201A600A41061 /* icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -574,7 +574,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Jared Sealey";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Jared Sealey";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -589,6 +590,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "BD1EB29B-8416-4D26-A430-6BD101B9AC53";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "BD1EB29B-8416-4D26-A430-6BD101B9AC53";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -605,7 +608,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Jared Sealey";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Jared Sealey";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -613,6 +617,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "BD1EB29B-8416-4D26-A430-6BD101B9AC53";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "BD1EB29B-8416-4D26-A430-6BD101B9AC53";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -621,8 +627,8 @@
 		7F1CB45E16BCC8BA00F77D92 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Jared Sealey";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Jared Sealey";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -631,8 +637,8 @@
 				GCC_PREFIX_HEADER = "Delightful/Delightful-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/Delightful/Delightful-Info.plist";
 				PRODUCT_NAME = Delightful;
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE = "BD1EB29B-8416-4D26-A430-6BD101B9AC53";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "BD1EB29B-8416-4D26-A430-6BD101B9AC53";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -640,8 +646,8 @@
 		7F1CB45F16BCC8BA00F77D92 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Jared Sealey";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Jared Sealey";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -650,8 +656,8 @@
 				GCC_PREFIX_HEADER = "Delightful/Delightful-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/Delightful/Delightful-Info.plist";
 				PRODUCT_NAME = Delightful;
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE = "BD1EB29B-8416-4D26-A430-6BD101B9AC53";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "BD1EB29B-8416-4D26-A430-6BD101B9AC53";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
