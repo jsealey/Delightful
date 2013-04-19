@@ -121,12 +121,12 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ZZE-Bc-3xm">
-                                        <rect key="frame" x="-20" y="-142" width="320" height="417"/>
+                                        <rect key="frame" x="-20" y="-143" width="320" height="417"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal">
-                                            <color key="titleShadowColor" cocoaTouchSystemColor="lightTextColor"/>
+                                            <color key="titleShadowColor" red="0.31764706969261169" green="0.4901961088180542" blue="0.46666669845581055" alpha="1" colorSpace="deviceRGB"/>
                                         </state>
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -604,135 +604,12 @@
                     </tableView>
                     <connections>
                         <segue destination="3" kind="custom" identifier="list" customClass="SASlideMenuContentSegue" id="qbv-xE-fEc"/>
-                        <segue destination="g8E-ek-Sa7" kind="custom" identifier="sync" customClass="SASlideMenuContentSegue" id="5ER-eO-CWi"/>
                         <segue destination="zSR-U9-AnO" kind="custom" identifier="setting" customClass="SASlideMenuContentSegue" id="GvT-SZ-nFV"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DCz-ar-Zxl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-592" y="694"/>
-        </scene>
-        <!--Default Settings View Controller-->
-        <scene sceneID="u4b-Qv-wKl">
-            <objects>
-                <viewController id="aUe-A9-VOI" customClass="DefaultSettingsViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="XQ8-SI-wIh">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="retina_wood.png" id="Ioz-LM-UYk">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            </imageView>
-                            <view contentMode="scaleToFill" id="6lQ-lk-Bv8">
-                                <rect key="frame" x="31" y="47" width="258" height="288"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="fdf-TR-vuQ">
-                                        <rect key="frame" x="98" y="220" width="62" height="37"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <color key="tintColor" red="0.31764706969261169" green="0.4901961088180542" blue="0.46666669845581055" alpha="1" colorSpace="deviceRGB"/>
-                                        <state key="normal" title="Logout">
-                                            <color key="titleColor" red="0.31764706969261169" green="0.4901961088180542" blue="0.46666669845581055" alpha="1" colorSpace="deviceRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="selected">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="highlighted">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="logOutButtonTapAction:" destination="aUe-A9-VOI" eventType="touchUpInside" id="U2d-Xv-CMt"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JoA-dL-Crr">
-                                        <rect key="frame" x="-31" y="0.0" width="320" height="56"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="HoeflerText-Black" family="Hoefler Text" pointSize="25"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ruR-Mb-ckg">
-                                        <rect key="frame" x="102" y="220" width="54" height="37"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <color key="tintColor" red="0.31764706969261169" green="0.4901961088180542" blue="0.46666669845581055" alpha="1" colorSpace="deviceRGB"/>
-                                        <state key="normal" title="Login">
-                                            <color key="titleColor" red="0.31764706969261169" green="0.4901961088180542" blue="0.46666669845581055" alpha="1" colorSpace="deviceRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="selected">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <color key="titleShadowColor" red="0.31764706969261169" green="0.4901961088180542" blue="0.46666669845581055" alpha="1" colorSpace="deviceRGB"/>
-                                        </state>
-                                        <state key="highlighted">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="showLogin:" destination="aUe-A9-VOI" eventType="touchUpInside" id="ysU-sU-pXf"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="GtU-8Y-bvY">
-                                        <rect key="frame" x="60" y="102" width="146" height="46"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.79607850313186646" green="0.83137261867523193" blue="0.61176472902297974" alpha="1" colorSpace="deviceRGB"/>
-                                        <fontDescription key="fontDescription" name="HoeflerText-Black" family="Hoefler Text" pointSize="21"/>
-                                        <color key="tintColor" red="0.31764706969261169" green="0.4901961088180542" blue="0.46666669845581055" alpha="1" colorSpace="deviceRGB"/>
-                                        <state key="normal" title="Synchronize">
-                                            <color key="titleColor" red="0.31764706969261169" green="0.4901961088180542" blue="0.46666669845581055" alpha="1" colorSpace="deviceRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="selected">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="highlighted">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="synchronize:" destination="aUe-A9-VOI" eventType="touchUpInside" id="akO-2k-iZe"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" red="0.31764706969261169" green="0.4901961088180542" blue="0.46666669845581055" alpha="1" colorSpace="deviceRGB"/>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="XxZ-n7-cTU"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
-                    <connections>
-                        <outlet property="loginButton" destination="ruR-Mb-ckg" id="W9A-T0-Wb1"/>
-                        <outlet property="logoutButton" destination="fdf-TR-vuQ" id="pvx-5Q-XkX"/>
-                        <outlet property="synchronizeButton" destination="GtU-8Y-bvY" id="nJd-AD-OGT"/>
-                        <outlet property="viewContainer" destination="6lQ-lk-Bv8" id="EuW-ws-8Ip"/>
-                        <outlet property="welcomeLabel" destination="JoA-dL-Crr" id="Lrv-aJ-L0z"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="KkW-Iv-K5I" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="525" y="1293"/>
-        </scene>
-        <!--Navigation Controller - Sync-->
-        <scene sceneID="LcH-Od-APj">
-            <objects>
-                <navigationController restorationIdentifier="three" id="g8E-ek-Sa7" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Sync" image="sync.png" id="LMA-Ld-Mme"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="k4D-ou-vso">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" red="0.31764706969261169" green="0.4901961088180542" blue="0.46666669845581055" alpha="1" colorSpace="deviceRGB"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="aUe-A9-VOI" kind="relationship" relationship="rootViewController" id="Omv-Mf-2fc"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Th9-A0-Jpg" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1" y="1293"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="NUQ-OG-tz7">
@@ -755,14 +632,13 @@
         </scene>
     </scenes>
     <resources>
-        <image name="check.png" width="30" height="30"/>
+        <image name="check.png" width="16" height="16"/>
         <image name="disclosure.png" width="20" height="20"/>
         <image name="gear-2.png" width="26" height="28"/>
         <image name="retina_wood.png" width="512" height="512"/>
         <image name="row.png" width="1" height="44"/>
         <image name="rowselected.png" width="1" height="44"/>
         <image name="shopping-cart.png" width="26" height="19"/>
-        <image name="sync.png" width="30" height="30"/>
     </resources>
     <classes>
         <class className="AddItemViewController" superclassName="UIViewController">
@@ -779,20 +655,6 @@
                 <relationship kind="outlet" name="priceField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="quantityField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
-            </relationships>
-        </class>
-        <class className="DefaultSettingsViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DefaultSettingsViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="logOutButtonTapAction:"/>
-                <relationship kind="action" name="showLogin:"/>
-                <relationship kind="action" name="synchronize:"/>
-                <relationship kind="outlet" name="NavigationItem" candidateClass="UINavigationItem"/>
-                <relationship kind="outlet" name="loginButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="logoutButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="synchronizeButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="viewContainer" candidateClass="UIView"/>
-                <relationship kind="outlet" name="welcomeLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="EditItemViewController" superclassName="UIViewController">
@@ -813,7 +675,6 @@
         <class className="MasterViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MasterViewController.h"/>
             <relationships>
-                <relationship kind="action" name="Share:" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
             </relationships>
         </class>
