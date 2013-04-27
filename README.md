@@ -1,10 +1,8 @@
 # Delightful for iOS
 
-Delightful is an iPhone application for organizing meal plans and generating shopping lists based on the selected meals.
+Delightful is an iPhone app for organizing a shopping list.
 
-**Delightful will be free on the app store.**
-
-![My image](http://s11.postimage.org/z3s5bg6er/i_OS_Simulator_Screen_shot_Feb_25_2013_8_12_39_P.png)
+**You can download Delightful <a href="https://itunes.apple.com/us/app/delightful/id601120352?ls=1&mt=8#" target="_blank">free on the App Store</a>.**
 
 ## Getting Started
 
@@ -30,9 +28,9 @@ Copyright (c) 2013 Jared Sealey. See LICENSE for details.
 
 ## Contributing
 
-If you want to fix bugs, just let me know and I'll assign it to you! If you want to add some features, I will probably merge it. I'm sure it will be awesome, but if there are issues I'll tell you what needs to be done before I wil merge. If you're feeling like implementing a feature, check out the [issues](https://github.com/jsealey/Delightful/issues) for things tagged with "feature".
+If you want to fix bugs, just let me know and I'll assign it to you! If you want to add some features, I will probably merge it. I'm sure it will be awesome, but if there are issues I'll tell you what needs to be done before I will merge. If you're feeling like implementing a feature, check out the [issues](https://github.com/jsealey/Delightful/issues) for things tagged with "feature".
 
 
 ## Give Back
 
-If you want to give back in ways other than pull requests, you can [Gittip](https://www.gittip.com/jsealey/), or spread the word about Delightful. Of course, pull requests are greatly appreciated.
+If you want to give back in ways other than pull requests, you can  [Gittip](https://www.gittip.com/jsealey/), or spread the word about Delightful. Of course, pull requests are greatly appreciated.
