@@ -231,6 +231,13 @@
     if(!self.isEditing){
         [super tableView:tableView didSelectRowAtIndexPath:indexPath];
         PFObject *object = [self objectAtIndexPath:indexPath];
+        
+         UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+
+        if([[object objectForKey:@"checked"] boolValue] == NO)
+            [(UILabel *)[cell viewWithTag:3] setText:@"\u2705"];
+        else [(UILabel *)[cell viewWithTag:3] setText:@"\u2B1C"];
+        
         [object setObject:@([[[NSNumber alloc] initWithBool:[[object objectForKey:@"checked"] boolValue]==NO] boolValue]) forKey:@"checked"];
         [object saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
             ParseTableViewController *myTable = (ParseTableViewController *)self;
