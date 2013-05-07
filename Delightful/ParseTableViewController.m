@@ -123,6 +123,7 @@
         [self.sections setObject:objectsInSection forKey:categoryType];
     }
     [self.tableView reloadData];
+    [self priceNotification];
 }
 
 - (void)objectsWillLoad {
@@ -337,7 +338,7 @@
     double total=0;
     for(int i=0; i < self.objects.count;++i){
         PFObject *object = [self.objects objectAtIndex:i];
-        total += [[object objectForKey:@"quantity"] integerValue] * [[object objectForKey:@"price"] integerValue];
+        total += [[object objectForKey:@"quantity"] integerValue] * [[object objectForKey:@"price"] doubleValue];
     }
     [self.totalPriceNotificationView setTextLabel:[NSString stringWithFormat:@"Total: $%.2f", total * (([[[Model modelSingleton] getTaxRate] doubleValue]/100) + 1)]];
     [self.totalPriceNotificationView show:YES];
