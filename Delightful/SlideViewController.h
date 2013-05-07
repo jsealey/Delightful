@@ -8,7 +8,8 @@
 
 #import "SASlideMenuViewController.h"
 #import "SASlideMenuDataSource.h"
+#import <Parse/Parse.h>
 
-@interface SlideViewController : SASlideMenuViewController <SASlideMenuDataSource,SASlideMenuDelegate>
-
+@interface SlideViewController : SASlideMenuViewController <SASlideMenuDataSource,SASlideMenuDelegate, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
+-(void) checkLogin;
 @end

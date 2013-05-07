@@ -7,11 +7,8 @@
 //
 
 #import "UIActivityDelete.h"
-#import "MasterViewController.h"
 
 @interface UIActivityDelete ()
-
-@property (strong, nonatomic) MasterViewController *masterController;
 
 @end
 

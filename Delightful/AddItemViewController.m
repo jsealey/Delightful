@@ -45,6 +45,30 @@ dispatch_queue_t myQueue;
                                                      inPresentationMode:GCDiscreetNotificationViewPresentationModeTop
                                                                  inView:self.view];
     _notificationView.hidden = YES;
+    
+    // Set up Horizontal Picker View
+	CGFloat margin = 10.0f;
+	CGFloat width = (self.formContainerView.bounds.size.width - (margin * 2.0f));
+	CGFloat pickerHeight = 40.0f;
+	CGFloat x = margin;
+	CGFloat y = 125.0f;
+	CGRect tmpFrame = CGRectMake(x, y, width, pickerHeight);
+    
+    self.pickerView = [[V8HorizontalPickerView alloc] initWithFrame:tmpFrame];
+	self.pickerView.backgroundColor   = [UIColor clearColor];
+	self.pickerView.selectedTextColor = [UIColor whiteColor];
+	self.pickerView.textColor   = [UIColor grayColor];
+	self.pickerView.delegate    = self;
+	self.pickerView.dataSource  = self;
+	self.pickerView.elementFont = [UIFont boldSystemFontOfSize:14.0f];
+	self.pickerView.selectionPoint = CGPointMake(60, 0);
+    
+	// add carat or other view to indicate selected element
+	UIImageView *indicator = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"indicator"]];
+	self.pickerView.selectionIndicatorView = indicator;
+    
+    [self.formContainerView addSubview:self.pickerView];
+    self.selectedIndex = 0;
 }
 
 - (void)didReceiveMemoryWarning
@@ -86,7 +110,21 @@ dispatch_queue_t myQueue;
 - (void) addItemPrivate:(BOOL)isForParent {
     if(![_nameField.text isEqual:@""] && [_quantityField.text integerValue]){
         
-        [_model addItemWithName:_nameField.text withCategory:0 withMeasurement:[[NSNumber alloc] initWithInt:_measurement.selectedSegmentIndex] withQuantity:[[NSNumber alloc] initWithInt:[_quantityField.text integerValue]] withPrice:[[NSNumber alloc] initWithDouble:[_priceField.text doubleValue]]];
+        PFObject *object = [PFObject objectWithClassName:@"item"];
+        [object setObject:[[NSNumber alloc] initWithInteger:self.pickerView.currentSelectedIndex] forKey:@"category"];
+        [object setObject:@NO forKey:@"checked"];
+        [object setObject:[[NSNumber alloc] initWithInt:[_quantityField.text integerValue]] forKey:@"quantity"];
+        [object setObject:[[NSNumber alloc] initWithInt:_measurement.selectedSegmentIndex] forKey:@"measurement"];
+        [object setObject:[[NSNumber alloc] initWithDouble:[_priceField.text doubleValue]] forKey:@"price"];
+        [object setObject:@"" forKey:@"notes"];
+        [object setObject:_nameField.text forKey:@"name"];
+        [object setObject:[[PFUser currentUser] objectId] forKey:@"userObjectId"];
+        [object saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            // Refresh the table when the object is done saving.
+            ParseTableViewController *myTable = (ParseTableViewController *)_parent;
+            [myTable loadObjects];
+        }];
+        
         
         [self notification:[NSString stringWithFormat:@"Added %@ %@ of %@", _quantityField.text,[Item getMeasurementName:[[NSNumber alloc] initWithInt:_measurement.selectedSegmentIndex]], _nameField.text] isForParent:isForParent];
         
@@ -94,12 +132,17 @@ dispatch_queue_t myQueue;
         [_nameField setText:@""];
         [_quantityField setText:@""];
         [_priceField setText:@""];
+        [self.pickerView scrollToElement:0 animated:YES];
     }
-    [self.parent priceNotification];
+    //[self.parent priceNotification];
 }
 
 - (IBAction)addItem:(id)sender {
     [self addItemPrivate:NO];
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+	[self.pickerView scrollToElement:0 animated:NO];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -149,6 +192,23 @@ dispatch_queue_t myQueue;
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [self dismissKeyboard:nil];
     return YES;
+}
+
+#pragma mark - Picker View Methods
+- (NSInteger)numberOfElementsInHorizontalPickerView:(V8HorizontalPickerView *)picker {
+    return [Model categories].count;
+}
+- (NSString *)horizontalPickerView:(V8HorizontalPickerView *)picker titleForElementAtIndex:(NSInteger)index {
+    return [[Model categories] objectAtIndex:index];
+}
+
+- (NSInteger) horizontalPickerView:(V8HorizontalPickerView *)picker widthForElementAtIndex:(NSInteger)index {
+	CGSize constrainedSize = CGSizeMake(MAXFLOAT, MAXFLOAT);
+	NSString *text = [[Model categories] objectAtIndex:index];
+	CGSize textSize = [text sizeWithFont:[UIFont boldSystemFontOfSize:14.0f]
+					   constrainedToSize:constrainedSize
+						   lineBreakMode:NSLineBreakByWordWrapping];
+	return textSize.width + 40.0f; // 20px padding on each side
 }
 
 @end

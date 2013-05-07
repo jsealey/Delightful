@@ -23,6 +23,12 @@
 		7F1CB43A16BCC8BA00F77D92 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F1CB43916BCC8BA00F77D92 /* CoreGraphics.framework */; };
 		7F1CB43C16BCC8BA00F77D92 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F1CB43B16BCC8BA00F77D92 /* CoreData.framework */; };
 		7F2170B116D2CA0B00303CF5 /* Snell Roundhand Black Script.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7F2170B016D2CA0B00303CF5 /* Snell Roundhand Black Script.ttf */; };
+		7F23D8301738A79700ED116D /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F23D82F1738A79700ED116D /* FacebookSDK.framework */; };
+		7F23D8321738A7F300ED116D /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7F23D8311738A7F300ED116D /* FacebookSDKResources.bundle */; };
+		7F23D8341738A80500ED116D /* FBUserSettingsViewResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7F23D8331738A80500ED116D /* FBUserSettingsViewResources.bundle */; };
+		7F24DB681734963E003B52F7 /* V8HorizontalPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F24DB661734963E003B52F7 /* V8HorizontalPickerView.m */; };
+		7F24DB6B1734B4C6003B52F7 /* indicator.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F24DB691734B4C6003B52F7 /* indicator.png */; };
+		7F24DB6C1734B4C6003B52F7 /* indicator@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F24DB6A1734B4C6003B52F7 /* indicator@2x.png */; };
 		7F27F50116EE97200021F223 /* SASlideMenuContentSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F27F4F216EE97200021F223 /* SASlideMenuContentSegue.m */; };
 		7F27F50216EE97200021F223 /* SASlideMenuLeftMenuSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F27F4F416EE97200021F223 /* SASlideMenuLeftMenuSegue.m */; };
 		7F27F50316EE97200021F223 /* SASlideMenuRightMenuSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F27F4F616EE97200021F223 /* SASlideMenuRightMenuSegue.m */; };
@@ -48,6 +54,9 @@
 		7F66435116D2DC7E004E527B /* retina_wood@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F66434F16D2DC7E004E527B /* retina_wood@2X.png */; };
 		7F66435216D2DC7E004E527B /* retina_wood.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F66435016D2DC7E004E527B /* retina_wood.png */; };
 		7F66435516D2DEF4004E527B /* KGNoise.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F66435416D2DEF4004E527B /* KGNoise.m */; };
+		7F716DAA173838060072EB5D /* ParseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F716DA9173838060072EB5D /* ParseTableViewController.m */; };
+		7F716DAC1738386C0072EB5D /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F716DAB1738386C0072EB5D /* Parse.framework */; };
+		7F7F54EA1733087B006984B6 /* ScrollablePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7F54E91733087B006984B6 /* ScrollablePickerView.m */; };
 		7F8A071D16C9C41200EFB1F8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F8A071C16C9C41200EFB1F8 /* QuartzCore.framework */; };
 		7F9C555F16D701E80015224C /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F9C555E16D701E80015224C /* AudioToolbox.framework */; };
 		7F9C556116D701ED0015224C /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F9C556016D701ED0015224C /* Accounts.framework */; };
@@ -67,7 +76,6 @@
 		7FC4F79F16C4918C005E904C /* Delightful.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 7FC4F79E16C4918C005E904C /* Delightful.xcdatamodel */; };
 		7FD4024F16C46ECD0042346C /* AddItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD4024A16C46ECD0042346C /* AddItemViewController.m */; };
 		7FD4025016C46ECD0042346C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD4024C16C46ECD0042346C /* AppDelegate.m */; };
-		7FD4025116C46ECD0042346C /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD4024E16C46ECD0042346C /* MasterViewController.m */; };
 		7FD4026F16C46F690042346C /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD4026B16C46F690042346C /* Item.m */; };
 		7FD4027016C46F690042346C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD4026C16C46F690042346C /* main.m */; };
 		7FD4028616C46FA30042346C /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FD4027B16C46FA30042346C /* Default-568h@2x.png */; };
@@ -99,6 +107,14 @@
 		7F1CB43916BCC8BA00F77D92 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		7F1CB43B16BCC8BA00F77D92 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		7F2170B016D2CA0B00303CF5 /* Snell Roundhand Black Script.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Snell Roundhand Black Script.ttf"; sourceTree = "<group>"; };
+		7F23D82F1738A79700ED116D /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		7F23D8311738A7F300ED116D /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FacebookSDKResources.bundle; sourceTree = "<group>"; };
+		7F23D8331738A80500ED116D /* FBUserSettingsViewResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FBUserSettingsViewResources.bundle; sourceTree = "<group>"; };
+		7F24DB651734963E003B52F7 /* V8HorizontalPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = V8HorizontalPickerView.h; sourceTree = "<group>"; };
+		7F24DB661734963E003B52F7 /* V8HorizontalPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = V8HorizontalPickerView.m; sourceTree = "<group>"; };
+		7F24DB671734963E003B52F7 /* V8HorizontalPickerViewProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = V8HorizontalPickerViewProtocol.h; sourceTree = "<group>"; };
+		7F24DB691734B4C6003B52F7 /* indicator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = indicator.png; sourceTree = "<group>"; };
+		7F24DB6A1734B4C6003B52F7 /* indicator@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "indicator@2x.png"; sourceTree = "<group>"; };
 		7F27F4EF16EE97200021F223 /* SASlideMenuDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASlideMenuDataSource.h; sourceTree = "<group>"; };
 		7F27F4F016EE97200021F223 /* SASlideMenuDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASlideMenuDelegate.h; sourceTree = "<group>"; };
 		7F27F4F116EE97200021F223 /* SASlideMenuContentSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASlideMenuContentSegue.h; sourceTree = "<group>"; };
@@ -137,6 +153,11 @@
 		7F66435016D2DC7E004E527B /* retina_wood.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = retina_wood.png; sourceTree = "<group>"; };
 		7F66435316D2DEF4004E527B /* KGNoise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGNoise.h; sourceTree = "<group>"; };
 		7F66435416D2DEF4004E527B /* KGNoise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGNoise.m; sourceTree = "<group>"; };
+		7F716DA8173838060072EB5D /* ParseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseTableViewController.h; sourceTree = "<group>"; };
+		7F716DA9173838060072EB5D /* ParseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseTableViewController.m; sourceTree = "<group>"; };
+		7F716DAB1738386C0072EB5D /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		7F7F54E81733087B006984B6 /* ScrollablePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrollablePickerView.h; sourceTree = "<group>"; };
+		7F7F54E91733087B006984B6 /* ScrollablePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrollablePickerView.m; sourceTree = "<group>"; };
 		7F8A071C16C9C41200EFB1F8 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		7F9C555E16D701E80015224C /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		7F9C556016D701ED0015224C /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
@@ -160,8 +181,6 @@
 		7FD4024A16C46ECD0042346C /* AddItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddItemViewController.m; path = Delightful/AddItemViewController.m; sourceTree = SOURCE_ROOT; };
 		7FD4024B16C46ECD0042346C /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Delightful/AppDelegate.h; sourceTree = SOURCE_ROOT; };
 		7FD4024C16C46ECD0042346C /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Delightful/AppDelegate.m; sourceTree = SOURCE_ROOT; };
-		7FD4024D16C46ECD0042346C /* MasterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MasterViewController.h; path = Delightful/MasterViewController.h; sourceTree = SOURCE_ROOT; };
-		7FD4024E16C46ECD0042346C /* MasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MasterViewController.m; path = Delightful/MasterViewController.m; sourceTree = SOURCE_ROOT; };
 		7FD4026816C46F690042346C /* Delightful-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Delightful-Info.plist"; path = "Delightful/Delightful-Info.plist"; sourceTree = SOURCE_ROOT; };
 		7FD4026916C46F690042346C /* Delightful-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Delightful-Prefix.pch"; path = "Delightful/Delightful-Prefix.pch"; sourceTree = SOURCE_ROOT; };
 		7FD4026A16C46F690042346C /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Item.h; path = Delightful/Item.h; sourceTree = SOURCE_ROOT; };
@@ -201,6 +220,8 @@
 				7F1CB43616BCC8BA00F77D92 /* UIKit.framework in Frameworks */,
 				7F1CB43816BCC8BA00F77D92 /* Foundation.framework in Frameworks */,
 				7F1CB43C16BCC8BA00F77D92 /* CoreData.framework in Frameworks */,
+				7F716DAC1738386C0072EB5D /* Parse.framework in Frameworks */,
+				7F23D8301738A79700ED116D /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,6 +248,10 @@
 		7F1CB43416BCC8BA00F77D92 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7F23D8331738A80500ED116D /* FBUserSettingsViewResources.bundle */,
+				7F23D8311738A7F300ED116D /* FacebookSDKResources.bundle */,
+				7F23D82F1738A79700ED116D /* FacebookSDK.framework */,
+				7F716DAB1738386C0072EB5D /* Parse.framework */,
 				7F9C557416D7023F0015224C /* SystemConfiguration.framework */,
 				7F9C557216D702390015224C /* StoreKit.framework */,
 				7F9C557016D702340015224C /* Social.framework */,
@@ -254,7 +279,8 @@
 				7FD4024B16C46ECD0042346C /* AppDelegate.h */,
 				7FD4024C16C46ECD0042346C /* AppDelegate.m */,
 				7FD4028916C472090042346C /* MainStoryboard.storyboard */,
-				7F9A65B416CAC2FD00EBBA30 /* SlideMenuViews */,
+				7F9A65B516CAC30D00EBBA30 /* Shopping List */,
+				7FD375BB17134EDC00A5FD11 /* Settings */,
 				7F1CB43E16BCC8BA00F77D92 /* Supporting Files */,
 			);
 			path = Delightful;
@@ -272,6 +298,16 @@
 				7FC4F79E16C4918C005E904C /* Delightful.xcdatamodel */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7F24DB64173495CA003B52F7 /* V8HorizontalPicker */ = {
+			isa = PBXGroup;
+			children = (
+				7F24DB651734963E003B52F7 /* V8HorizontalPickerView.h */,
+				7F24DB661734963E003B52F7 /* V8HorizontalPickerView.m */,
+				7F24DB671734963E003B52F7 /* V8HorizontalPickerViewProtocol.h */,
+			);
+			name = V8HorizontalPicker;
 			sourceTree = "<group>";
 		};
 		7F27F4EE16EE97140021F223 /* SASlideMenu */ = {
@@ -296,8 +332,6 @@
 				7F27F4FE16EE97200021F223 /* SASlideMenuRightMenuViewController.m */,
 				7F27F4FF16EE97200021F223 /* SASlideMenuNavigationController.h */,
 				7F27F50016EE97200021F223 /* SASlideMenuNavigationController.m */,
-				7F27F50916EE97B30021F223 /* SlideViewController.h */,
-				7F27F50A16EE97B30021F223 /* SlideViewController.m */,
 				7F27F54516EE9DF30021F223 /* MenuCell.h */,
 				7F27F54616EE9DF30021F223 /* MenuCell.m */,
 			);
@@ -323,23 +357,12 @@
 			name = slideMenuImages;
 			sourceTree = "<group>";
 		};
-		7F9A65B416CAC2FD00EBBA30 /* SlideMenuViews */ = {
-			isa = PBXGroup;
-			children = (
-				7F9A65B516CAC30D00EBBA30 /* Shopping List */,
-				7FD375BB17134EDC00A5FD11 /* Settings */,
-			);
-			name = SlideMenuViews;
-			sourceTree = "<group>";
-		};
 		7F9A65B516CAC30D00EBBA30 /* Shopping List */ = {
 			isa = PBXGroup;
 			children = (
 				7F9A65B616CAC31B00EBBA30 /* subviews */,
-				7FD4024D16C46ECD0042346C /* MasterViewController.h */,
-				7FD4024E16C46ECD0042346C /* MasterViewController.m */,
-				E1C5292217162402009187CF /* UIActivityDelete.h */,
-				E1C5292317162402009187CF /* UIActivityDelete.m */,
+				7F716DA8173838060072EB5D /* ParseTableViewController.h */,
+				7F716DA9173838060072EB5D /* ParseTableViewController.m */,
 			);
 			name = "Shopping List";
 			sourceTree = "<group>";
@@ -358,10 +381,17 @@
 		7FB61F8A1720EDA1001E06D6 /* Supporting Classes */ = {
 			isa = PBXGroup;
 			children = (
+				7F27F50916EE97B30021F223 /* SlideViewController.h */,
+				7F27F50A16EE97B30021F223 /* SlideViewController.m */,
+				E1C5292217162402009187CF /* UIActivityDelete.h */,
+				E1C5292317162402009187CF /* UIActivityDelete.m */,
 				7FDCD8C716C9F4F900EB10E2 /* Model.h */,
 				7FDCD8C816C9F4F900EB10E2 /* Model.m */,
 				7FD4026A16C46F690042346C /* Item.h */,
 				7FD4026B16C46F690042346C /* Item.m */,
+				7F7F54E81733087B006984B6 /* ScrollablePickerView.h */,
+				7F7F54E91733087B006984B6 /* ScrollablePickerView.m */,
+				7F24DB64173495CA003B52F7 /* V8HorizontalPicker */,
 				7F27F4EE16EE97140021F223 /* SASlideMenu */,
 				7FB61F8C1720EEBF001E06D6 /* GCDiscreetNotificationView */,
 				7FB61F8B1720EEB9001E06D6 /* KGNoise */,
@@ -399,6 +429,8 @@
 		7FD4027216C46FA30042346C /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				7F24DB691734B4C6003B52F7 /* indicator.png */,
+				7F24DB6A1734B4C6003B52F7 /* indicator@2x.png */,
 				7F013DC11713A60100B2517B /* pencil.png */,
 				7F013DC21713A60100B2517B /* pencil@2x.png */,
 				7F013DE11713B96000B2517B /* action.png */,
@@ -505,6 +537,10 @@
 				7F013DE41713B96200B2517B /* action@2x.png in Resources */,
 				7FB61F9217210C9C001E06D6 /* icon@2x.png in Resources */,
 				7FEA54E2172201A600A41061 /* icon.png in Resources */,
+				7F24DB6B1734B4C6003B52F7 /* indicator.png in Resources */,
+				7F24DB6C1734B4C6003B52F7 /* indicator@2x.png in Resources */,
+				7F23D8321738A7F300ED116D /* FacebookSDKResources.bundle in Resources */,
+				7F23D8341738A80500ED116D /* FBUserSettingsViewResources.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -517,7 +553,6 @@
 			files = (
 				7FD4024F16C46ECD0042346C /* AddItemViewController.m in Sources */,
 				7FD4025016C46ECD0042346C /* AppDelegate.m in Sources */,
-				7FD4025116C46ECD0042346C /* MasterViewController.m in Sources */,
 				7FD4026F16C46F690042346C /* Item.m in Sources */,
 				7FD4027016C46F690042346C /* main.m in Sources */,
 				7FC4F79F16C4918C005E904C /* Delightful.xcdatamodel in Sources */,
@@ -537,6 +572,9 @@
 				7F27F50B16EE97B30021F223 /* SlideViewController.m in Sources */,
 				7F27F54716EE9DF30021F223 /* MenuCell.m in Sources */,
 				E1C5292417162402009187CF /* UIActivityDelete.m in Sources */,
+				7F7F54EA1733087B006984B6 /* ScrollablePickerView.m in Sources */,
+				7F24DB681734963E003B52F7 /* V8HorizontalPickerView.m in Sources */,
+				7F716DAA173838060072EB5D /* ParseTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -574,8 +612,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Jared Sealey";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Jared Sealey";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Jared Sealey (9A6S8L8WK3)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Jared Sealey (9A6S8L8WK3)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -590,8 +628,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "BD1EB29B-8416-4D26-A430-6BD101B9AC53";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "BD1EB29B-8416-4D26-A430-6BD101B9AC53";
+				PROVISIONING_PROFILE = "C6B74375-99E2-4B38-81DB-5B52407FA671";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "C6B74375-99E2-4B38-81DB-5B52407FA671";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -608,8 +646,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Jared Sealey";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Jared Sealey";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Jared Sealey (9A6S8L8WK3)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Jared Sealey (9A6S8L8WK3)";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -617,8 +655,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "BD1EB29B-8416-4D26-A430-6BD101B9AC53";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "BD1EB29B-8416-4D26-A430-6BD101B9AC53";
+				PROVISIONING_PROFILE = "C6B74375-99E2-4B38-81DB-5B52407FA671";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "C6B74375-99E2-4B38-81DB-5B52407FA671";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -627,8 +665,8 @@
 		7F1CB45E16BCC8BA00F77D92 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Jared Sealey";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Jared Sealey";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Jared Sealey (9A6S8L8WK3)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Jared Sealey (9A6S8L8WK3)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -637,8 +675,8 @@
 				GCC_PREFIX_HEADER = "Delightful/Delightful-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/Delightful/Delightful-Info.plist";
 				PRODUCT_NAME = Delightful;
-				PROVISIONING_PROFILE = "BD1EB29B-8416-4D26-A430-6BD101B9AC53";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "BD1EB29B-8416-4D26-A430-6BD101B9AC53";
+				PROVISIONING_PROFILE = "C6B74375-99E2-4B38-81DB-5B52407FA671";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "C6B74375-99E2-4B38-81DB-5B52407FA671";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -646,8 +684,8 @@
 		7F1CB45F16BCC8BA00F77D92 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Jared Sealey";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Jared Sealey";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Jared Sealey (9A6S8L8WK3)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Jared Sealey (9A6S8L8WK3)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -656,8 +694,8 @@
 				GCC_PREFIX_HEADER = "Delightful/Delightful-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/Delightful/Delightful-Info.plist";
 				PRODUCT_NAME = Delightful;
-				PROVISIONING_PROFILE = "BD1EB29B-8416-4D26-A430-6BD101B9AC53";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "BD1EB29B-8416-4D26-A430-6BD101B9AC53";
+				PROVISIONING_PROFILE = "C6B74375-99E2-4B38-81DB-5B52407FA671";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "C6B74375-99E2-4B38-81DB-5B52407FA671";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

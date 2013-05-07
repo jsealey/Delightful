@@ -20,29 +20,28 @@
         return modelSingleton;
     }
 }
-
-#pragma mark - Create
-
-- (void) addItemWithName:(NSString *)name
-    withCategory:(NSNumber *)category
- withMeasurement:(NSNumber*)measurement
-    withQuantity:(NSNumber*)quantity
-       withPrice:(NSNumber*)price
++ (NSArray *)categories
 {
-    NSEntityDescription *entity = [[_fetchedResultsController fetchRequest] entity];
-    Item *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:_managedObjectContext];
-    newManagedObject.timeStamp = [NSDate date];
-    newManagedObject.name = name;
-    newManagedObject.category = category;
-    newManagedObject.measurement = measurement;
-    newManagedObject.quantity = quantity;
-    newManagedObject.price = price;
-    newManagedObject.checked = [[NSNumber alloc] initWithBool:NO];
-    NSError *error = nil;
-    if (![_managedObjectContext save:&error]) {
-        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+    static NSArray *categoriesSingleton;
+    @synchronized(self)
+    {
+        if (!categoriesSingleton)
+            categoriesSingleton = [[NSArray alloc] initWithObjects:
+                                   @"Other",
+                                   @"Dairy",
+                                   @"Meat & Fish",
+                                   @"Tinned Food",
+                                   @"Fruits & Veget.",
+                                   @"Drinks",
+                                   @"Frozen Food",
+                                   @"Houseware",
+                                   @"Baked Goods",
+                                   @"Candies",
+                                   nil];
+        return categoriesSingleton;
     }
 }
+
 
 #pragma mark - Read
 
@@ -70,10 +69,5 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setDouble:[measuring doubleValue] forKey:@"taxRate"];
     [defaults synchronize];
-}
-
-- (void)updateItem:(Item *)item {
-    NSError *error = nil;
-    if (![_managedObjectContext save:&error]) NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
 }
 @end

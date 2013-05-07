@@ -8,20 +8,27 @@
 
 #import "AppDelegate.h"
 #import "Model.h"
+#import "ParseTableViewController.h"
 
 @implementation AppDelegate
 
-@synthesize managedObjectContext = _managedObjectContext;
-@synthesize managedObjectModel = _managedObjectModel;
-@synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    Model *model = [Model modelSingleton];
-    model.managedObjectContext = self.managedObjectContext;
-    model.managedObjectModel = self.managedObjectModel;
-    model.persistentStoreCoordinator = self.persistentStoreCoordinator;
+    // Test Parse Credentials
+    [Parse setApplicationId:@"Y2Hf7AOgPtxE9PtX8Mc52gjoR9aDt1ErJdiZhcVM" clientKey:@"NpxMaC9Zdz3GGtZPkKLDUpZEZPODtz7eaxdqKOwL"];
+    
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    [PFFacebookUtils initializeFacebook];
     return YES;
+}
+
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+    return [PFFacebookUtils handleOpenURL:url];
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    return [PFFacebookUtils handleOpenURL:url];
 }
 
 - (void)setupNavigationTitle:(UINavigationItem *)navController {
@@ -42,70 +49,4 @@
     [tempImageView setFrame:tableView.frame];
     tableView.backgroundView = tempImageView;
 }
-
-- (void)applicationWillTerminate:(UIApplication *)application
-{
-    [self saveContext];
-}
-
-- (void)saveContext
-{
-    NSError *error = nil;
-    NSManagedObjectContext *managedObjectContext = self.managedObjectContext;
-    if (managedObjectContext != nil) {
-        if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error]) {
-            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-        } 
-    }
-}
-
-#pragma mark - Core Data stack
-
-- (NSManagedObjectContext *)managedObjectContext
-{
-    if (_managedObjectContext != nil) {
-        return _managedObjectContext;
-    }
-    
-    NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
-    if (coordinator != nil) {
-        _managedObjectContext = [[NSManagedObjectContext alloc] init];
-        [_managedObjectContext setPersistentStoreCoordinator:coordinator];
-    }
-    return _managedObjectContext;
-}
-
-- (NSManagedObjectModel *)managedObjectModel
-{
-    if (_managedObjectModel != nil) {
-        return _managedObjectModel;
-    }
-    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"Delightful" withExtension:@"mom"];
-    _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
-    return _managedObjectModel;
-}
-
-- (NSPersistentStoreCoordinator *)persistentStoreCoordinator
-{
-    if (_persistentStoreCoordinator != nil) {
-        return _persistentStoreCoordinator;
-    }
-    
-    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"Delightful.sqlite"];
-    
-    NSError *error = nil;
-    _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
-    if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error]) {
-        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-    }    
-    return _persistentStoreCoordinator;
-}
-
-#pragma mark - Application's Documents directory
-
-- (NSURL *)applicationDocumentsDirectory
-{
-    return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
-}
-
 @end

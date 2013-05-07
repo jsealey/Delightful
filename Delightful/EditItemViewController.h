@@ -11,9 +11,10 @@
 #import "Model.h"
 #import "KGNoise.h"
 #import "GCDiscreetNotificationView.h"
-#import "MasterViewController.h"
+#import "V8HorizontalPickerView.h"
+#import "ParseTableViewController.h"
 
-@interface EditItemViewController : UIViewController
+@interface EditItemViewController : UIViewController <V8HorizontalPickerViewDelegate, V8HorizontalPickerViewDataSource>
 
 @property NSIndexPath *selectedIndexPath;
 @property (weak, nonatomic) IBOutlet UITextField *nameField;
@@ -23,8 +24,11 @@
 @property (weak, nonatomic) IBOutlet UISegmentedControl *measurement;
 @property (nonatomic, strong) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIView *formContainerView;
+@property (nonatomic, strong) IBOutlet V8HorizontalPickerView *pickerView;
+@property NSInteger selectedIndex;
 @property Model *model;
-@property MasterViewController *parent;
+@property PFObject *object;
+@property ParseTableViewController *parent;
 @property (nonatomic, retain) GCDiscreetNotificationView *notificationView;
 
 - (void)updateItem;

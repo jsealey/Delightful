@@ -8,23 +8,16 @@
 
 #import <Foundation/Foundation.h>
 #import "Item.h"
+#import "AppDelegate.h"
+#import "ParseTableViewController.h"
 
 @interface Model : NSObject
 
-@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
-@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
-@property (strong, nonatomic) NSManagedObjectModel *managedObjectModel;
-@property (strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
-@property UIViewController *masterController;
+@property PFQueryTableViewController *parseTableView;
+@property AppDelegate *appDelegate;
 
 + (Model *)modelSingleton;
-
-#pragma mark Create
-- (void) addItemWithName:(NSString *)name
-    withCategory:(NSString *)category
- withMeasurement:(NSNumber*)measurement
-    withQuantity:(NSNumber*)quantity
-       withPrice:(NSNumber*)price;
++ (NSArray *) categories;
 
 #pragma mark Read
 
@@ -35,7 +28,6 @@
 
 - (void) setMeasuringSetting:(BOOL)measuring;
 - (void) setTaxRate:(NSNumber*)measuring;
-- (void) updateItem:(Item*)item;
 
 #pragma mark Delete
 
