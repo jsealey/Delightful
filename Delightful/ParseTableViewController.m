@@ -58,7 +58,6 @@
     shareButton.tintColor = [UIColor colorWithRed:111/255.0 green:135/255.0 blue:131/255.0 alpha:1.0];
     self.navigationItem.leftBarButtonItems = [[NSArray alloc] initWithObjects:self.navigationItem.leftBarButtonItem, shareButton, nil];
     [self setEditing:NO];
-    [self priceNotification];
 }
 
 - (void)viewDidUnload
@@ -340,7 +339,7 @@
         PFObject *object = [self.objects objectAtIndex:i];
         total += [[object objectForKey:@"quantity"] integerValue] * [[object objectForKey:@"price"] doubleValue];
     }
-    [self.totalPriceNotificationView setTextLabel:[NSString stringWithFormat:@"Total: $%.2f", total * (([[[Model modelSingleton] getTaxRate] doubleValue]/100) + 1)]];
+    [self.totalPriceNotificationView setTextLabel:[NSString stringWithFormat:@"Total - $%.2f",total * (([[[Model modelSingleton] getTaxRate] doubleValue]/100) + 1)]];
     [self.totalPriceNotificationView show:YES];
 }
 
