@@ -17,7 +17,7 @@ Need help? Email <jsealey762@gmail.com> or open an issue with specifics.
 
 ## Why is this open source?
 
-This is open source since the app is going to be free anyway. It is intended to be a source of sample code for everyone to benefit from. You can make cool apps that use code from Delightful and I hopefully get more users because you built something awesome.
+This is open source since the app is going to be free anyway. It is intended to be a source of sample code for everyone to benefit from, but if you wish to release commercial software using code from this project you must first get my permission. You can make cool apps that use code from Delightful and I hopefully get more users because you built something awesome.
 
 Also, if you want to help out and fix some bugs, I'll really appreciate it. Maybe you'll even learn something :)
 
